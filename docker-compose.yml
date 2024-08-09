@@ -1,0 +1,6 @@
+﻿services:
+  aisearch:
+    image: aisearch
+    build:
+      context: .
+      dockerfile: AiSearch/Dockerfile
