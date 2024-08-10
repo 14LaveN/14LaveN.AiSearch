@@ -7,7 +7,6 @@ using MongoDB.Driver.Linq;
 using TeamTasks.Application.Core.Settings;
 using TeamTasks.Database.MetricsAndRabbitMessages.Data.Interfaces;
 using TeamTasks.Domain.Common.Core.Primitives.Maybe;
-using TeamTasks.Domain.Common.Entities;
 using TeamTasks.Domain.Entities;
 
 namespace TeamTasks.Database.MetricsAndRabbitMessages.Data.Repositories;

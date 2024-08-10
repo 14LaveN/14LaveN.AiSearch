@@ -1,12 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TeamTasks.Identity.Domain.Repositories;
 using TeamTasks.Application.ApiHelpers.Contracts;
 using TeamTasks.Application.Core.Abstractions.Helpers.JWT;
 using TeamTasks.Domain.Common.Core.Primitives;
 using TeamTasks.Domain.Common.Core.Primitives.Maybe;
-using TeamTasks.Domain.Common.Core.Primitives.Result;
 using TeamTasks.Domain.Core.Primitives.Result;
 
 namespace TeamTasks.Application.ApiHelpers.Infrastructure;

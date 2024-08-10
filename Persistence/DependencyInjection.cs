@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
+using Persistence;
 using Persistence.Infrastructure;
 using TeamTasks.Application.Core.Abstractions;
 using TeamTasks.Application.Core.Abstractions.Idempotency;

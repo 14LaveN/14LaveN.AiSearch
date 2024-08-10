@@ -1,8 +1,8 @@
-using TeamTasks.Domain.Core.Utility;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using TeamTasks.Domain.Core.Utility;
 
-namespace TeamTasks.Domain.Common.Entities;
+namespace Domain.Core.Primitives;
 
 /// <summary>
 /// Represents the generic mongo entity class.

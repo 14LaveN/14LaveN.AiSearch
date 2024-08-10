@@ -3,6 +3,7 @@ using Bogus;
 using Common.Tests.Abstractions;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Persistence;
 using TeamTasks.Persistence;
 using TeamTasks.Common.Tests.Abstractions;
 using TeamTasks.Persistence;

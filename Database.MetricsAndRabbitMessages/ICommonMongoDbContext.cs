@@ -1,6 +1,5 @@
 using Domain.Entities;
 using MongoDB.Driver;
-using TeamTasks.Domain.Common.Entities;
 using TeamTasks.Domain.Entities;
 
 namespace TeamTasks.Database.MetricsAndRabbitMessages;

@@ -1,4 +1,5 @@
 using Database.MetricsAndRabbitMessages.Data.Interfaces;
+using Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TeamTasks.Application.Core.Settings;

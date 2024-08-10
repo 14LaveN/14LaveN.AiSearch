@@ -1,4 +1,5 @@
 using Database.MetricsAndRabbitMessages.Data.Interfaces;
+using Domain.Entities;
 using Firebase.Storage;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;

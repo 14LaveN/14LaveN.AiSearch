@@ -1,5 +1,6 @@
 using AutoFixture;
 using Bogus;
+using Persistence;
 using TeamTasks.Persistence;
 
 namespace Common.Tests.Abstractions;
