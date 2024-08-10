@@ -3,4 +3,9 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::A962147A-5228-4C21-BC95-C075BF4AA273::net8.0::Domain.UnitTests.Primitives.EntityTests.Equals_ShouldReturnFalse_WhenOtherEntityIsNull&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e5262bbf_002Df5d8_002D45a5_002Dbdab_002Dc67a2d257d40/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="BaseMongoBaseMongoBaseMongoEntityTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::A962147A-5228-4C21-BC95-C075BF4AA273::net8.0::Domain.UnitTests.Primitives.BaseMongoBaseMongoBaseMongoEntityTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

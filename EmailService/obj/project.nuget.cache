@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "D/JYoXt1/8rPxzq4wjN5N44FDA0EHZMiwvd6AA71RV/3GMZdyymCjKvqqXOiWyFkybQZRPz5cwSgcbXfve2d2A==",
+  "dgSpecHash": "zfowxBU/UhRDKXjIQteHLNQCO2B4N9h4pgIA2+6CC00UAA2J3bO/6S7+EIU26GjwyIYUFUe/ZV3AJaGpUELf4w==",
   "success": true,
   "projectFilePath": "G:\\DotNetProjects\\14LaveN.AiSearch\\EmailService\\EmailService.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ponom\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\mailkit\\4.7.1.1\\mailkit.4.7.1.1.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\mimekit\\4.7.1\\mimekit.4.7.1.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\system.formats.asn1\\8.0.1\\system.formats.asn1.8.0.1.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\system.security.cryptography.pkcs\\8.0.0\\system.security.cryptography.pkcs.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

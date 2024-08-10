@@ -10,9 +10,9 @@ using Newtonsoft.Json;
 using TeamTasks.Application.Core.Abstractions.Messaging;
 using TeamTasks.Database.MetricsAndRabbitMessages.Data.Interfaces;
 using TeamTasks.Domain.Entities;
-using TeamTasks.RabbitMq.Abstractions;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using RabbitMq.Converters;
 using ConnectionFactory = RabbitMQ.Client.ConnectionFactory;
 using IChannel = RabbitMQ.Client.IChannel;
 using IConnection = RabbitMQ.Client.IConnection;
@@ -27,7 +27,6 @@ internal  sealed class IntegrationEventConsumerBackgroundService : IHostedServic
     private readonly IServiceProvider _serviceProvider;
     private readonly IChannel _channel;
     private readonly IConnection _connection;
-    private readonly MessageBrokerSettings _messageBrokerSettings;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="IntegrationEventConsumerBackgroundService"/>
@@ -42,7 +41,7 @@ internal  sealed class IntegrationEventConsumerBackgroundService : IHostedServic
     {
         _serviceProvider = serviceProvider;
 
-        _messageBrokerSettings = messageBrokerSettingsOptions.Value;
+        var messageBrokerSettings = messageBrokerSettingsOptions.Value;
         
         var factory = new ConnectionFactory
         {
@@ -53,7 +52,12 @@ internal  sealed class IntegrationEventConsumerBackgroundService : IHostedServic
 
         _channel = _connection.CreateChannelAsync().GetAwaiter().GetResult();
 
-        _channel.QueueDeclareAsync(_messageBrokerSettings.QueueName, false, false, false);
+        _channel.QueueDeclareAsync(
+            messageBrokerSettings.QueueName 
+                                   ?? throw new InvalidOperationException(), 
+            false, 
+            false,
+            false);
 
         try
         {
@@ -61,7 +65,7 @@ internal  sealed class IntegrationEventConsumerBackgroundService : IHostedServic
 
             consumer.Received += OnIntegrationEventReceived!;
 
-            _channel.BasicConsumeAsync(_messageBrokerSettings.QueueName, false, consumer);
+            _channel.BasicConsumeAsync(messageBrokerSettings.QueueName, false, consumer);
         }
         catch (Exception e)
         {

@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "kTK8giS47FA3UqB5dktwVrc8FC+O5n7mgPwdoE9HGGWVnkfHJ/h+Vd8VFqo2cGZtjt7dEEAPiLvEo9nKLpEhRw==",
-  "success": false,
+  "dgSpecHash": "v/3kFlFQJvEAmJk35kCaY6Z/RdkM2bMq8V+/UtNE3yEcxw6TIr2BL0a+kRXijPxY+Ga+RlUG3asT68VVxmuQzw==",
+  "success": true,
   "projectFilePath": "G:\\DotNetProjects\\14LaveN.AiSearch\\BackgroundTasks\\BackgroundTasks.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ponom\\.nuget\\packages\\aspnetcore.healthchecks.mongodb\\8.0.1\\aspnetcore.healthchecks.mongodb.8.0.1.nupkg.sha512",
@@ -35,11 +35,11 @@
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.objectpool\\7.0.0\\microsoft.extensions.objectpool.7.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
-    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.0.0-preview1\\microsoft.identitymodel.abstractions.8.0.0-preview1.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.0.1\\microsoft.identitymodel.abstractions.8.0.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.0.1\\microsoft.identitymodel.jsonwebtokens.8.0.1.nupkg.sha512",
-    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.logging\\8.0.0-preview1\\microsoft.identitymodel.logging.8.0.0-preview1.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.logging\\8.0.1\\microsoft.identitymodel.logging.8.0.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.protocols\\8.0.0-preview1\\microsoft.identitymodel.protocols.8.0.0-preview1.nupkg.sha512",
-    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.0.0-preview1\\microsoft.identitymodel.tokens.8.0.0-preview1.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.0.1\\microsoft.identitymodel.tokens.8.0.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
@@ -59,6 +59,8 @@
     "C:\\Users\\ponom\\.nuget\\packages\\polly.core\\8.4.0\\polly.core.8.4.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\prometheus-net\\8.2.1\\prometheus-net.8.2.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\prometheus-net.aspnetcore\\8.2.1\\prometheus-net.aspnetcore.8.2.1.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\quartz\\3.13.0\\quartz.3.13.0.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\rabbitmq.client\\7.0.0-rc.8\\rabbitmq.client.7.0.0-rc.8.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -99,6 +101,7 @@
     "C:\\Users\\ponom\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\system.io.pipelines\\6.0.0\\system.io.pipelines.6.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
@@ -142,15 +145,5 @@
     "C:\\Users\\ponom\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.IdentityModel.Tokens from 8.0.1 to 8.0.0-preview1. Reference the package directly from the project to select a different version. \r\n BackgroundTasks -> Infrastructure -> System.IdentityModel.Tokens.Jwt 8.0.1 -> Microsoft.IdentityModel.Tokens (>= 8.0.1) \r\n BackgroundTasks -> Microsoft.IdentityModel.Tokens (>= 8.0.0-preview1)",
-      "libraryId": "Microsoft.IdentityModel.Tokens",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

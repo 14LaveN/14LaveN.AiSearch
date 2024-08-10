@@ -18,6 +18,6 @@ internal sealed class IntegrationEventConsumer : IIntegrationEventConsumer
         _publisher = publisher;
 
     /// <inheritdoc />
-    public async System.Threading.Tasks.Task Consume(IIntegrationEvent? integrationEvent) =>
+    public async Task Consume(IIntegrationEvent? integrationEvent) =>
         await _publisher.Publish(integrationEvent!);
 }

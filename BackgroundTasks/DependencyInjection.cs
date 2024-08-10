@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using BackgroundTasks.Services;
 using BackgroundTasks.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
