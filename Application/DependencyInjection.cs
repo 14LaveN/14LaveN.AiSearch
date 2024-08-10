@@ -16,8 +16,25 @@ public static class DependencyInjection
         if (services is null)
             throw new ArgumentException();
         
-        services.AddScoped<CreateMetricsHelper>();
-        services.AddScoped<SaveChangesResult>();
+        services.AddScoped<CreateMetricsHelper>()
+            .AddScoped<SaveChangesResult>();
+        
+        services
+            .AddResponseCaching(options =>
+            {
+                options.UseCaseSensitivePaths = false; 
+                options.MaximumBodySize = 1024; 
+            })
+            .AddMemoryCache(options =>
+            {
+                options.TrackLinkedCacheEntries = true;
+                options.TrackStatistics = true;
+            })
+            .AddDistributedMemoryCache(options =>
+            {
+                options.TrackStatistics = true;
+                options.TrackLinkedCacheEntries = true;
+            });
         
         return services;
     }

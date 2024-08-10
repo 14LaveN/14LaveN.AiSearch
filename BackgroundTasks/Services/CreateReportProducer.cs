@@ -2,12 +2,11 @@ using Database.MetricsAndRabbitMessages.Data.Interfaces;
 using Domain.Entities;
 using Firebase.Storage;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
+using TeamTasks.BackgroundTasks.Services;
 using TeamTasks.Database.MetricsAndRabbitMessages.Data.Interfaces;
-using TeamTasks.Domain.Entities;
 using TeamTasks.Infrastructure.CSV;
 
-namespace TeamTasks.BackgroundTasks.Services;
+namespace BackgroundTasks.Services;
 
 /// <summary>
 /// Represents the create report producer class.

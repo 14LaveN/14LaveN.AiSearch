@@ -11,3 +11,16 @@ G:\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\Domain.dll
 G:\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\refint\Domain.dll
 G:\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\Domain.pdb
 G:\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\ref\Domain.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\bin\Debug\net8.0\Domain.deps.json
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\bin\Debug\net8.0\Domain.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\bin\Debug\net8.0\Domain.pdb
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\Domain.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\refint\Domain.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\Domain.pdb
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Domain\obj\Debug\net8.0\ref\Domain.dll

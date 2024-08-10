@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AiChat.UnitTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+851ec2a6a13dceb1cbdba0d97d45ce301c52ac41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a84da5254faf0ebc6d451cc9395896b38811a7f")]
 [assembly: System.Reflection.AssemblyProductAttribute("AiChat.UnitTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AiChat.UnitTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
