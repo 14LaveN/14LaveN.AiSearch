@@ -4,3 +4,27 @@
     build:
       context: .
       dockerfile: AiSearch/Dockerfile
+
+  webstatus:
+    image: webstatus
+    build:
+      context: .
+      dockerfile: WebStatus/Dockerfile
+
+  aichat.api:
+    image: aichat.api
+    build:
+      context: .
+      dockerfile: AiChat.API/Dockerfile
+
+  identity.api:
+    image: identity.api
+    build:
+      context: .
+      dockerfile: Identity.API/Dockerfile
+
+  searchingservice.api:
+    image: searchingservice.api
+    build:
+      context: .
+      dockerfile: SearchingService.API/Dockerfile
