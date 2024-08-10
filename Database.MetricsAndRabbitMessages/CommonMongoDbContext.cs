@@ -4,7 +4,6 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using TeamTasks.Application.Core.Settings;
 using TeamTasks.Database.MetricsAndRabbitMessages.Data;
-using TeamTasks.Domain.Common.Entities;
 using TeamTasks.Domain.Entities;
 
 namespace TeamTasks.Database.MetricsAndRabbitMessages;

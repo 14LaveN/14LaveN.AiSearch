@@ -8,17 +8,14 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Npgsql;
 using TeamTasks.Application.Core.Abstractions;
-using TeamTasks.Application.Core.Abstractions.Events;
 using TeamTasks.Domain.Common.Core.Abstractions;
 using TeamTasks.Domain.Common.Core.Primitives;
 using TeamTasks.Domain.Common.Core.Primitives.Maybe;
 using TeamTasks.Domain.Core.Events;
 using TeamTasks.Domain.Core.Extensions;
 using TeamTasks.Domain.Core.Primitives;
-using TeamTasks.Identity.Domain.Entities;
-using TeamTasks.Identity.Domain.Enumerations;
 
-namespace TeamTasks.Persistence;
+namespace Persistence;
 
 /// <summary>
 /// Represents the application database context base class.

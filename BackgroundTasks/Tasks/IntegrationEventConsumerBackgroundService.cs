@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;

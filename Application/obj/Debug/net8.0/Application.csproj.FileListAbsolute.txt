@@ -1,0 +1,6 @@
+G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.sourcelink.json

@@ -237,6 +237,10 @@
               "target": "Package",
               "version": "[33.0.1, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.0.0-preview1, )"
+            },
             "Microsoft.TestPlatform.TestHost": {
               "target": "Package",
               "version": "[17.6.0, )"

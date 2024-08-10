@@ -1,5 +1,6 @@
+using Domain.Core.Primitives;
+using Domain.Entities;
 using TeamTasks.Domain.Common.Core.Primitives.Maybe;
-using TeamTasks.Domain.Common.Entities;
 
 namespace TeamTasks.Database.MetricsAndRabbitMessages.Data.Interfaces;
 

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Persistence;
 using TeamTasks.Application.Core.Abstractions;
 using TeamTasks.Application.Core.Abstractions.Idempotency;
 

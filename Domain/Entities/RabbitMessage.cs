@@ -1,12 +1,12 @@
-using TeamTasks.Domain.Common.Entities;
-using TeamTasks.Domain.Common.Entities;
+using Domain.Core.Primitives;
 
-namespace TeamTasks.Domain.Entities;
+namespace Domain.Entities;
 
 /// <summary>
 /// Represents the RabbitMQ message class.
 /// </summary>
-public sealed class RabbitMessage : BaseMongoEntity
+public sealed class RabbitMessage 
+    : BaseMongoEntity
 {
     /// <summary>
     /// Gets or sets description.
