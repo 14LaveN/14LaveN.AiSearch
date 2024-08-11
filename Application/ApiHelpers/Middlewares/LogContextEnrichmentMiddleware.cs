@@ -3,7 +3,7 @@ using Serilog.Context;
 using Serilog.Core;
 using Serilog.Core.Enrichers;
 
-namespace TeamTasks.Application.ApiHelpers.Middlewares;
+namespace Application.ApiHelpers.Middlewares;
 
 /// <summary>
 /// Represents the log context enrichment middleware.

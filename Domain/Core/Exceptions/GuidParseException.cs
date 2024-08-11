@@ -1,4 +1,4 @@
-namespace TeamTasks.Domain.Core.Exceptions;
+namespace Domain.Core.Exceptions;
 
 /// <summary>
 /// Represents the guid parse <see cref="Exception"/> class.

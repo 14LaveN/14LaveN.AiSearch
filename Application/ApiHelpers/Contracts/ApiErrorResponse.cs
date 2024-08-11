@@ -1,6 +1,6 @@
-﻿using TeamTasks.Domain.Common.Core.Primitives;
+﻿using Domain.Common.Core.Primitives;
 
-namespace TeamTasks.Application.ApiHelpers.Contracts;
+namespace Application.ApiHelpers.Contracts;
 
 /// <summary>
 /// Represents API an error response.

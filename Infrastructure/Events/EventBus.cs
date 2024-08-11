@@ -1,8 +1,8 @@
-using TeamTasks.Application.Core.Abstractions.Events;
-using TeamTasks.Application.Core.Abstractions.Messaging;
-using TeamTasks.Domain.Core.Events;
+using Application.Core.Abstractions.Events;
+using Application.Core.Abstractions.Messaging;
+using Domain.Core.Events;
 
-namespace TeamTasks.Infrastructure.Events;
+namespace Infrastructure.Events;
 
 /// <summary>
 /// Represents the event bus class.

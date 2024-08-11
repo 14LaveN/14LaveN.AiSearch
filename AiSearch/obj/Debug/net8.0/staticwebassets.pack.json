@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AiSearch.bundle.scp.css",
+      "PackagePath": "staticwebassets\\AiSearch.bundle.scp.css"
+    },
+    {
+      "Id": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.AiSearch.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.AiSearch.props",
+      "PackagePath": "build\\AiSearch.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.AiSearch.props",
+      "PackagePath": "buildMultiTargeting\\AiSearch.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.AiSearch.props",
+      "PackagePath": "buildTransitive\\AiSearch.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

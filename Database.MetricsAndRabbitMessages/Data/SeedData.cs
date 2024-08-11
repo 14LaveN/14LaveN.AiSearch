@@ -1,6 +1,6 @@
 using Domain.Entities;
-using TeamTasks.Database.MetricsAndRabbitMessages;
-using TeamTasks.Domain.Entities;
+using Database.MetricsAndRabbitMessages;
+using Domain.Entities;
 
 namespace Database.MetricsAndRabbitMessages.Data;
 

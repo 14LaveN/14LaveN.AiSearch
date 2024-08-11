@@ -1,8 +1,8 @@
 using Domain.Core.Primitives;
 using Domain.Entities;
-using TeamTasks.Domain.Common.Core.Primitives.Maybe;
+using Domain.Common.Core.Primitives.Maybe;
 
-namespace TeamTasks.Database.MetricsAndRabbitMessages.Data.Interfaces;
+namespace Database.MetricsAndRabbitMessages.Data.Interfaces;
 
 /// <summary>
 /// Represents the generic mongo repository interface.

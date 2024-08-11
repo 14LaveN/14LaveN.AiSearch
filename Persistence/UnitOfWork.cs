@@ -2,10 +2,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage;
 using Persistence;
-using TeamTasks.Application.Core.Abstractions;
-using TeamTasks.Persistence;
+using Application.Core.Abstractions;
+using Persistence;
 
-namespace TeamTasks.Persistence;
+namespace Persistence;
 
 /// <summary>
 /// Represents the generic unit of work.

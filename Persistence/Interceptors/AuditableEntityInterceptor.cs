@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using TeamTasks.Domain.Common.Core.Abstractions;
+using Domain.Common.Core.Abstractions;
 
-namespace TeamTasks.Persistence.Interceptors;
+namespace Persistence.Interceptors;
 
 /// <summary>
 /// Represents the auditable entity interceptor class.

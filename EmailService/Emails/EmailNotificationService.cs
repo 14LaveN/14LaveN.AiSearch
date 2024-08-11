@@ -1,7 +1,7 @@
 using EmailService.Emails;
-using TeamTasks.Email.Contracts.Emails;
+using Email.Contracts.Emails;
 
-namespace TeamTasks.Email.Emails;
+namespace Email.Emails;
 
 /// <summary>
 /// Represents the email notification service.

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Domain.Core.Primitives;
-using TeamTasks.Domain.Core.Utility;
+using Domain.Core.Utility;
 
 namespace Domain.Entities;
 

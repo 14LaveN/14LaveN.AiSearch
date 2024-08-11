@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using TeamTasks.Domain.Core.Utility;
+using Domain.Core.Utility;
 
-namespace TeamTasks.Application.ApiHelpers.Configurations;
+namespace Application.ApiHelpers.Configurations;
 
 public static class SwaggerConfiguration
 {
@@ -26,7 +26,7 @@ public static class SwaggerConfiguration
                 {
                     Version = description.ApiVersion.ToString(),
                     Title = apiName,
-                    Description = $"Backend Web API на C# .NET for TeamTasks.{apiName} application {description.GroupName}",
+                    Description = $"Backend Web API на C# .NET for {apiName} application {description.GroupName}",
                     Contact = new OpenApiContact
                     {
                         Name = "GitHub",
@@ -35,7 +35,7 @@ public static class SwaggerConfiguration
                 });
             }
 
-            if (apiName is not "TeamTasks.Identity.Api")
+            if (apiName is not "Identity.Api")
             {
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {

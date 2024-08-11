@@ -1,7 +1,7 @@
-﻿using TeamTasks.Domain.Common.Core.Primitives;
+﻿using Domain.Common.Core.Primitives;
 using FluentValidation;
 
-namespace TeamTasks.Application.Core.Extensions;
+namespace Application.Core.Extensions;
 
 /// <summary>
 /// Contains extension methods for fluent validations.

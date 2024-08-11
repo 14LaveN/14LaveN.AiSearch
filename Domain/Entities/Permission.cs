@@ -1,6 +1,6 @@
-using TeamTasks.Domain.Core.Utility;
+using Domain.Core.Utility;
 
-namespace TeamTasks.Domain.Entities;
+namespace Domain.Entities;
 
 /// <summary>
 /// Represents the permission entity.

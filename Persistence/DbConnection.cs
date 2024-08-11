@@ -1,7 +1,7 @@
 using System.Data;
 using Npgsql;
 
-namespace TeamTasks.Persistence;
+namespace Persistence;
 
 /// <summary>
 /// Represents the db connection static class.

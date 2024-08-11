@@ -1,6 +1,6 @@
-﻿using TeamTasks.Application.Core.Abstractions.Messaging;
+﻿using Application.Core.Abstractions.Messaging;
 
-namespace TeamTasks.RabbitMq.Messaging;
+namespace RabbitMq.Messaging;
 
 /// <summary>
 /// Represents the integration event publisher interface.

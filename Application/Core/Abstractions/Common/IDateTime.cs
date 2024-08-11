@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TeamTasks.Application.Core.Abstractions.Common;
+namespace Application.Core.Abstractions.Common;
 
 /// <summary>
 /// Represents the interface for getting the current date and time.

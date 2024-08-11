@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace TeamTasks.Application.ApiHelpers.Middlewares.DelegatingHandlers;
+namespace Application.ApiHelpers.Middlewares.DelegatingHandlers;
 
 /// <summary>
 /// Represents the logging handler class.

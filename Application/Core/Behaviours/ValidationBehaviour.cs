@@ -1,10 +1,10 @@
-﻿using TeamTasks.Application.Core.Abstractions.Messaging;
+﻿using Application.Core.Abstractions.Messaging;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
-using ValidationException = TeamTasks.Application.Core.Exceptions.ValidationException;
+using ValidationException = Application.Core.Exceptions.ValidationException;
 
-namespace TeamTasks.Application.Core.Behaviours;
+namespace Application.Core.Behaviours;
 
 /// <summary>
 /// Represents the validation behaviour middleware.

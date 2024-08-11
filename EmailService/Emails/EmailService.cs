@@ -2,9 +2,9 @@
 using MailKit.Security;
 using MimeKit;
 using MimeKit.Text;
-using TeamTasks.Email.Contracts.Emails;
-using TeamTasks.Email.Emails;
-using TeamTasks.Email.Emails.Settings;
+using Email.Contracts.Emails;
+using Email.Emails;
+using Email.Emails.Settings;
 
 namespace EmailService.Emails;
 

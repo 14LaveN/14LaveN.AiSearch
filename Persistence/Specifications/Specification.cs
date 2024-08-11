@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
-using TeamTasks.Domain.Common.Core.Primitives;
+using Domain.Common.Core.Primitives;
 
-namespace TeamTasks.Persistence.Specifications;
+namespace Persistence.Specifications;
 
 /// <summary>
 /// Represents the abstract base class for specifications.

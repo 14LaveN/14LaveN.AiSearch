@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Routing;
 
-namespace TeamTasks.Application.Core.Abstractions.Endpoint;
+namespace Application.Core.Abstractions.Endpoint;
 
 /// <summary>
 /// Represents the endpoint interface.

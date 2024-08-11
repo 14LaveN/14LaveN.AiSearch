@@ -1,7 +1,7 @@
-using TeamTasks.Domain.Common.Core.Primitives;
-using TeamTasks.Domain.Core.Primitives;
+using Domain.Common.Core.Primitives;
+using Domain.Core.Primitives;
 
-namespace TeamTasks.Domain.Entities;
+namespace Domain.Entities;
 
 /// <summary>
 /// Represents the role entity.

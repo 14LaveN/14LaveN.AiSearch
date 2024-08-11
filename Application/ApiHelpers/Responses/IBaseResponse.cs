@@ -1,8 +1,8 @@
 using System.Net;
-using TeamTasks.Domain.Common.Core.Primitives.Result;
-using TeamTasks.Domain.Core.Primitives.Result;
+using Domain.Common.Core.Primitives.Result;
+using Domain.Core.Primitives.Result;
 
-namespace TeamTasks.Application.ApiHelpers.Responses;
+namespace Application.ApiHelpers.Responses;
 
 /// <summary>
 /// Represents the base response interface.

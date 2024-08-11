@@ -1,7 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using Infrastructure.Authentication;
 
-namespace TeamTasks.Infrastructure.Authentication;
+namespace Infrastructure.Authentication;
 
 /// <summary>
 /// Represents the Get claim by jwt token class.

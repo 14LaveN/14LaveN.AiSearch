@@ -1,13 +1,13 @@
 using Domain.Entities;
-using TeamTasks.Database.MetricsAndRabbitMessages.Data.Interfaces;
+using Database.MetricsAndRabbitMessages.Data.Interfaces;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using TeamTasks.Application.Core.Settings;
-using TeamTasks.Database.MetricsAndRabbitMessages.Data.Interfaces;
-using TeamTasks.Domain.Common.Core.Primitives.Maybe;
-using TeamTasks.Domain.Entities;
+using Application.Core.Settings;
+using Database.MetricsAndRabbitMessages.Data.Interfaces;
+using Domain.Common.Core.Primitives.Maybe;
+using Domain.Entities;
 
-namespace TeamTasks.Database.MetricsAndRabbitMessages.Data.Repositories;
+namespace Database.MetricsAndRabbitMessages.Data.Repositories;
 
 /// <summary>
 /// Represents the generic metrics repository class.

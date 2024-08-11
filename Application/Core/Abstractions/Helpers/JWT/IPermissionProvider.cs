@@ -1,6 +1,6 @@
-using TeamTasks.Domain.Entities;
+using Domain.Entities;
 
-namespace TeamTasks.Application.Core.Abstractions.Helpers.JWT;
+namespace Application.Core.Abstractions.Helpers.JWT;
 
 /// <summary>
 /// Represents the permission provider interface.

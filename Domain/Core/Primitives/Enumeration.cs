@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
-using TeamTasks.Domain.Common.Core.Primitives.Maybe;
+using Domain.Common.Core.Primitives.Maybe;
 
-namespace TeamTasks.Domain.Core.Primitives;
+namespace Domain.Core.Primitives;
 
 /// <summary>
 /// Represents an enumeration type.

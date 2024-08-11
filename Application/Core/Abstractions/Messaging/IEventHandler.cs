@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace TeamTasks.Application.Core.Abstractions.Messaging;
+namespace Application.Core.Abstractions.Messaging;
 
 /// <summary>
 /// Represents the event handler interface.

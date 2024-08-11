@@ -2,11 +2,11 @@ using BackgroundTasks.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using TeamTasks.BackgroundTasks.Services;
-using TeamTasks.BackgroundTasks.Services;
-using TeamTasks.BackgroundTasks.Tasks;
+using BackgroundTasks.Services;
+using BackgroundTasks.Services;
+using BackgroundTasks.Tasks;
 
-namespace TeamTasks.BackgroundTasks.Tasks;
+namespace BackgroundTasks.Tasks;
 
 /// <summary>
 /// Represents the create report background service.

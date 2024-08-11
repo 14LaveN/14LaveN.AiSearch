@@ -1,9 +1,9 @@
 using Application.Core.Abstractions.Idempotency;
 using MediatR;
-using TeamTasks.Application.Core.Abstractions.Idempotency;
-using TeamTasks.Application.Core.Abstractions.Messaging;
+using Application.Core.Abstractions.Idempotency;
+using Application.Core.Abstractions.Messaging;
 
-namespace TeamTasks.Application.Core.Behaviours;
+namespace Application.Core.Behaviours;
 
 /// <summary>
 /// Represents the identity idempotent command pipeline behavior class.
@@ -11,10 +11,10 @@ namespace TeamTasks.Application.Core.Behaviours;
 /// <param name="idempotencyService">The idempotency service.</param>
 /// <typeparam name="TRequest">The generic request type.</typeparam>
 /// <typeparam name="TResponse">The generic response type.</typeparam>
-public sealed class IdentityIdempotentCommandPipelineBehavior<TRequest, TResponse>(
+public sealed class IdempotentCommandPipelineBehavior<TRequest, TResponse>(
     IIdempotencyService idempotencyService)
     : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : IdentityIdempotentCommand
+    where TRequest : IdempotentCommand
 {
     /// <inheritdoc />
     public async Task<TResponse> Handle(

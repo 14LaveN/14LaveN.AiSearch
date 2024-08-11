@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using TeamTasks.Domain.Core.Primitives;
+using Domain.Core.Primitives;
 
 namespace Persistence.Interceptors;
 

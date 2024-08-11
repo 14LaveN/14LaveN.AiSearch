@@ -1,4 +1,4 @@
-namespace TeamTasks.Domain.Entities;
+namespace Domain.Entities;
 
 /// <summary>
 /// Represents the role permission entity.

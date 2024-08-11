@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TeamTasks.Persistence.Idempotency;
+using Persistence.Idempotency;
 
 namespace Persistence.Configurations;
 

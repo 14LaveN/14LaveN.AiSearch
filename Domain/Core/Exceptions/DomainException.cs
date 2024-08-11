@@ -1,6 +1,6 @@
-﻿using TeamTasks.Domain.Common.Core.Primitives;
+﻿using Domain.Common.Core.Primitives;
 
-namespace TeamTasks.Domain.Common.Core.Exceptions;
+namespace Domain.Common.Core.Exceptions;
 
 /// <summary>
 /// Represents an exception that occurred in the domain.

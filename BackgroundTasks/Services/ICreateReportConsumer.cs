@@ -1,4 +1,4 @@
-namespace TeamTasks.BackgroundTasks.Services;
+namespace BackgroundTasks.Services;
 
 /// <summary>
 /// Represents the create report producer interface.

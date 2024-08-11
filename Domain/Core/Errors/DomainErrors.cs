@@ -1,6 +1,6 @@
-﻿using TeamTasks.Domain.Common.Core.Primitives;
+﻿using Domain.Common.Core.Primitives;
 
-namespace TeamTasks.Domain.Common.Core.Errors;
+namespace Domain.Common.Core.Errors;
 
 /// <summary>
 /// Contains the domain errors.

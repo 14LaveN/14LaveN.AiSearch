@@ -1,6 +1,6 @@
-﻿using TeamTasks.Domain.Core.Primitives.Result;
+﻿using Domain.Core.Primitives.Result;
 
-namespace TeamTasks.Domain.Common.Core.Primitives.Result;
+namespace Domain.Common.Core.Primitives.Result;
 
 /// <summary>
 /// Contains extension methods for the result class.

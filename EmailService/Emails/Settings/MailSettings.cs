@@ -1,4 +1,4 @@
-﻿namespace TeamTasks.Email.Emails.Settings;
+﻿namespace Email.Emails.Settings;
 
 /// <summary>
 /// Represents the mail settings.

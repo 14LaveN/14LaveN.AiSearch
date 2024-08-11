@@ -2,9 +2,10 @@ using Database.MetricsAndRabbitMessages.Data.Interfaces;
 using Domain.Entities;
 using Firebase.Storage;
 using Microsoft.Extensions.Logging;
-using TeamTasks.BackgroundTasks.Services;
-using TeamTasks.Database.MetricsAndRabbitMessages.Data.Interfaces;
-using TeamTasks.Infrastructure.CSV;
+using Quartz.Util;
+using BackgroundTasks.Services;
+using Database.MetricsAndRabbitMessages.Data.Interfaces;
+using Infrastructure.CSV;
 
 namespace BackgroundTasks.Services;
 

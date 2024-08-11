@@ -1,0 +1,12 @@
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\bin\Debug\net8.0\ApiGateway.deps.json
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\bin\Debug\net8.0\ApiGateway.dll
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\bin\Debug\net8.0\ApiGateway.pdb
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\obj\Debug\net8.0\ApiGateway.GeneratedMSBuildEditorConfig.editorconfig
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\obj\Debug\net8.0\ApiGateway.AssemblyInfoInputs.cache
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\obj\Debug\net8.0\ApiGateway.AssemblyInfo.cs
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\obj\Debug\net8.0\ApiGateway.csproj.CoreCompileInputs.cache
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\obj\Debug\net8.0\ApiGateway.sourcelink.json
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\obj\Debug\net8.0\ApiGateway.dll
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\obj\Debug\net8.0\refint\ApiGateway.dll
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\obj\Debug\net8.0\ApiGateway.pdb
+G:\DotNetProjects\14LaveN.AiSearch\ApiGateway\obj\Debug\net8.0\ref\ApiGateway.dll

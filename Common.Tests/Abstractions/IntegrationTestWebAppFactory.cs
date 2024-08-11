@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Persistence;
-using TeamTasks.Persistence;
+using Persistence;
 using Testcontainers.PostgreSql;
 using Testcontainers.Redis;
 

@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using TeamTasks.Application.Core.Abstractions.Messaging;
+using Application.Core.Abstractions.Messaging;
 
-namespace TeamTasks.BackgroundTasks.Abstractions.Messaging;
+namespace BackgroundTasks.Abstractions.Messaging;
 
 /// <summary>
 /// Represents the integration event handler.

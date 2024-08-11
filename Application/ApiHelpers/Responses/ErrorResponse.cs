@@ -1,4 +1,4 @@
-namespace TeamTasks.Application.ApiHelpers.Responses;
+namespace Application.ApiHelpers.Responses;
 
 /// <summary>
 /// Represents the error response class.

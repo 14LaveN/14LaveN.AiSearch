@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace TeamTasks.Domain.Core.Extensions;
+namespace Domain.Core.Extensions;
 
 /// <summary>
 /// Represents the where if query extension static class.

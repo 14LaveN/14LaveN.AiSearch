@@ -1,4 +1,4 @@
-namespace TeamTasks.Domain.Common.Enumerations;
+namespace Domain.Common.Enumerations;
 
 /// <summary>
 /// Represents the status code enumeration.

@@ -1,4 +1,4 @@
-namespace TeamTasks.Application.Core.Abstractions.Helpers.JWT;
+namespace Application.Core.Abstractions.Helpers.JWT;
 
 /// <summary>
 /// Represents the user identifier provider interface.

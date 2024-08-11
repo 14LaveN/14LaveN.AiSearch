@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
-using TeamTasks.Application.Core.Abstractions;
-using TeamTasks.Application.Core.Helpers.Metric;
+using Application.Core.Abstractions;
+using Application.Core.Helpers.Metric;
 
-namespace TeamTasks.Application;
+namespace Application;
 
 public static class DependencyInjection
 {

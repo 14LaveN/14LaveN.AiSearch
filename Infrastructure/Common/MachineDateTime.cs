@@ -1,6 +1,6 @@
-﻿using TeamTasks.Application.Core.Abstractions.Common;
+﻿using Application.Core.Abstractions.Common;
 
-namespace TeamTasks.Infrastructure.Common;
+namespace Infrastructure.Common;
 
 /// <summary>
 /// Represents the machine date time service.

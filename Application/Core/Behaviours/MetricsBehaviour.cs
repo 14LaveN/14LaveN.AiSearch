@@ -1,9 +1,9 @@
 using System.Diagnostics;
 using MediatR;
-using TeamTasks.Application.Core.Abstractions.Messaging;
-using TeamTasks.Application.Core.Helpers.Metric;
+using Application.Core.Abstractions.Messaging;
+using Application.Core.Helpers.Metric;
 
-namespace TeamTasks.Application.Core.Behaviours;
+namespace Application.Core.Behaviours;
 
 /// <summary>
 /// The metrics behaviour class.

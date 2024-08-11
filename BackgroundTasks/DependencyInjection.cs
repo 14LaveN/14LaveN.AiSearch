@@ -4,9 +4,9 @@ using BackgroundTasks.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TeamTasks.BackgroundTasks.Services;
-using TeamTasks.BackgroundTasks.Settings;
-using TeamTasks.BackgroundTasks.Tasks;
+using BackgroundTasks.Services;
+using BackgroundTasks.Settings;
+using BackgroundTasks.Tasks;
 
 namespace BackgroundTasks;
 

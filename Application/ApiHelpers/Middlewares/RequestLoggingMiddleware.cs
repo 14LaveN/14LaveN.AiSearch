@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 
-namespace TeamTasks.Application.ApiHelpers.Middlewares;
+namespace Application.ApiHelpers.Middlewares;
 
 /// <summary>
 /// Represents the request logging middleware class.

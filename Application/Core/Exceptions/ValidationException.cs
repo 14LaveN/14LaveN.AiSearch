@@ -1,7 +1,7 @@
-﻿using TeamTasks.Domain.Common.Core.Primitives;
+﻿using Domain.Common.Core.Primitives;
 using FluentValidation.Results;
 
-namespace TeamTasks.Application.Core.Exceptions;
+namespace Application.Core.Exceptions;
 
 /// <summary>
 /// Represents an exception that occurs when a validation fails.

@@ -1,4 +1,4 @@
-﻿namespace TeamTasks.Domain.Common.Core.Primitives.Maybe;
+﻿namespace Domain.Common.Core.Primitives.Maybe;
 
 /// <summary>
 /// Contains extension methods for the maybe class.

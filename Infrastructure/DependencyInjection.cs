@@ -2,15 +2,15 @@ using Infrastructure.Authentication;
 using MediatR.NotificationPublishers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
-using TeamTasks.Infrastructure.Common;
-using TeamTasks.Application.Core.Abstractions.Common;
-using TeamTasks.Application.Core.Abstractions.Events;
-using TeamTasks.Application.Core.Abstractions.Helpers.JWT;
-using TeamTasks.Application.Core.Helpers.Metric;
-using TeamTasks.Infrastructure.Authentication;
-using TeamTasks.Infrastructure.Events;
+using Infrastructure.Common;
+using Application.Core.Abstractions.Common;
+using Application.Core.Abstractions.Events;
+using Application.Core.Abstractions.Helpers.JWT;
+using Application.Core.Helpers.Metric;
+using Infrastructure.Authentication;
+using Infrastructure.Events;
 
-namespace TeamTasks.Infrastructure;
+namespace Infrastructure;
 
 public static class DependencyInjection
 {

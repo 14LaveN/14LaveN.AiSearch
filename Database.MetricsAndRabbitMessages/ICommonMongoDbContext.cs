@@ -1,8 +1,8 @@
 using Domain.Entities;
 using MongoDB.Driver;
-using TeamTasks.Domain.Entities;
+using Domain.Entities;
 
-namespace TeamTasks.Database.MetricsAndRabbitMessages;
+namespace Database.MetricsAndRabbitMessages;
 
 /// <summary>
 /// The common mogno database context interface.

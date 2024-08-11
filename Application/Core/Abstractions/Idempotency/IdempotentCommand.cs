@@ -1,10 +1,10 @@
 using MediatR;
-using TeamTasks.Application.ApiHelpers.Responses;
-using TeamTasks.Application.Core.Abstractions.Messaging;
-using TeamTasks.Domain.Common.Core.Primitives.Result;
-using TeamTasks.Domain.Core.Primitives.Result;
+using Application.ApiHelpers.Responses;
+using Application.Core.Abstractions.Messaging;
+using Domain.Common.Core.Primitives.Result;
+using Domain.Core.Primitives.Result;
 
-namespace TeamTasks.Application.Core.Abstractions.Idempotency;
+namespace Application.Core.Abstractions.Idempotency;
 
 /// <summary>
 /// Represents the idempotent command record.

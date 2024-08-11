@@ -1,4 +1,4 @@
-namespace TeamTasks.Persistence.Idempotency;
+namespace Persistence.Idempotency;
 
 /// <summary>
 /// Represents the idempotent request class.

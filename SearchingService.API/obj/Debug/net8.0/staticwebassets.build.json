@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "MAZO1AtvhdSHLvzVdkPl7HYmHcqFcZ7mWS+wiJ8L+Tw=",
+  "Source": "SearchingService.API",
+  "BasePath": "_content/SearchingService.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

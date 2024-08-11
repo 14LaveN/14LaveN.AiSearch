@@ -2,10 +2,10 @@ using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Npgsql;
-using TeamTasks.Domain.Common.Core.Primitives;
-using TeamTasks.Domain.Common.Core.Primitives.Maybe;
+using Domain.Common.Core.Primitives;
+using Domain.Common.Core.Primitives.Maybe;
 
-namespace TeamTasks.Application.Core.Abstractions;
+namespace Application.Core.Abstractions;
 
 /// <summary>
 /// Represents the application database context interface.

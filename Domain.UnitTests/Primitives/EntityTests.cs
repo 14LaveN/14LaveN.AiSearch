@@ -1,7 +1,7 @@
 using AutoFixture;
 using Common.Tests.Abstractions;
 using Domain.UnitTests.TestData.Entity;
-using TeamTasks.Domain.Common.Core.Primitives;
+using Domain.Common.Core.Primitives;
 
 namespace Domain.UnitTests.Primitives;
 

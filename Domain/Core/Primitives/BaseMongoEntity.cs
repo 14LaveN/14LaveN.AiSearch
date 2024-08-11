@@ -1,6 +1,6 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using TeamTasks.Domain.Core.Utility;
+using Domain.Core.Utility;
 
 namespace Domain.Core.Primitives;
 

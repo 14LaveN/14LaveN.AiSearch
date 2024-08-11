@@ -13,4 +13,35 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Application\Application.csproj" />
+      <ProjectReference Include="..\Database.MetricsAndRabbitMessages\Database.MetricsAndRabbitMessages.csproj" />
+      <ProjectReference Include="..\EmailService\EmailService.csproj" />
+      <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+      <ProjectReference Include="..\Persistence\Persistence.csproj" />
+      <ProjectReference Include="..\RabbitMq\RabbitMq.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
+      <PackageReference Include="IdentityServer4" Version="4.1.2" />
+      <PackageReference Include="OpenTelemetry" Version="1.9.0" />
+      <PackageReference Include="OpenTelemetry.Api" Version="1.9.0" />
+      <PackageReference Include="Prometheus.Client.AspNetCore" Version="5.0.0" />
+      <PackageReference Include="Prometheus.Client.HttpRequestDurations" Version="3.6.0" />
+      <PackageReference Include="Serilog" Version="4.0.2-dev-02220" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Contracts\" />
+      <Folder Include="IntegrationEvents\" />
+      <Folder Include="Services\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="AspNetCore.Serilog.RequestLoggingMiddleware">
+        <HintPath>C:\Users\ponom\.nuget\packages\aspnetcore.serilog.requestloggingmiddleware\1.0.2\lib\netstandard2.0\AspNetCore.Serilog.RequestLoggingMiddleware.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

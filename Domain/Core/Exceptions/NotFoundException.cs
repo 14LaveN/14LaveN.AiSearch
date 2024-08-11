@@ -1,4 +1,4 @@
-namespace TeamTasks.Domain.Core.Exceptions;
+namespace Domain.Core.Exceptions;
 
 /// <summary>
 /// Represents the not found <see cref="Exception"/> class.

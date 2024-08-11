@@ -1,10 +1,10 @@
 ﻿using System.Text.RegularExpressions;
-using TeamTasks.Domain.Common.Core.Errors;
-using TeamTasks.Domain.Common.Core.Primitives;
-using TeamTasks.Domain.Common.Core.Primitives.Result;
-using TeamTasks.Domain.Core.Primitives.Result;
+using Domain.Common.Core.Errors;
+using Domain.Common.Core.Primitives;
+using Domain.Common.Core.Primitives.Result;
+using Domain.Core.Primitives.Result;
 
-namespace TeamTasks.Domain.ValueObjects;
+namespace Domain.ValueObjects;
 
 /// <summary>
 /// Represents the emailAddress value object.

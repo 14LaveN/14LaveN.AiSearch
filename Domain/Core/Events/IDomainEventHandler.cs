@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using TeamTasks.Domain.Core.Events;
+using Domain.Core.Events;
 
-namespace TeamTasks.Domain.Common.Core.Events;
+namespace Domain.Common.Core.Events;
 
 /// <summary>
 /// Represents a domain event handler interface.

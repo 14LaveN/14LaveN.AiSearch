@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http;
-using TeamTasks.Application.Core.Abstractions.Helpers.JWT;
+using Application.Core.Abstractions.Helpers.JWT;
 
-namespace TeamTasks.Infrastructure.Authentication;
+namespace Infrastructure.Authentication;
 
 /// <summary>
 /// Represents the user identifier provider.

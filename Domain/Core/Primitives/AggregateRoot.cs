@@ -1,8 +1,8 @@
-﻿using TeamTasks.Domain.Common.Core.Events;
-using TeamTasks.Domain.Common.Core.Primitives;
-using TeamTasks.Domain.Core.Events;
+﻿using Domain.Common.Core.Events;
+using Domain.Common.Core.Primitives;
+using Domain.Core.Events;
 
-namespace TeamTasks.Domain.Core.Primitives;
+namespace Domain.Core.Primitives;
 
 /// <summary>
 /// Represents the aggregate root.

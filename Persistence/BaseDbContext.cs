@@ -7,13 +7,13 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Npgsql;
-using TeamTasks.Application.Core.Abstractions;
-using TeamTasks.Domain.Common.Core.Abstractions;
-using TeamTasks.Domain.Common.Core.Primitives;
-using TeamTasks.Domain.Common.Core.Primitives.Maybe;
-using TeamTasks.Domain.Core.Events;
-using TeamTasks.Domain.Core.Extensions;
-using TeamTasks.Domain.Core.Primitives;
+using Application.Core.Abstractions;
+using Domain.Common.Core.Abstractions;
+using Domain.Common.Core.Primitives;
+using Domain.Common.Core.Primitives.Maybe;
+using Domain.Core.Events;
+using Domain.Core.Extensions;
+using Domain.Core.Primitives;
 
 namespace Persistence;
 
@@ -21,27 +21,16 @@ namespace Persistence;
 /// Represents the application database context base class.
 /// </summary>
 public class BaseDbContext
-    : IdentityDbContext<User, IdentityRole<Guid>, Guid>, IDbContext
+    : DbContext, IDbContext
 {
-    private readonly IPublisher _mediator = null!;
-
     /// <summary>
     /// Initializes a new instance of the <see cref="BaseDbContext"/> class.
     /// </summary>
     /// <param name="options">The database context options.</param>
-    /// <param name="mediator">The mediator.</param>
     public BaseDbContext(
-        DbContextOptions<BaseDbContext> options,
-        IPublisher mediator)
-        : base(options)
-    {
-        _mediator = mediator;
-    }
-
-    /// <param name="dbContextOptions"></param>
-    /// <inheritdoc />
-    public BaseDbContext(DbContextOptions<BaseDbContext> dbContextOptions)
-        : base(dbContextOptions) { }
+        DbContextOptions<BaseDbContext> options)
+        : base(options) { }
+    
 
     /// <inheritdoc />
     public BaseDbContext() { }
@@ -63,22 +52,9 @@ public class BaseDbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
+        
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
         modelBuilder.HasDefaultSchema("dbo");
-
-        modelBuilder.Entity<IdentityUserLogin<Guid>>()
-           .HasKey(l => new { l.LoginProvider, l.ProviderKey });
-
-        modelBuilder.Entity<IdentityUserRole<Guid>>()
-             .HasKey(l => new { l.UserId, l.RoleId });
-
-        modelBuilder.Entity<IdentityUserToken<Guid>>()
-            .HasKey(l => new { l.UserId, l.LoginProvider, l.Name });
-
-        modelBuilder.Entity<Category>()
-            .HasNoKey();
     }
 
     /// <inheritdoc />
@@ -92,18 +68,22 @@ public class BaseDbContext
         where TEntity : Entity
         => id == Guid.Empty ?
             Maybe<TEntity>.None :
-            Maybe<TEntity>.From(await Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id) 
+            Maybe<TEntity>
+                .From(await Set<TEntity>()
+                          .FirstOrDefaultAsync(e => e.Id == id) 
             ?? throw new ArgumentNullException());
 
     /// <inheritdoc />
     public async System.Threading.Tasks.Task Insert<TEntity>(TEntity entity)
         where TEntity : Entity
-        => await Set<TEntity>().AddAsync(entity);
+        => await Set<TEntity>()
+            .AddAsync(entity);
 
     /// <inheritdoc />
     public async System.Threading.Tasks.Task InsertRange<TEntity>(IReadOnlyCollection<TEntity> entities)
         where TEntity : Entity
-        => await Set<TEntity>().AddRangeAsync(entities);
+        => await Set<TEntity>()
+            .AddRangeAsync(entities);
 
     /// <inheritdoc />
     public new async Task Remove<TEntity>(TEntity entity)
@@ -128,11 +108,7 @@ public class BaseDbContext
        DateTime utcNow = DateTime.UtcNow;
 
        UpdateAuditableEntities(utcNow);
-
        UpdateSoftDeletableEntities(utcNow);
-
-       await PublishDomainEvents(cancellationToken);
-       await PublishDomainEventsForIdentity(cancellationToken);
 
        return await base.SaveChangesAsync(cancellationToken);
     }
@@ -202,50 +178,6 @@ public class BaseDbContext
                     UpdateDeletedEntityEntryReferencesToUnchanged(referenceEntry.TargetEntry);
                 }
             }
-        }
-        
-        /// <summary>
-        /// Publishes and then clears all the domain events that exist within the current transaction.
-        /// </summary>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        private async Task PublishDomainEventsForIdentity(CancellationToken cancellationToken)
-        {
-            List<EntityEntry<User>> aggregateRoots = ChangeTracker
-                .Entries<User>()
-                .Where(entityEntry => entityEntry.Entity.DomainEvents.Count is not 0)
-                .ToList();
-
-            List<IDomainEvent> domainEvents = aggregateRoots
-                .SelectMany(entityEntry => entityEntry.Entity.DomainEvents).ToList();
-
-            aggregateRoots.ForEach(entityEntry => entityEntry.Entity.ClearDomainEvents());
-
-            IEnumerable<Task> tasks = domainEvents.Select(async domainEvent => 
-                await _mediator.Publish(domainEvent, cancellationToken));
-
-            await Task.WhenAll(tasks);
-        }
-
-        /// <summary>
-        /// Publishes and then clears all the domain events that exist within the current transaction.
-        /// </summary>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        private async System.Threading.Tasks.Task PublishDomainEvents(CancellationToken cancellationToken)
-        {
-            List<EntityEntry<AggregateRoot>> aggregateRoots = ChangeTracker
-                .Entries<AggregateRoot>()
-                .Where(entityEntry => entityEntry.Entity.DomainEvents.Count is not 0)
-                .ToList();
-            
-            List<IDomainEvent> domainEvents = aggregateRoots
-                .SelectMany(entityEntry => entityEntry.Entity.DomainEvents).ToList();
-
-            aggregateRoots.ForEach(entityEntry => entityEntry.Entity.ClearDomainEvents());
-
-            IEnumerable<System.Threading.Tasks.Task> tasks = domainEvents.Select(async domainEvent => 
-                await _mediator.Publish(domainEvent, cancellationToken));
-
-            await System.Threading.Tasks.Task.WhenAll(tasks);
         }
 
         /// <inheritdoc cref="FormattableString" />

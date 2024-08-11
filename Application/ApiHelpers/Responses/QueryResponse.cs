@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace TeamTasks.Application.ApiHelpers.Responses;
+namespace Application.ApiHelpers.Responses;
 
 /// <summary>
 /// Represents the response from query class.

@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "qVWxhbAi9in/IDLCb9dU0tGi7MAD0lHHnctEJt7c2ahmGPEHXg6NXYKnEzQLCQtOw4gBO1Pa59vEbKUb6OAx9g==",
-  "success": false,
+  "dgSpecHash": "M18EKRLUHIe07IalrM/ZZ6AZLdFKZrhEiR3tFp9lqosQquFo0YQHyynfzuKZozYj0hsGSK+M5oShLfc26qXiSg==",
+  "success": true,
   "projectFilePath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ponom\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
@@ -23,11 +23,11 @@
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.objectpool\\7.0.0\\microsoft.extensions.objectpool.7.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
-    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.0.0-preview1\\microsoft.identitymodel.abstractions.8.0.0-preview1.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.0.1\\microsoft.identitymodel.abstractions.8.0.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.0.1\\microsoft.identitymodel.jsonwebtokens.8.0.1.nupkg.sha512",
-    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.logging\\8.0.0-preview1\\microsoft.identitymodel.logging.8.0.0-preview1.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.logging\\8.0.1\\microsoft.identitymodel.logging.8.0.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.protocols\\8.0.0-preview1\\microsoft.identitymodel.protocols.8.0.0-preview1.nupkg.sha512",
-    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.0.0-preview1\\microsoft.identitymodel.tokens.8.0.0-preview1.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.0.1\\microsoft.identitymodel.tokens.8.0.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.6.0\\microsoft.testplatform.objectmodel.17.6.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.testplatform.testhost\\17.6.0\\microsoft.testplatform.testhost.17.6.0.nupkg.sha512",
@@ -48,15 +48,5 @@
     "C:\\Users\\ponom\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.IdentityModel.Tokens from 8.0.1 to 8.0.0-preview1. Reference the package directly from the project to select a different version. \r\n Infrastructure -> System.IdentityModel.Tokens.Jwt 8.0.1 -> Microsoft.IdentityModel.Tokens (>= 8.0.1) \r\n Infrastructure -> Microsoft.IdentityModel.Tokens (>= 8.0.0-preview1)",
-      "libraryId": "Microsoft.IdentityModel.Tokens",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -1,4 +1,4 @@
-﻿namespace TeamTasks.Domain.Common.Core.Abstractions;
+﻿namespace Domain.Common.Core.Abstractions;
 
 /// <summary>
 /// Represents the marker interface for soft-deletable entities.

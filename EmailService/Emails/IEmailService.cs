@@ -1,4 +1,4 @@
-﻿using TeamTasks.Email.Contracts.Emails;
+﻿using Email.Contracts.Emails;
 
 namespace EmailService.Emails;
 

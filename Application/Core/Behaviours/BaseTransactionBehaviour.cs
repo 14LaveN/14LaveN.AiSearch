@@ -1,10 +1,10 @@
-﻿using TeamTasks.Application.Core.Abstractions.Messaging;
+﻿using Application.Core.Abstractions.Messaging;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using TeamTasks.Application.Core.Abstractions;
-using IUnitOfWork = TeamTasks.Application.Core.Abstractions.IUnitOfWork;
+using Application.Core.Abstractions;
+using IUnitOfWork = Application.Core.Abstractions.IUnitOfWork;
 
-namespace TeamTasks.Application.Core.Behaviours;
+namespace Application.Core.Behaviours;
 
 /// <summary>
 /// Represents the generic transaction behaviour class.

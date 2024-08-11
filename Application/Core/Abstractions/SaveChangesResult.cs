@@ -1,4 +1,4 @@
-namespace TeamTasks.Application.Core.Abstractions;
+namespace Application.Core.Abstractions;
 
 /// <summary>
 /// Represents the operation result for SaveChanges.

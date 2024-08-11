@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Protocols.Configuration;
 
-namespace TeamTasks.Application.Core.Extensions;
+namespace Application.Core.Extensions;
 
 /// <summary>
 /// Represents the configuration extensions class.

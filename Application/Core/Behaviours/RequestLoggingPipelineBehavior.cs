@@ -1,9 +1,9 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Serilog.Context;
-using TeamTasks.Domain.Core.Primitives.Result;
+using Domain.Core.Primitives.Result;
 
-namespace TeamTasks.Application.Core.Behaviours;
+namespace Application.Core.Behaviours;
 
 /// <summary>
 /// Represents the request logging pipeline behavior class.

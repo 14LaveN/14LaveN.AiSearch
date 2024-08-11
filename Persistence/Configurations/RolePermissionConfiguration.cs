@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TeamTasks.Domain.Entities;
-using Permission = TeamTasks.Domain.Enumerations.Permission;
+using Domain.Entities;
+using Permission = Domain.Enumerations.Permission;
 
-namespace TeamTasks.Persistence.Configurations;
+namespace Persistence.Configurations;
 
 /// <summary>
 /// Represents the <see cref="RolePermission"/> configuration.

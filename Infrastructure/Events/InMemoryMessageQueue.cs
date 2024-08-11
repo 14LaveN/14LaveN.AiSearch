@@ -1,8 +1,8 @@
 using System.Threading.Channels;
-using TeamTasks.Application.Core.Abstractions.Messaging;
-using TeamTasks.Domain.Core.Events;
+using Application.Core.Abstractions.Messaging;
+using Domain.Core.Events;
 
-namespace TeamTasks.Infrastructure.Events;
+namespace Infrastructure.Events;
 
 /// <summary>
 /// Represents the in memory message queue class.

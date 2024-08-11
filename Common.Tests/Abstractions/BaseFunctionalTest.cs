@@ -1,9 +1,9 @@
 using AutoFixture;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
-using TeamTasks.Common.Tests.Abstractions;
+using Common.Tests.Abstractions;
 
-namespace TeamTasks.Common.Tests.Abstractions;
+namespace Common.Tests.Abstractions;
 
 /// <summary>
 /// Represents the base function test class.

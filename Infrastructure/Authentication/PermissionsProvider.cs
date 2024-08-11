@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
-using TeamTasks.Application.Core.Abstractions.Helpers.JWT;
-using TeamTasks.Infrastructure.Authentication;
+using Application.Core.Abstractions.Helpers.JWT;
+using Infrastructure.Authentication;
 
 namespace Infrastructure.Authentication;
 

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace TeamTasks.Application.Core.Settings;
+namespace Application.Core.Settings;
 
 /// <summary>
 /// Represents the mongo settings class.

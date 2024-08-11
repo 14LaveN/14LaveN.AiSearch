@@ -2,9 +2,9 @@ using Application.Core.Extensions;
 using MediatR;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
-using TeamTasks.Application.Core.Abstractions.Messaging;
+using Application.Core.Abstractions.Messaging;
 
-namespace TeamTasks.Application.Core.Behaviours;
+namespace Application.Core.Behaviours;
 
 /// <summary>
 /// Represents the transaction behaviour middleware.

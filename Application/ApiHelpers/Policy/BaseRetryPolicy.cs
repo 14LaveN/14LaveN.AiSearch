@@ -2,7 +2,7 @@ using Polly;
 using Polly.Retry;
 using Polly.Timeout;
 
-namespace TeamTasks.Application.ApiHelpers.Policy;
+namespace Application.ApiHelpers.Policy;
 
 /// <summary>
 /// Represents the base retry polly policy class. 

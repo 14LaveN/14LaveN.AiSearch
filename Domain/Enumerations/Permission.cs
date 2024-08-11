@@ -1,4 +1,4 @@
-namespace TeamTasks.Domain.Enumerations;
+namespace Domain.Enumerations;
 
 /// <summary>
 /// Represents the permissions enumeration.

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace TeamTasks.Application.Core.Abstractions;
+namespace Application.Core.Abstractions;
 
 /// <summary>
 /// Represents the unit of work interface.

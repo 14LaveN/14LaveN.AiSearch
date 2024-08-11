@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Persistence;
-using TeamTasks.Persistence.Specifications;
-using TeamTasks.Domain.Common.Core.Primitives;
-using TeamTasks.Domain.Common.Core.Primitives.Maybe;
-using TeamTasks.Domain.Common.Core.Primitives.Result;
-using TeamTasks.Domain.Core.Primitives.Result;
-using TeamTasks.Persistence;
+using Persistence.Specifications;
+using Domain.Common.Core.Primitives;
+using Domain.Common.Core.Primitives.Maybe;
+using Domain.Common.Core.Primitives.Result;
+using Domain.Core.Primitives.Result;
+using Persistence;
 
-namespace TeamTasks.Persistence;
+namespace Persistence;
 
 /// <summary>
 /// Represents the generic repository with the most common repository methods.

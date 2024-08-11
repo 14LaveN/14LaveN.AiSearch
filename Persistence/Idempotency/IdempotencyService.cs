@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using TeamTasks.Application.Core.Abstractions;
-using TeamTasks.Application.Core.Abstractions.Idempotency;
+using Application.Core.Abstractions;
+using Application.Core.Abstractions.Idempotency;
 
-namespace TeamTasks.Persistence.Idempotency;
+namespace Persistence.Idempotency;
 
 /// <summary>
 /// Represents the idempotency service class.

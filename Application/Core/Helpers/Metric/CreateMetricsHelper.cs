@@ -4,7 +4,7 @@ using Application.Core.Extensions;
 using Microsoft.Extensions.Caching.Distributed;
 using Prometheus;
 
-namespace TeamTasks.Application.Core.Helpers.Metric;
+namespace Application.Core.Helpers.Metric;
 
 /// <summary>
 /// Represents the create metrics helper.

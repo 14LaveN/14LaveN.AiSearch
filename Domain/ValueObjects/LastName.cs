@@ -1,9 +1,9 @@
-﻿using TeamTasks.Domain.Common.Core.Errors;
-using TeamTasks.Domain.Common.Core.Primitives;
-using TeamTasks.Domain.Common.Core.Primitives.Result;
-using TeamTasks.Domain.Core.Primitives.Result;
+﻿using Domain.Common.Core.Errors;
+using Domain.Common.Core.Primitives;
+using Domain.Common.Core.Primitives.Result;
+using Domain.Core.Primitives.Result;
 
-namespace TeamTasks.Domain.Common.ValueObjects;
+namespace Domain.Common.ValueObjects;
 
 /// <summary>
 /// Represents the last name value object.

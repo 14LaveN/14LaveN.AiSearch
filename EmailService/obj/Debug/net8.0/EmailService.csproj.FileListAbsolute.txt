@@ -1,0 +1,6 @@
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.csproj.AssemblyReference.cache
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.GeneratedMSBuildEditorConfig.editorconfig
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.AssemblyInfoInputs.cache
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.AssemblyInfo.cs
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.csproj.CoreCompileInputs.cache
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.sourcelink.json

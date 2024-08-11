@@ -7,12 +7,12 @@ using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Persistence;
 using Persistence.Infrastructure;
-using TeamTasks.Application.Core.Abstractions;
-using TeamTasks.Application.Core.Abstractions.Idempotency;
-using TeamTasks.Persistence;
-using TeamTasks.Persistence.Idempotency;
+using Application.Core.Abstractions;
+using Application.Core.Abstractions.Idempotency;
+using Persistence;
+using Persistence.Idempotency;
 
-namespace TeamTasks.Persistence;
+namespace Persistence;
 
 public static class DependencyInjection
 {

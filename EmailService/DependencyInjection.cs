@@ -1,6 +1,8 @@
 using EmailService.Emails;
-using TeamTasks.Email.Emails;
-using TeamTasks.Email.Emails.Settings;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Email.Emails;
+using Email.Emails.Settings;
 
 namespace EmailService;
 

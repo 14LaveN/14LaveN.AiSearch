@@ -2,11 +2,11 @@ using Database.MetricsAndRabbitMessages.Data;
 using Domain.Entities;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using TeamTasks.Application.Core.Settings;
-using TeamTasks.Database.MetricsAndRabbitMessages.Data;
-using TeamTasks.Domain.Entities;
+using Application.Core.Settings;
+using Database.MetricsAndRabbitMessages.Data;
+using Domain.Entities;
 
-namespace TeamTasks.Database.MetricsAndRabbitMessages;
+namespace Database.MetricsAndRabbitMessages;
 
 /// <summary>
 /// The metrics database context.

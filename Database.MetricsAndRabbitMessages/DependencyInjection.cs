@@ -2,13 +2,13 @@ using Database.MetricsAndRabbitMessages.Data.Interfaces;
 using Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TeamTasks.Application.Core.Settings;
-using TeamTasks.Database.MetricsAndRabbitMessages;
-using TeamTasks.Database.MetricsAndRabbitMessages.Data.Interfaces;
-using TeamTasks.Database.MetricsAndRabbitMessages.Data.Repositories;
-using TeamTasks.Domain.Entities;
+using Application.Core.Settings;
+using Database.MetricsAndRabbitMessages;
+using Database.MetricsAndRabbitMessages.Data.Interfaces;
+using Database.MetricsAndRabbitMessages.Data.Repositories;
+using Domain.Entities;
 
-namespace TeamTasks.Database.MetricsAndRabbitMessages;
+namespace Database.MetricsAndRabbitMessages;
 
 public static class DependencyInjection
 {

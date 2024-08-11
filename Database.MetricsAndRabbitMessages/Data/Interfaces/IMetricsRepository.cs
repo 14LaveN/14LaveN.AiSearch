@@ -1,5 +1,5 @@
 using Domain.Entities;
-using TeamTasks.Domain.Common.Core.Primitives.Maybe;
+using Domain.Common.Core.Primitives.Maybe;
 
 namespace Database.MetricsAndRabbitMessages.Data.Interfaces;
 

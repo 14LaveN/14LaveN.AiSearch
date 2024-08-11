@@ -3,9 +3,9 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using ErrorResponse = TeamTasks.Application.ApiHelpers.Responses.ErrorResponse;
+using ErrorResponse = Application.ApiHelpers.Responses.ErrorResponse;
 
-namespace TeamTasks.Application.ApiHelpers.ExceptionHandler;
+namespace Application.ApiHelpers.ExceptionHandler;
 
 /// <summary>
 /// Represents the global exception handler class.

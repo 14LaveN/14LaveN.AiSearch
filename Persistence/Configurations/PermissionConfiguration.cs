@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TeamTasks.Domain.Entities;
+using Domain.Entities;
 
-namespace TeamTasks.Persistence.Configurations;
+namespace Persistence.Configurations;
 
 /// <summary>
 /// Represents the <see cref="Permission"/> configuration.

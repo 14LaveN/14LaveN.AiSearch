@@ -1,6 +1,6 @@
-﻿using TeamTasks.Domain.Core.Utility;
+﻿using Domain.Core.Utility;
 
-namespace TeamTasks.Domain.Common.Core.Primitives;
+namespace Domain.Common.Core.Primitives;
 
 /// <summary>
 /// Represents the base class that all entities derive from.

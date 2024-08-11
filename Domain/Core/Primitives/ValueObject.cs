@@ -1,4 +1,4 @@
-﻿namespace TeamTasks.Domain.Common.Core.Primitives;
+﻿namespace Domain.Common.Core.Primitives;
 
 /// <summary>
 /// Represents the base class all value objects derive from.

@@ -1,6 +1,6 @@
-﻿using TeamTasks.Domain.Common.Core.Primitives;
+﻿using Domain.Common.Core.Primitives;
 
-namespace TeamTasks.Application.Core.Errors;
+namespace Application.Core.Errors;
 
 /// <summary>
 /// Contains the validation errors.

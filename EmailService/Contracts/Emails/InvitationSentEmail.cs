@@ -1,4 +1,4 @@
-﻿namespace TeamTasks.Email.Contracts.Emails
+﻿namespace Email.Contracts.Emails
 {
     /// <summary>
     /// Represents the invitation sent email.

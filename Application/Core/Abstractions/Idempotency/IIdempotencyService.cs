@@ -1,4 +1,4 @@
-namespace TeamTasks.Application.Core.Abstractions.Idempotency;
+namespace Application.Core.Abstractions.Idempotency;
 
 /// <summary>
 /// Represents the idempotency service interface. 

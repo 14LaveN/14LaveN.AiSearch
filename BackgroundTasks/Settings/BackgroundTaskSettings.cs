@@ -1,4 +1,4 @@
-﻿namespace TeamTasks.BackgroundTasks.Settings;
+﻿namespace BackgroundTasks.Settings;
 
 /// <summary>
 /// Represents the background taskEntity settings.

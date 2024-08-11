@@ -4,7 +4,7 @@ using System.Text;
 using CsvHelper;
 using CsvHelper.Configuration;
 
-namespace TeamTasks.Infrastructure.CSV;
+namespace Infrastructure.CSV;
 
 /// <summary>
 /// Represents the CSV base service class.

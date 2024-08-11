@@ -4,11 +4,11 @@ using Common.Tests.Abstractions;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence;
-using TeamTasks.Persistence;
-using TeamTasks.Common.Tests.Abstractions;
-using TeamTasks.Persistence;
+using Persistence;
+using Common.Tests.Abstractions;
+using Persistence;
 
-namespace TeamTasks.Common.Tests.Abstractions;
+namespace Common.Tests.Abstractions;
 
 /// <summary>
 /// Represents the base integration test class.

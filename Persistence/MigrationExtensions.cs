@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence;
-using TeamTasks.Persistence;
+using Persistence;
 
-namespace TeamTasks.Persistence;
+namespace Persistence;
 
 /// <summary>
 /// Represents the extensions for migration.

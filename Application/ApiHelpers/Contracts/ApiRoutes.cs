@@ -1,4 +1,4 @@
-﻿namespace TeamTasks.Application.ApiHelpers.Contracts;
+﻿namespace Application.ApiHelpers.Contracts;
 
 /// <summary>
 /// Contains the API endpoint routes.

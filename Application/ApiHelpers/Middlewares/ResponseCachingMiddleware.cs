@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.IdentityModel.Tokens;
 
-namespace TeamTasks.Application.ApiHelpers.Middlewares;
+namespace Application.ApiHelpers.Middlewares;
 
 /// <summary>
 /// Represents the response caching middleware class.

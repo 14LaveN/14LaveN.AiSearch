@@ -2,10 +2,10 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using TeamTasks.Application.Core.Abstractions.Messaging;
-using TeamTasks.Domain.Core.Events;
+using Application.Core.Abstractions.Messaging;
+using Domain.Core.Events;
 
-namespace TeamTasks.Infrastructure.Events;
+namespace Infrastructure.Events;
 
 /// <summary>
 /// Represents the integration event processor job class.
