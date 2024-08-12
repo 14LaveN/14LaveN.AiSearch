@@ -5,11 +5,11 @@ using Application;
 using Application.ApiHelpers.Configurations;
 using Application.ApiHelpers.Middlewares;
 using AspNetCore.Serilog.RequestLoggingMiddleware;
+using Common.Logging;
 using Identity.Api.Common.DependencyInjection;
-using HealthChecks.UI.Client;
+using Identity.API.Common.DependencyInjection;
 using Identity.API.Infrastructure;
 using Identity.API.IntegrationEvents.User.Events.UserCreated;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.ResponseCompression;
 using Infrastructure;
 using Persistence;
@@ -17,14 +17,12 @@ using Prometheus;
 using Prometheus.Client.AspNetCore;
 using Prometheus.Client.HttpRequestDurations;
 using RabbitMq;
-using Identity.Application;
 using RabbitMq.Extensions;
+using Serilog;
 
 #region BuilderRegion
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddControllers();
 
 builder.Services.AddRateLimiter(options =>
 {
@@ -71,15 +69,14 @@ builder.Services
     .AddIdentityInfrastructure()
     .AddDatabase(builder.Configuration, builder.Environment)
     .AddMetricsOpenTelemetry(builder.Logging)
-    .AddSwagger()
+    .AddSwagger();
     //TODO .AddBackgroundTasks(builder.Configuration)
     //TODO .AddCaching(builder.Configuration)
-    .AddLoggingExtension(builder.Configuration);
 
 builder.Services.AddRabbitMq(builder.Configuration)
     .ConfigureJsonOptions(options => options.TypeInfoResolverChain.Add(IntegrationEventContext.Default));
 
-builder.Host.UseSerilog();
+builder.Host.UseSerilog(Logging.ConfigureLogger);
 
 builder.Services.AddTransient<LogContextEnrichmentMiddleware>();
 
@@ -125,10 +122,10 @@ app.UseIdentityServer();
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapHealthChecks("/health", new HealthCheckOptions
-    {
-        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-    });
+   //TODO endpoints.MapHealthChecks("/health", new HealthCheckOptions
+   //TODO {
+   //TODO     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+   //TODO });
 });
 
 app.MapControllers();

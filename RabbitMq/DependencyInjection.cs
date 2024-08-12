@@ -2,6 +2,7 @@ using MediatR.NotificationPublishers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using RabbitMq.Abstractions;
 using RabbitMq.Abstractions.Settings;
@@ -14,10 +15,13 @@ public static class DependencyInjection
     public static IEventBusBuilder AddRabbitMq(this IServiceCollection services,
         IConfiguration configuration)
     {
-        if (services is null)
-        {
-            throw new ArgumentNullException(nameof(services));
-        }
+        ArgumentNullException.ThrowIfNull(services);
+        
+        services.Configure<MessageBrokerSettings>(configuration.GetSection(MessageBrokerSettings.SettingsKey));
+        
+        services.AddOptions<MessageBrokerSettings>()
+            .BindConfiguration(MessageBrokerSettings.SettingsKey)
+            .ValidateOnStart();
 
         services.AddMediatR(x =>
         {
@@ -27,7 +31,27 @@ public static class DependencyInjection
             x.NotificationPublisherType = typeof(TaskWhenAllPublisher);
         });
         
-        ArgumentNullException.ThrowIfNull(services);
+        services
+            .AddSingleton<RabbitMqTelemetry>()
+            .AddSingleton<IIntegrationEventPublisher, IntegrationEventPublisher>();
+
+        services
+            .AddSingleton<IConnectionFactory>(sp =>
+            new ConnectionFactory { Uri = new Uri(MessageBrokerSettings.AmqpLink) })
+            .AddSingleton<IConnection>(sp =>
+            {
+                IConnectionFactory factory = sp.GetRequiredService<IConnectionFactory>();
+                return factory.CreateConnection();
+            })
+            .AddSingleton<IModel>(sp =>
+            {
+                IConnection connection = sp.GetRequiredService<IConnection>();
+                return connection.CreateModel();
+            });
+        
+        services.AddHostedService<IntegrationEventConsumerBackgroundService>();
+        
+        services.AddScoped<IIntegrationEventPublisher, IntegrationEventPublisher>();
         
         // RabbitMQ.Client doesn't have built-in support for OpenTelemetry, so we need to add it ourselves
         services.AddOpenTelemetry()
@@ -36,22 +60,7 @@ public static class DependencyInjection
                 tracing.AddSource(RabbitMqTelemetry.ActivitySourceName);
             });
         
-        services.AddSingleton<RabbitMqTelemetry>();
-        services.AddSingleton<IIntegrationEventPublisher, IntegrationEventPublisher>();
-        
-        // Start consuming messages as soon as the application starts
-        services.AddSingleton<IHostedService>(sp => 
-            sp.GetRequiredService<IntegrationEventConsumerBackgroundService>());
-        
-        services.Configure<MessageBrokerSettings>(configuration.GetSection(MessageBrokerSettings.SettingsKey));
-        
-        services.AddOptions<MessageBrokerSettings>()
-            .BindConfiguration(MessageBrokerSettings.SettingsKey)
-            .ValidateOnStart();
-        
-        services.AddScoped<IIntegrationEventPublisher, IntegrationEventPublisher>();
-        
-        return new EventBusBuilder(services);; 
+        return new EventBusBuilder(services);
     }
     
     private class EventBusBuilder(IServiceCollection services) : IEventBusBuilder

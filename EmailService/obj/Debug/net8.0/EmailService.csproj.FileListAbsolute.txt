@@ -4,3 +4,10 @@ G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.As
 G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.AssemblyInfo.cs
 G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.csproj.CoreCompileInputs.cache
 G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.sourcelink.json
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\bin\Debug\net8.0\EmailService.deps.json
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\bin\Debug\net8.0\EmailService.dll
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\bin\Debug\net8.0\EmailService.pdb
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.dll
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\refint\EmailService.dll
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.pdb
+G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\ref\EmailService.dll

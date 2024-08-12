@@ -39,8 +39,8 @@ public static class DependencyInjection
         
         services.AddTransient<MongoSettings>();
         
-        services.AddHealthChecks()
-            .AddMongoDb(configuration.GetConnectionString("MongoConnection")!);
+        //TODO services.AddHealthChecks()
+        //TODO     .AddMongoDb(configuration.GetConnectionString("MongoConnection")!);
 
         return services;
     }

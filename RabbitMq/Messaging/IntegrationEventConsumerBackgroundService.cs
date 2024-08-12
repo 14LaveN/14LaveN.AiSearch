@@ -21,7 +21,7 @@ namespace RabbitMq.Messaging;
 /// Represents the integration event consumer background service class.
 /// </summary>
 internal  sealed class IntegrationEventConsumerBackgroundService(
-    IServiceProvider serviceProvider,
+    IServiceScopeFactory serviceScopeFactory ,
     IModel channel,
     IConnection connection,
     ILogger<IntegrationEventConsumerBackgroundService> logger,
@@ -31,7 +31,7 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
     : IHostedService, IDisposable
 {
     private readonly MessageBrokerSettings _messageBrokerSettings = messageBrokerSettingsOptions.Value;
-    
+
     private readonly TextMapPropagator _propagator = rabbitMqTelemetry.Propagator;
     private readonly ActivitySource _activitySource = rabbitMqTelemetry.ActivitySource;
     
@@ -185,7 +185,7 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
             logger.LogTrace("Processing RabbitMQ event: {EventName}", eventName);
         }
 
-        await using AsyncServiceScope scope = serviceProvider.CreateAsyncScope();
+        await using AsyncServiceScope scope = serviceScopeFactory .CreateAsyncScope();
 
         if (!_subscriptionInfo.EventTypes.TryGetValue(eventName, out var eventType))
         {

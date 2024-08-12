@@ -3,6 +3,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Domain.Common.Core.Abstractions;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Identity.API.Infrastructure.Authentication.SignIn;
 
@@ -33,9 +34,9 @@ public class SignInProvider<TUser>(
     }
     
     /// <summary>
-    /// The authentication scheme to sign in with. Defaults to <see cref="IdentityConstants.ApplicationScheme"/>.
+    /// The authentication scheme to sign in with. Defaults to <see cref="CookieAuthenticationDefaults.AuthenticationScheme"/>.
     /// </summary>
-    public string AuthenticationScheme { get; private set; } = IdentityConstants.ApplicationScheme;
+    public string AuthenticationScheme { get; private set; } = CookieAuthenticationDefaults.AuthenticationScheme;
     
     /// <summary>
     /// The <see cref="IUserClaimsPrincipalFactory{TUser}"/> used.
@@ -94,7 +95,10 @@ public class SignInProvider<TUser>(
     /// <param name="isPersistent">Flag indicating whether the sign-in cookie should persist after the browser is closed.</param>
     /// <param name="additionalClaims">Additional claims that will be stored in the cookie.</param>
     /// <returns>The task object representing the asynchronous operation.</returns>
-    public virtual Task SignInWithClaimsAsync(TUser user, bool isPersistent, IEnumerable<Claim>? additionalClaims)
+    public virtual Task SignInWithClaimsAsync(
+        TUser user,
+        bool isPersistent,
+        IEnumerable<Claim>? additionalClaims)
         => SignInWithClaimsAsync(user, new AuthenticationProperties { IsPersistent = isPersistent }, additionalClaims);
 
     /// <summary>
@@ -104,7 +108,10 @@ public class SignInProvider<TUser>(
     /// <param name="authenticationProperties">Properties applied to the login and authentication cookie.</param>
     /// <param name="additionalClaims">Additional claims that will be stored in the cookie.</param>
     /// <returns>The task object representing the asynchronous operation.</returns>
-    public virtual async Task SignInWithClaimsAsync(TUser user, AuthenticationProperties? authenticationProperties, IEnumerable<Claim>? additionalClaims)
+    public virtual async Task SignInWithClaimsAsync(
+        TUser user,
+        AuthenticationProperties? authenticationProperties,
+        IEnumerable<Claim>? additionalClaims)
     {
         var userPrincipal = await CreateUserPrincipalAsync(user);
         foreach (var claim in additionalClaims)

@@ -1,7 +1,7 @@
 using Domain.Core.Utility;
-using Identity.Persistence;
 using Persistence;
 using Database.MetricsAndRabbitMessages;
+using Identity.API.Persistence;
 
 namespace Identity.Api.Common.DependencyInjection;
 
@@ -14,15 +14,15 @@ internal static class DiDatabase
     /// <param name="configuration">The configuration.</param>
     /// <param name="environment">The environemnt.</param>
     /// <returns>The same service collection.</returns>
-    public static IServiceCollection AddDatabase(this IServiceCollection services,
+    public static IServiceCollection AddDatabase(
+        this IServiceCollection services,
         IConfiguration configuration,
         IWebHostEnvironment environment)
     {
         Ensure.NotNull(services, "Services is required.", nameof(services));
 
         services
-            .AddBaseDatabase(configuration)
-            .AddUserDatabase()
+            .AddUserDatabase(configuration)
             .AddMongoDatabase(configuration);
         
         string pathToFirebaseConfig = environment.IsDevelopment() 

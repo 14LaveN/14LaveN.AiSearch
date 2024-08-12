@@ -18,7 +18,6 @@ namespace Identity.API.Persistence.Extensions;
 /// </summary>
 public static class JwtExtensions
 {
-    
     /// <summary>
     /// Generate new refresh token by options.
     /// </summary>

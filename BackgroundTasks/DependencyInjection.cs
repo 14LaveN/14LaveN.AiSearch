@@ -34,7 +34,6 @@ public static class DependencyInjection
             .ValidateOnStart();
         
         services
-            .AddHostedService<IntegrationEventConsumerBackgroundService>()
             .AddHostedService<SaveMetricsBackgroundService>()
             .AddHostedService<CreateReportBackgroundService>();
         

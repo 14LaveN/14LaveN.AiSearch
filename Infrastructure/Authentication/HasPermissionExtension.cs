@@ -1,4 +1,5 @@
 using System.Net;
+using IdentityServer4.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Tokens;

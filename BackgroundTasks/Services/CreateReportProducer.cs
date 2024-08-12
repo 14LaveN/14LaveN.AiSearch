@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Quartz.Util;
 using BackgroundTasks.Services;
 using Database.MetricsAndRabbitMessages.Data.Interfaces;
+using IdentityServer4.Extensions;
 using Infrastructure.CSV;
 
 namespace BackgroundTasks.Services;

@@ -4,11 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Infrastructure.Common;
 using Application.Core.Abstractions.Common;
-using Application.Core.Abstractions.Events;
 using Application.Core.Abstractions.Helpers.JWT;
-using Application.Core.Helpers.Metric;
-using Infrastructure.Authentication;
-using Infrastructure.Events;
 
 namespace Infrastructure;
 
@@ -35,9 +31,6 @@ public static class DependencyInjection
         services.AddScoped<IDateTime, MachineDateTime>();
         services.AddScoped<IUserIdentifierProvider, UserIdentifierProvider>();
         services.AddScoped<IPermissionProvider, PermissionProvider>();
-        services.AddSingleton<IEventBus, EventBus>();
-        services.AddSingleton<InMemoryMessageQueue>();
-        services.AddHostedService<IntegrationEventProcessorJob>();
         
         return services;
     }

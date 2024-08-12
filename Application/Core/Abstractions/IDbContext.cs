@@ -67,6 +67,6 @@ public interface IDbContext
     /// </summary>
     /// <typeparam name="TEntity">The entity type.</typeparam>
     /// <param name="entity">The entity to be removed from the database.</param>
-    Task Remove<TEntity>(TEntity entity)
+    Task Remove<TEntity>(TEntity? entity)
         where TEntity : Entity;
 }

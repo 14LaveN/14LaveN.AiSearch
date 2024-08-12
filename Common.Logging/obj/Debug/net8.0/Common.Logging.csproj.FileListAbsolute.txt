@@ -10,3 +10,4 @@ G:\DotNetProjects\14LaveN.AiSearch\Common.Logging\obj\Debug\net8.0\Common.Loggin
 G:\DotNetProjects\14LaveN.AiSearch\Common.Logging\obj\Debug\net8.0\refint\Common.Logging.dll
 G:\DotNetProjects\14LaveN.AiSearch\Common.Logging\obj\Debug\net8.0\Common.Logging.pdb
 G:\DotNetProjects\14LaveN.AiSearch\Common.Logging\obj\Debug\net8.0\ref\Common.Logging.dll
+G:\DotNetProjects\14LaveN.AiSearch\Common.Logging\obj\Debug\net8.0\Common.Logging.csproj.AssemblyReference.cache

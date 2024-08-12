@@ -86,7 +86,7 @@ public class BaseDbContext
             .AddRangeAsync(entities);
 
     /// <inheritdoc />
-    public new async Task Remove<TEntity>(TEntity entity)
+    public new async Task Remove<TEntity>(TEntity? entity)
         where TEntity : Entity
         => await Set<TEntity>()
             .WhereIf(

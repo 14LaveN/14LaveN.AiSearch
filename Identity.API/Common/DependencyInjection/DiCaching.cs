@@ -1,4 +1,3 @@
-using Cache;
 using Domain.Core.Utility;
 
 namespace Identity.Api.Common.DependencyInjection;
@@ -16,8 +15,6 @@ internal static class DiCaching
         IConfiguration configuration)
     {
         Ensure.NotNull(services, "Services is required.", nameof(services));
-
-        services.AddCache();
         
         services.AddStackExchangeRedisCache(options =>
         {

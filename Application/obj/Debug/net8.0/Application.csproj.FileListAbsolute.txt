@@ -10,3 +10,13 @@ C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Appl
 C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
 C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
 C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.sourcelink.json
+G:\DotNetProjects\14LaveN.AiSearch\Application\bin\Debug\net8.0\Application.deps.json
+G:\DotNetProjects\14LaveN.AiSearch\Application\bin\Debug\net8.0\Application.dll
+G:\DotNetProjects\14LaveN.AiSearch\Application\bin\Debug\net8.0\Application.pdb
+G:\DotNetProjects\14LaveN.AiSearch\Application\bin\Debug\net8.0\Domain.dll
+G:\DotNetProjects\14LaveN.AiSearch\Application\bin\Debug\net8.0\Domain.pdb
+G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.csproj.CopyComplete
+G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.dll
+G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\refint\Application.dll
+G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.pdb
+G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\ref\Application.dll

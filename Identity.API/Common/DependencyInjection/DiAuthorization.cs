@@ -5,9 +5,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
 using Domain.Core.Utility;
+using Identity.API.Infrastructure.Settings.User;
+using Identity.API.Persistence;
 using Identity.Application.Core.Settings.User;
 using Identity.Domain.Entities;
 using Identity.Infrastructure.Settings.User;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Identity.Api.Common.DependencyInjection;
 
@@ -33,13 +36,21 @@ internal static class DiAuthorization
             {
                 options.User.RequireUniqueEmail = false;
             })
-            .AddEntityFrameworkStores<BaseDbContext>()
+            .AddEntityFrameworkStores<UserDbContext>()
             .AddDefaultTokenProviders();
         
         services
             .AddAuthentication(opt => {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+            .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+            {
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/Logout";
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                options.SlidingExpiration = true;
             })
             .AddJwtBearer(options =>
             {
@@ -47,8 +58,10 @@ internal static class DiAuthorization
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidIssuers = [configuration["Jwt:ValidIssuers"]],
-                    ValidAudiences = new List<string>(){"https://localhost:7135", configuration["Jwt:ValidAudiences"]!},
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Secret"]!))
+                    ValidAudiences = new List<string>
+                        {"https://localhost:7135", configuration["Jwt:ValidAudiences"]!},
+                    IssuerSigningKey =
+                        new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Secret"]!))
                 };
                 options.Events = new JwtBearerEvents
                 {
@@ -60,6 +73,7 @@ internal static class DiAuthorization
                 
                         if (string.IsNullOrEmpty(context.Error))
                             context.Error = "invalid_token";
+                        
                         if (string.IsNullOrEmpty(context.ErrorDescription))
                             context.ErrorDescription = "This request requires a valid JWT access token to be provided";
                 
@@ -94,14 +108,11 @@ internal static class DiAuthorization
         
         services.Configure<JwtOptions>(configuration.GetSection("Jwt"));
         
-        services.AddAuthorization();
+        services.AddOptions<JwtOptions>()
+            .BindConfiguration(JwtOptions.SettingsKey)
+            .ValidateOnStart();
         
-        services.ConfigureApplicationCookie(config =>
-        {
-            config.Cookie.Name = "Identity.Api.Cookie";
-            config.LoginPath = "/Auth/Login";
-            config.LogoutPath = "/Auth/Logout";
-        });
+        services.AddAuthorization();
         
         return services;
     }

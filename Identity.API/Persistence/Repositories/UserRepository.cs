@@ -11,7 +11,7 @@ namespace Identity.API.Persistence.Repositories;
 /// Represents the user repository class.
 /// </summary>
 /// <param name="userDbContext">The user database context.</param>
-public class UserRepository(IDbContext userDbContext)
+public class UserRepository(UserDbContext userDbContext)
     : IUserRepository
 {
     /// <inheritdoc />

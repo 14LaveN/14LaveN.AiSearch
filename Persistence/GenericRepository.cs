@@ -64,7 +64,7 @@ public abstract class GenericRepository<TEntity>
     /// Removes the specified entity from the database.
     /// </summary>
     /// <param name="entity">The entity to be removed from the database.</param>
-    public async Task Remove(TEntity entity) => await DbContext.Remove(entity);
+    public async Task Remove(TEntity? entity) => await DbContext.Remove(entity);
         
     /// <summary>
     /// Checks if any entity meets the specified specification.

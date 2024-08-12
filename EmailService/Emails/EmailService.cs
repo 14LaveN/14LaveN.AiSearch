@@ -5,6 +5,7 @@ using MimeKit.Text;
 using Email.Contracts.Emails;
 using Email.Emails;
 using Email.Emails.Settings;
+using Microsoft.Extensions.Options;
 
 namespace EmailService.Emails;
 
