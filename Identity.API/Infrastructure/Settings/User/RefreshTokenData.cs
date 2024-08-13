@@ -1,4 +1,4 @@
-namespace Identity.Application.Core.Settings.User;
+namespace Identity.API.Infrastructure.Settings.User;
 
 /// <summary>
 /// Represents the refresh token data.

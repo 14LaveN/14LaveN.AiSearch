@@ -14,6 +14,7 @@ using FluentValidation;
 using Identity.API.Abstractions.Idempotency;
 using Identity.API.ApiHelpers.Responses;
 using Identity.API.Infrastructure.Settings.User;
+using Identity.API.Persistence;
 using Identity.API.Persistence.Extensions;
 using Identity.Domain.Entities;
 using MediatR;
@@ -87,7 +88,7 @@ public static class Login
             UserManager<User> userManager,
             IOptions<JwtOptions> jwtOptions,
             SignInManager<User> signInManager,
-            IDbContext dbContext)
+            UserDbContext dbContext)
         : ICommandHandler<Command, LoginResponse<Result<User>>>
     {
         private readonly JwtOptions _jwtOptions = jwtOptions.Value;

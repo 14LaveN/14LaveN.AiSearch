@@ -10,7 +10,7 @@ public sealed class ConnectionString
     /// <summary>
     /// The connection strings key.
     /// </summary>
-    public const string SettingsKey = "TTGenericDb";
+    public const string SettingsKey = "ASGenericDb";
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ConnectionString"/> class.
@@ -22,7 +22,11 @@ public sealed class ConnectionString
     /// Gets the connection string value.
     /// </summary>
     [Required]
-    public string Value { get; }
+    public string Value { get; set; }
 
-    public static implicit operator string(ConnectionString connectionString) => connectionString.Value;
+    public static implicit operator string(ConnectionString connectionString) =>
+        connectionString.Value;
+    
+    public static implicit operator ConnectionString(string connectionString) =>
+        new(connectionString);
 }

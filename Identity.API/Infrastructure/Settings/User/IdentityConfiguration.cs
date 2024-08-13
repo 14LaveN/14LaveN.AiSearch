@@ -1,8 +1,7 @@
-using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Models;
 
-namespace Identity.Application.Core.Settings.User;
+namespace Identity.API.Infrastructure.Settings.User;
 
 /// <summary>
 /// Represents the identity configuration class.

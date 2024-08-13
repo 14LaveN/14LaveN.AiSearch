@@ -1,7 +1,8 @@
 using Application.Core.Abstractions;
 using Application.Core.Abstractions.Idempotency;
+using Application.Core.Extensions;
+using Identity.API.Domain.Repositories;
 using Identity.API.Persistence.Repositories;
-using Identity.Domain.Repositories;
 using MediatR.NotificationPublishers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -27,14 +28,15 @@ public static class DependencyInjection
             throw new ArgumentNullException(nameof(services));
         }
         
-        var connectionString = configuration.GetConnectionString(ConnectionString.SettingsKey);
+        ConnectionString connectionString = configuration.GetConnectionStringOrThrow(ConnectionString.SettingsKey);
+
+        services.AddSingleton<ConnectionString>(_ => connectionString);
         
         //TODO HealthChecks.
-        if (connectionString is not null)
-            services.AddHealthChecks()
-                .AddNpgSql(connectionString);
+        //TODO services.AddHealthChecks()
+        //TODO     .AddNpgSql(connectionString);
         
-        services.AddDbContext<BaseDbContext>((sp, o) =>
+        services.AddDbContext<UserDbContext>((sp, o) =>
             o.UseNpgsql(connectionString, act
                     =>
                 {
@@ -51,8 +53,10 @@ public static class DependencyInjection
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors());
 
-        services.AddScoped<IUnitOfWork, UnitOfWork>()
-            .AddScoped<IUserRepository, UserRepository>();
+        services
+            .AddScoped<IUserUnitOfWork, UserUnitOfWork>()
+            .AddScoped<IUserRepository, UserRepository>()
+            .AddScoped<IDbContext, UserDbContext>();
         
         services.AddMediatR(x =>
         {

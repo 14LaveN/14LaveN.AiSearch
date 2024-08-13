@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Application.Core.Abstractions;
 using Domain.Entities;
-using Identity.Application.Core.Settings.User;
 using Identity.Domain.Entities;
 
 namespace Identity.API.Persistence.Extensions;
@@ -16,7 +15,7 @@ namespace Identity.API.Persistence.Extensions;
 /// <summary>
 /// Represents the json web token extensions class.
 /// </summary>
-public static class JwtExtensions
+internal static class JwtExtensions
 {
     /// <summary>
     /// Generate new refresh token by options.

@@ -22,6 +22,7 @@ internal static class DiDatabase
         Ensure.NotNull(services, "Services is required.", nameof(services));
 
         services
+            .AddBaseDatabase(configuration)
             .AddUserDatabase(configuration)
             .AddMongoDatabase(configuration);
         

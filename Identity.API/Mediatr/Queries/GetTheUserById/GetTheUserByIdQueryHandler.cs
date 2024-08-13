@@ -3,7 +3,7 @@ using Application.Core.Abstractions.Messaging;
 using Domain.Common.Core.Errors;
 using Domain.Common.Core.Primitives.Maybe;
 using Domain.Core.Exceptions;
-using Identity.Domain.Repositories;
+using Identity.API.Domain.Repositories;
 
 namespace Identity.API.Mediatr.Queries.GetTheUserById;
 

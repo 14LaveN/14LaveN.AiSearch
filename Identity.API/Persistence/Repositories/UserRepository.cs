@@ -2,8 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Application.Core.Abstractions;
 using Domain.Common.Core.Primitives.Maybe;
 using Domain.ValueObjects;
+using Identity.API.Domain.Repositories;
 using Identity.Domain.Entities;
-using Identity.Domain.Repositories;
 
 namespace Identity.API.Persistence.Repositories;
 
@@ -11,7 +11,7 @@ namespace Identity.API.Persistence.Repositories;
 /// Represents the user repository class.
 /// </summary>
 /// <param name="userDbContext">The user database context.</param>
-public class UserRepository(UserDbContext userDbContext)
+internal class UserRepository(UserDbContext userDbContext)
     : IUserRepository
 {
     /// <inheritdoc />

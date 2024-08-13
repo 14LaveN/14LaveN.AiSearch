@@ -193,6 +193,65 @@
         <member name="P:Identity.API.Contracts.Register.RegisterRequest.UserName">
             <summary>The user name.</summary>
         </member>
+        <member name="T:Identity.API.Domain.Repositories.IUserRepository">
+            <summary>
+            Represents the user repository interface.
+            </summary>
+        </member>
+        <member name="M:Identity.API.Domain.Repositories.IUserRepository.GetByIdAsync(System.Guid)">
+            <summary>
+            Gets the user with the specified identifier.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns>The maybe instance that may contain the user with the specified identifier.</returns>
+        </member>
+        <member name="M:Identity.API.Domain.Repositories.IUserRepository.GetByNameAsync(System.String)">
+            <summary>
+            Gets the user with the user name.
+            </summary>
+            <param name="name">The user name.</param>
+            <returns>The maybe instance that may contain the user with the specified identifier.</returns>
+        </member>
+        <member name="M:Identity.API.Domain.Repositories.IUserRepository.GetByEmailAsync(Domain.ValueObjects.EmailAddress)">
+            <summary>
+            Gets the user with the specified emailAddress.
+            </summary>
+            <param name="emailAddress">The user emailAddress.</param>
+            <returns>The maybe instance that may contain the user with the specified emailAddress.</returns>
+        </member>
+        <member name="M:Identity.API.Domain.Repositories.IUserUnitOfWork.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Saves all of the pending changes in the unit of work.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The number of entities that have been saved.</returns>
+        </member>
+        <member name="M:Identity.API.Domain.Repositories.IUserUnitOfWork.BeginTransactionAsync(System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Begins a transaction on the current unit of work.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="useIfExists">The use if exists.</param>
+            <returns>The new database context transaction.</returns>
+        </member>
+        <member name="M:Identity.API.Domain.Repositories.IUserUnitOfWork.TrackGraph(System.Object,System.Action{Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntryGraphNode})">
+            <summary>
+            Uses Track Graph Api to attach disconnected entities
+            </summary>
+            <param name="rootEntity"> Root entity</param>
+            <param name="callback">Delegate to convert Object's State properties to Entities entry state.</param>
+        </member>
+        <member name="M:Identity.API.Domain.Repositories.IUserUnitOfWork.SetAutoDetectChanges(System.Boolean)">
+            <summary>
+            DbContext disable/enable auto detect changes
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:Identity.API.Domain.Repositories.IUserUnitOfWork.LastSaveChangesResult">
+            <summary>
+            Last error after SaveChanges operation executed
+            </summary>
+        </member>
         <member name="T:Identity.API.Infrastructure.Authentication.PermissionAuthorizationHandler">
             <summary>
             Represents the permission authorization handler class.
@@ -253,9 +312,9 @@
             The <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/> used.
             </summary>
         </member>
-        <member name="P:Identity.API.Infrastructure.Authentication.SignIn.SignInProvider`1.AuthenticationScheme">
+        <member name="F:Identity.API.Infrastructure.Authentication.SignIn.SignInProvider`1.AuthenticationScheme">
             <summary>
-            The authentication scheme to sign in with. Defaults to <see cref="F:Microsoft.AspNetCore.Identity.IdentityConstants.ApplicationScheme"/>.
+            The authentication scheme to sign in with. Defaults to <see cref="F:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme"/>.
             </summary>
         </member>
         <member name="P:Identity.API.Infrastructure.Authentication.SignIn.SignInProvider`1.ClaimsFactory">
@@ -314,6 +373,31 @@
             <param name="services">The service collection.</param>
             <returns>The same service collection.</returns>
         </member>
+        <member name="T:Identity.API.Infrastructure.Settings.User.IdentityConfiguration">
+            <summary>
+            Represents the identity configuration class.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.IdentityConfiguration.ApiScopes">
+            <summary>
+            The api scopes list.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.IdentityConfiguration.IdentityResources">
+            <summary>
+            The identity resources list.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.IdentityConfiguration.ApiResources">
+            <summary>
+            The api resources list.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.IdentityConfiguration.Clients">
+            <summary>
+            The clients list.
+            </summary>
+        </member>
         <member name="T:Identity.API.Infrastructure.Settings.User.JwtOptions">
             <summary>
             Represents jwt options class.
@@ -344,9 +428,76 @@
             Gets or sets refresh token expire.
             </summary>
         </member>
-        <member name="T:Identity.API.Infrastructure.Settings.User.Scope">
+        <member name="T:Identity.API.Infrastructure.Settings.User.RefreshTokenData">
             <summary>
-            Represents the scope class.
+            Represents the refresh token data.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.RefreshTokenData.Key">
+            <summary>
+            Gets or sets key.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.RefreshTokenData.Expire">
+            <summary>
+            Gets or sets date/time expire.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.RefreshTokenData.UserId">
+            <summary>
+            Gets or sets user identifier.
+            </summary>
+        </member>
+        <member name="T:Identity.API.Infrastructure.Settings.User.UserInfo">
+            <summary>
+            Represents the user info class.
+            </summary>
+            <param name="claims">The claims.</param>
+        </member>
+        <member name="M:Identity.API.Infrastructure.Settings.User.UserInfo.#ctor(System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            Represents the user info class.
+            </summary>
+            <param name="claims">The claims.</param>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.UserInfo.Id">
+            <summary>
+            The identifier.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.UserInfo.UserName">
+            <summary>
+            The username.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.UserInfo.Email">
+            <summary>
+            The email.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.UserInfo.FirstName">
+            <summary>
+            The first name.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.UserInfo.LastName">
+            <summary>
+            The last name.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.UserInfo.Patronymic">
+            <summary>
+            The patronymic.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.UserInfo.BirthDate">
+            <summary>
+            The birth date.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Infrastructure.Settings.User.UserInfo.Scope">
+            <summary>
+            The scope.
             </summary>
         </member>
         <member name="T:Identity.API.IntegrationEvents.User.Events.PasswordChanged.UserPasswordChangedIntegrationEvent">
@@ -414,7 +565,7 @@
             Represents the <see cref="T:Domain.Common.Core.Errors.DomainErrors.User"/> transaction behaviour class.
             </summary>
         </member>
-        <member name="M:Identity.API.Mediatr.Behaviour.UserTransactionBehavior`2.#ctor(Application.Core.Abstractions.IUnitOfWork,Persistence.BaseDbContext)">
+        <member name="M:Identity.API.Mediatr.Behaviour.UserTransactionBehavior`2.#ctor(Identity.API.Domain.Repositories.IUserUnitOfWork,Identity.API.Persistence.UserDbContext)">
             <summary>
             Initializes a new instance of the <see cref="T:Identity.API.Mediatr.Behaviour.UserTransactionBehavior`2"/> class.
             </summary>
@@ -464,7 +615,7 @@
             Represents the <see cref="T:Identity.API.Mediatr.Commands.ChangeName.Command"/> handler.
             </summary>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.ChangeName.CommandHandler.#ctor(Application.Core.Abstractions.IUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{Identity.Domain.Entities.User},Application.Core.Abstractions.Helpers.JWT.IUserIdentifierProvider)">
+        <member name="M:Identity.API.Mediatr.Commands.ChangeName.CommandHandler.#ctor(Identity.API.Domain.Repositories.IUserUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{Identity.Domain.Entities.User},Application.Core.Abstractions.Helpers.JWT.IUserIdentifierProvider)">
             <summary>
             Initializes a new instance of the <see cref="T:Identity.API.Mediatr.Commands.ChangeName.CommandHandler"/> class.
             </summary>
@@ -518,7 +669,7 @@
             Represents the <see cref="T:Identity.API.Mediatr.Commands.ChangePassword.Command"/> handler.
             </summary>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.ChangePassword.CommandHandler.#ctor(Application.Core.Abstractions.IUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{Identity.Domain.Entities.User},Application.Core.Abstractions.Helpers.JWT.IUserIdentifierProvider)">
+        <member name="M:Identity.API.Mediatr.Commands.ChangePassword.CommandHandler.#ctor(Identity.API.Domain.Repositories.IUserUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{Identity.Domain.Entities.User},Application.Core.Abstractions.Helpers.JWT.IUserIdentifierProvider)">
             <summary>
             Initializes a new instance of the <see cref="T:Identity.API.Mediatr.Commands.ChangePassword.CommandHandler"/> class.
             </summary>
@@ -584,7 +735,7 @@
             <param name="dbContext">The database context.</param>
             <param name="signInManager">The sign in manager.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.Login.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Login.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Microsoft.AspNetCore.Identity.SignInManager{Identity.Domain.Entities.User},Application.Core.Abstractions.IDbContext)">
+        <member name="M:Identity.API.Mediatr.Commands.Login.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Login.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Microsoft.AspNetCore.Identity.SignInManager{Identity.Domain.Entities.User},Identity.API.Persistence.UserDbContext)">
             <summary>
             Represents the login command handler class.
             </summary>
@@ -712,7 +863,7 @@
             <param name="userRepository">The user repository.</param>
             <param name="logger">The logger.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Queries.GetTheUserById.GetTheUserByIdQueryHandler.#ctor(Identity.Domain.Repositories.IUserRepository,Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Queries.GetTheUserById.GetTheUserByIdQueryHandler})">
+        <member name="M:Identity.API.Mediatr.Queries.GetTheUserById.GetTheUserByIdQueryHandler.#ctor(Identity.API.Domain.Repositories.IUserRepository,Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Queries.GetTheUserById.GetTheUserByIdQueryHandler})">
             <summary>
             Represents the <see cref="T:Identity.API.Mediatr.Queries.GetTheUserById.GetTheUserByIdQuery"/> handler.
             </summary>
@@ -722,12 +873,52 @@
         <member name="M:Identity.API.Mediatr.Queries.GetTheUserById.GetTheUserByIdQueryHandler.Handle(Identity.API.Mediatr.Queries.GetTheUserById.GetTheUserByIdQuery,System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
+        <member name="T:Identity.API.Migrations.Initial">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Migrations.Initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Migrations.Initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Identity.API.Migrations.AddPermissions">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Migrations.AddPermissions.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Migrations.AddPermissions.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Migrations.AddPermissions.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Identity.API.Persistence.Configurations.PermissionConfiguration">
+            <summary>
+            Represents the <see cref="T:Domain.Entities.Permission"/> configuration.
+            </summary>
+        </member>
+        <member name="M:Identity.API.Persistence.Configurations.PermissionConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Domain.Entities.Permission})">
+            <inheritdoc />
+        </member>
         <member name="T:Identity.API.Persistence.Configurations.RoleConfiguration">
             <summary>
             Represents the <see cref="T:Domain.Entities.Role"/> configuration.
             </summary>
         </member>
         <member name="M:Identity.API.Persistence.Configurations.RoleConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Domain.Entities.Role})">
+            <inheritdoc />
+        </member>
+        <member name="T:Identity.API.Persistence.Configurations.RolePermissionConfiguration">
+            <summary>
+            Represents the <see cref="T:Domain.Entities.RolePermission"/> configuration.
+            </summary>
+        </member>
+        <member name="M:Identity.API.Persistence.Configurations.RolePermissionConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Domain.Entities.RolePermission})">
             <inheritdoc />
         </member>
         <member name="T:Identity.API.Persistence.Configurations.UserConfiguration">
@@ -823,16 +1014,62 @@
         <member name="M:Identity.API.Persistence.Repositories.UserRepository.GetByEmailAsync(Domain.ValueObjects.EmailAddress)">
             <inheritdoc />
         </member>
+        <member name="T:Identity.API.Persistence.Repositories.UserUnitOfWork">
+            <summary>
+            Represents the user Unit of work class.
+            </summary>
+        </member>
+        <member name="M:Identity.API.Persistence.Repositories.UserUnitOfWork.#ctor(Identity.API.Persistence.UserDbContext)">
+            <summary>
+            Initialize new instance of the <see cref="T:Identity.API.Persistence.Repositories.UserUnitOfWork"/>.
+            </summary>
+            <param name="userDbContext">The base generic db context.</param>
+        </member>
+        <member name="M:Identity.API.Persistence.Repositories.UserUnitOfWork.BeginTransactionAsync(System.Threading.CancellationToken,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Persistence.Repositories.UserUnitOfWork.SetAutoDetectChanges(System.Boolean)">
+            <summary>
+            DbContext disable/enable auto detect changes.
+            </summary>
+            <param name="value">The boolean value.</param>
+        </member>
+        <member name="M:Identity.API.Persistence.Repositories.UserUnitOfWork.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously saves all changes made in this unit of work to the database.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that represents the asynchronous save operation. The task result contains the number of state entities written to database.</returns>
+        </member>
+        <member name="M:Identity.API.Persistence.Repositories.UserUnitOfWork.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Identity.API.Persistence.Repositories.UserUnitOfWork.Dispose(System.Boolean)">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <param name="disposing">The disposing.</param>
+        </member>
+        <member name="M:Identity.API.Persistence.Repositories.UserUnitOfWork.TrackGraph(System.Object,System.Action{Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntryGraphNode})">
+            <summary>
+            Uses Track Graph Api to attach disconnected entities
+            </summary>
+            <param name="rootEntity"> Root entity</param>
+            <param name="callback">Delegate to convert Object's State properties to Entities entry state.</param>
+        </member>
         <member name="T:Identity.API.Persistence.UserDbContext">
             <summary>
             Represents the <see cref="T:Identity.Domain.Entities.User"/> database context base class.
             </summary>
         </member>
-        <member name="M:Identity.API.Persistence.UserDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Identity.API.Persistence.UserDbContext})">
+        <member name="M:Identity.API.Persistence.UserDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Identity.API.Persistence.UserDbContext},MediatR.IPublisher,Persistence.Infrastructure.ConnectionString)">
             <summary>
             Initializes a new instance of the <see cref="T:Identity.API.Persistence.UserDbContext"/> class.
             </summary>
             <param name="options">The database context options.</param>
+            <param name="publisher">The publisher.</param>
+            <param name="connectionStringOptions">The connection string options.</param>
         </member>
         <member name="M:Identity.API.Persistence.UserDbContext.#ctor">
             <inheritdoc />
@@ -890,6 +1127,12 @@
             This method is recursive.
             </summary>
             <param name="entityEntry">The entity entry.</param>
+        </member>
+        <member name="M:Identity.API.Persistence.UserDbContext.PublishDomainEventsForIdentity(System.Threading.CancellationToken)">
+            <summary>
+            Publishes and then clears all the domain events that exist within the current transaction.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
         </member>
         <member name="M:Identity.API.Persistence.UserDbContext.ExecuteSqlAsync(System.FormattableString)">
             <inheritdoc cref="T:System.FormattableString" />
@@ -1196,129 +1439,6 @@
         <member name="P:Identity.Domain.Events.User.UserPasswordChangedDomainEvent.User">
             <summary>
             Gets the user.
-            </summary>
-        </member>
-        <member name="T:Identity.Domain.Repositories.IUserRepository">
-            <summary>
-            Represents the user repository interface.
-            </summary>
-        </member>
-        <member name="M:Identity.Domain.Repositories.IUserRepository.GetByIdAsync(System.Guid)">
-            <summary>
-            Gets the user with the specified identifier.
-            </summary>
-            <param name="userId">The user identifier.</param>
-            <returns>The maybe instance that may contain the user with the specified identifier.</returns>
-        </member>
-        <member name="M:Identity.Domain.Repositories.IUserRepository.GetByNameAsync(System.String)">
-            <summary>
-            Gets the user with the user name.
-            </summary>
-            <param name="name">The user name.</param>
-            <returns>The maybe instance that may contain the user with the specified identifier.</returns>
-        </member>
-        <member name="M:Identity.Domain.Repositories.IUserRepository.GetByEmailAsync(Domain.ValueObjects.EmailAddress)">
-            <summary>
-            Gets the user with the specified emailAddress.
-            </summary>
-            <param name="emailAddress">The user emailAddress.</param>
-            <returns>The maybe instance that may contain the user with the specified emailAddress.</returns>
-        </member>
-        <member name="T:Identity.Application.Core.Settings.User.IdentityConfiguration">
-            <summary>
-            Represents the identity configuration class.
-            </summary>
-        </member>
-        <member name="P:Identity.Application.Core.Settings.User.IdentityConfiguration.ApiScopes">
-            <summary>
-            The api scopes list.
-            </summary>
-        </member>
-        <member name="P:Identity.Application.Core.Settings.User.IdentityConfiguration.IdentityResources">
-            <summary>
-            The identity resources list.
-            </summary>
-        </member>
-        <member name="P:Identity.Application.Core.Settings.User.IdentityConfiguration.ApiResources">
-            <summary>
-            The api resources list.
-            </summary>
-        </member>
-        <member name="P:Identity.Application.Core.Settings.User.IdentityConfiguration.Clients">
-            <summary>
-            The clients list.
-            </summary>
-        </member>
-        <member name="T:Identity.Application.Core.Settings.User.RefreshTokenData">
-            <summary>
-            Represents the refresh token data.
-            </summary>
-        </member>
-        <member name="P:Identity.Application.Core.Settings.User.RefreshTokenData.Key">
-            <summary>
-            Gets or sets key.
-            </summary>
-        </member>
-        <member name="P:Identity.Application.Core.Settings.User.RefreshTokenData.Expire">
-            <summary>
-            Gets or sets date/time expire.
-            </summary>
-        </member>
-        <member name="P:Identity.Application.Core.Settings.User.RefreshTokenData.UserId">
-            <summary>
-            Gets or sets user identifier.
-            </summary>
-        </member>
-        <member name="T:Identity.Infrastructure.Settings.User.UserInfo">
-            <summary>
-            Represents the user info class.
-            </summary>
-            <param name="claims">The claims.</param>
-        </member>
-        <member name="M:Identity.Infrastructure.Settings.User.UserInfo.#ctor(System.Security.Claims.ClaimsPrincipal)">
-            <summary>
-            Represents the user info class.
-            </summary>
-            <param name="claims">The claims.</param>
-        </member>
-        <member name="P:Identity.Infrastructure.Settings.User.UserInfo.Id">
-            <summary>
-            The identifier.
-            </summary>
-        </member>
-        <member name="P:Identity.Infrastructure.Settings.User.UserInfo.UserName">
-            <summary>
-            The username.
-            </summary>
-        </member>
-        <member name="P:Identity.Infrastructure.Settings.User.UserInfo.Email">
-            <summary>
-            The email.
-            </summary>
-        </member>
-        <member name="P:Identity.Infrastructure.Settings.User.UserInfo.FirstName">
-            <summary>
-            The first name.
-            </summary>
-        </member>
-        <member name="P:Identity.Infrastructure.Settings.User.UserInfo.LastName">
-            <summary>
-            The last name.
-            </summary>
-        </member>
-        <member name="P:Identity.Infrastructure.Settings.User.UserInfo.Patronymic">
-            <summary>
-            The patronymic.
-            </summary>
-        </member>
-        <member name="P:Identity.Infrastructure.Settings.User.UserInfo.BirthDate">
-            <summary>
-            The birth date.
-            </summary>
-        </member>
-        <member name="P:Identity.Infrastructure.Settings.User.UserInfo.Scope">
-            <summary>
-            The scope.
             </summary>
         </member>
         <member name="P:IntegrationEventContext.UserCreatedIntegrationEvent">

@@ -4,6 +4,8 @@ using Persistence;
 using Application.Core.Abstractions;
 using Application.Core.Abstractions.Messaging;
 using Domain.Common.Core.Errors;
+using Identity.API.Domain.Repositories;
+using Identity.API.Persistence;
 
 namespace Identity.API.Mediatr.Behaviour;
 
@@ -15,8 +17,8 @@ internal sealed class UserTransactionBehavior<TRequest, TResponse>
     where TRequest : ICommand<TResponse>
     where TResponse : class
 {
-    private readonly IUnitOfWork _unitOfWork;
-    private readonly BaseDbContext _userDbContext;
+    private readonly IUserUnitOfWork _unitOfWork;
+    private readonly UserDbContext _userDbContext;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="UserTransactionBehavior{TRequest,TResponse}"/> class.
@@ -24,8 +26,8 @@ internal sealed class UserTransactionBehavior<TRequest, TResponse>
     /// <param name="unitOfWork">The unit of work.</param>
     /// <param name="userDbContext">The base database context.</param>
     public UserTransactionBehavior(
-        IUnitOfWork unitOfWork,
-        BaseDbContext userDbContext)
+        IUserUnitOfWork unitOfWork,
+        UserDbContext userDbContext)
     {
         _unitOfWork = unitOfWork;
         _userDbContext = userDbContext;
@@ -41,6 +43,7 @@ internal sealed class UserTransactionBehavior<TRequest, TResponse>
         {
             return await next();
         }
+        TResponse response = await next();
         
         var strategy = _userDbContext.EfDatabase.CreateExecutionStrategy();
         await strategy.ExecuteAsync(async () =>
@@ -49,13 +52,9 @@ internal sealed class UserTransactionBehavior<TRequest, TResponse>
 
             try
             {
-                TResponse response = await next();
-                
                 await _unitOfWork.SaveChangesAsync(cancellationToken);
                 
                 await transaction.CommitAsync(cancellationToken);
-                
-                return response;
             }
             catch (Exception)
             {
@@ -64,7 +63,6 @@ internal sealed class UserTransactionBehavior<TRequest, TResponse>
                 throw;
             }
         });
-
-        throw new ArgumentException();
+        return response;
     }
 }

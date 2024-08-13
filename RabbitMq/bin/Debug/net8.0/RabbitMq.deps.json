@@ -10,7 +10,6 @@
         "dependencies": {
           "Application": "1.0.0",
           "Database.MetricsAndRabbitMessages": "1.0.0",
-          "Identity.IntegrationEvents": "1.0.0",
           "Microsoft.TestPlatform.TestHost": "17.6.0",
           "Newtonsoft.Json": "13.0.1",
           "OpenTelemetry": "1.9.0",

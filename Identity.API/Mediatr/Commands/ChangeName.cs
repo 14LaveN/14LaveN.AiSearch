@@ -22,6 +22,7 @@ using Domain.Common.ValueObjects;
 using Domain.Core.Exceptions;
 using Domain.Core.Primitives.Result;
 using Domain.Enumerations;
+using Identity.API.Domain.Repositories;
 using Identity.Domain.Entities;
 
 namespace Identity.API.Mediatr.Commands;
@@ -82,7 +83,7 @@ public static class ChangeName
     /// </summary>
     internal sealed class CommandHandler : ICommandHandler<Command, IBaseResponse<Result<User>>>
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUserUnitOfWork _unitOfWork;
         private readonly UserManager<User> _userManager;
         private readonly IUserIdentifierProvider _userIdentifier;
     
@@ -93,7 +94,7 @@ public static class ChangeName
         /// <param name="userManager">The user manager.</param>
         /// <param name="userIdentifier">The user identifier provider.</param>
         public CommandHandler(
-            IUnitOfWork unitOfWork,
+            IUserUnitOfWork unitOfWork,
             UserManager<User> userManager,
             IUserIdentifierProvider userIdentifier)
         {

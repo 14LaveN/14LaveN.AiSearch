@@ -2919,19 +2919,6 @@
           "bin/placeholder/Domain.dll": {}
         }
       },
-      "Identity.IntegrationEvents/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "Newtonsoft.Json": "13.0.1"
-        },
-        "compile": {
-          "bin/placeholder/Identity.IntegrationEvents.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Identity.IntegrationEvents.dll": {}
-        }
-      },
       "Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -2956,7 +2943,6 @@
         "dependencies": {
           "Application": "1.0.0",
           "Database.MetricsAndRabbitMessages": "1.0.0",
-          "Identity.IntegrationEvents": "1.0.0",
           "Microsoft.TestPlatform.TestHost": "17.6.0",
           "Newtonsoft.Json": "13.0.1",
           "OpenTelemetry": "1.9.0",
@@ -8431,11 +8417,6 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
-    },
-    "Identity.IntegrationEvents/1.0.0": {
-      "type": "project",
-      "path": "../Identity.IntegrationEvents/Identity.IntegrationEvents.csproj",
-      "msbuildProject": "../Identity.IntegrationEvents/Identity.IntegrationEvents.csproj"
     },
     "Infrastructure/1.0.0": {
       "type": "project",

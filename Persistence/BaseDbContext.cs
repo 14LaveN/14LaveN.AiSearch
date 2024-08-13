@@ -23,13 +23,20 @@ namespace Persistence;
 public class BaseDbContext
     : DbContext, IDbContext
 {
+    private readonly IPublisher _publisher ;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="BaseDbContext"/> class.
     /// </summary>
     /// <param name="options">The database context options.</param>
+    /// <param name="publisher">The publisher.</param>
     public BaseDbContext(
-        DbContextOptions<BaseDbContext> options)
-        : base(options) { }
+        DbContextOptions<BaseDbContext> options,
+        IPublisher publisher)
+        : base(options)
+    {
+        _publisher   = publisher  ;
+    }
     
 
     /// <inheritdoc />
@@ -110,6 +117,8 @@ public class BaseDbContext
        UpdateAuditableEntities(utcNow);
        UpdateSoftDeletableEntities(utcNow);
 
+       await PublishDomainEvents(cancellationToken);
+
        return await base.SaveChangesAsync(cancellationToken);
     }
 
@@ -178,6 +187,28 @@ public class BaseDbContext
                     UpdateDeletedEntityEntryReferencesToUnchanged(referenceEntry.TargetEntry);
                 }
             }
+        }
+        
+        /// <summary>
+        /// Publishes and then clears all the domain events that exist within the current transaction.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        private async System.Threading.Tasks.Task PublishDomainEvents(CancellationToken cancellationToken)
+        {
+            List<EntityEntry<AggregateRoot>> aggregateRoots = ChangeTracker
+                .Entries<AggregateRoot>()
+                .Where(entityEntry => entityEntry.Entity.DomainEvents.Count is not 0)
+                .ToList();
+            
+            List<IDomainEvent> domainEvents = aggregateRoots
+                .SelectMany(entityEntry => entityEntry.Entity.DomainEvents).ToList();
+
+            aggregateRoots.ForEach(entityEntry => entityEntry.Entity.ClearDomainEvents());
+
+            IEnumerable<System.Threading.Tasks.Task> tasks = domainEvents.Select(async domainEvent => 
+                await _publisher  .Publish(domainEvent, cancellationToken));
+
+            await System.Threading.Tasks.Task.WhenAll(tasks);
         }
 
         /// <inheritdoc cref="FormattableString" />

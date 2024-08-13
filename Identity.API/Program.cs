@@ -19,10 +19,13 @@ using Prometheus.Client.HttpRequestDurations;
 using RabbitMq;
 using RabbitMq.Extensions;
 using Serilog;
+using ServiceDefaults;
 
 #region BuilderRegion
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.AddServiceDefaults();
 
 builder.Services.AddRateLimiter(options =>
 {
@@ -73,7 +76,8 @@ builder.Services
     //TODO .AddBackgroundTasks(builder.Configuration)
     //TODO .AddCaching(builder.Configuration)
 
-builder.Services.AddRabbitMq(builder.Configuration)
+builder.Services
+    .AddRabbitMq(builder.Configuration)
     .ConfigureJsonOptions(options => options.TypeInfoResolverChain.Add(IntegrationEventContext.Default));
 
 builder.Host.UseSerilog(Logging.ConfigureLogger);
@@ -92,9 +96,6 @@ builder.Services
             .AllowAnyMethod()));
 
 #endregion
-
-//var vaultService = new VaultService(builder.Configuration); - Problems with path to Vault secret.
-//var service = await vaultService.GetSecretAsync("/v1/secret/data/identity/secret");
 
 #region ApplicationRegion
 
@@ -156,10 +157,11 @@ void UseMetrics()
     if (app is null)
         throw new ArgumentException();
     
+    app.MapMetrics();
     app.UseMetricServer();
     app.UseHttpMetrics();
-    app.UsePrometheusServer();
-    app.UsePrometheusRequestDurations();
+    //app.UsePrometheusServer();
+    //app.UsePrometheusRequestDurations();
 }
 
 void MapEndpoints()

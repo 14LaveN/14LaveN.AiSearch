@@ -7,9 +7,7 @@ using Persistence;
 using Domain.Core.Utility;
 using Identity.API.Infrastructure.Settings.User;
 using Identity.API.Persistence;
-using Identity.Application.Core.Settings.User;
 using Identity.Domain.Entities;
-using Identity.Infrastructure.Settings.User;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Identity.Api.Common.DependencyInjection;
@@ -47,8 +45,8 @@ internal static class DiAuthorization
             })
             .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
             {
-                options.LoginPath = "/Account/Login";
-                options.LogoutPath = "/Account/Logout";
+                options.LoginPath = "/api/v1/users/register";
+                options.LogoutPath = "/api/v1/users/register";
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
                 options.SlidingExpiration = true;
             })

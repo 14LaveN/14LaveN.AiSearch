@@ -1,9 +1,8 @@
 using Domain.Common.Core.Primitives.Maybe;
-using Domain.Common.ValueObjects;
 using Domain.ValueObjects;
 using Identity.Domain.Entities;
 
-namespace Identity.Domain.Repositories;
+namespace Identity.API.Domain.Repositories;
 
 /// <summary>
 /// Represents the user repository interface.

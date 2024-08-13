@@ -36,7 +36,7 @@ public class SignInProvider<TUser>(
     /// <summary>
     /// The authentication scheme to sign in with. Defaults to <see cref="CookieAuthenticationDefaults.AuthenticationScheme"/>.
     /// </summary>
-    public string AuthenticationScheme { get; private set; } = CookieAuthenticationDefaults.AuthenticationScheme;
+    public const string AuthenticationScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     
     /// <summary>
     /// The <see cref="IUserClaimsPrincipalFactory{TUser}"/> used.

@@ -3,16 +3,21 @@ using Application.Core.Abstractions;
 using Domain.Common.Core.Abstractions;
 using Domain.Common.Core.Primitives;
 using Domain.Common.Core.Primitives.Maybe;
+using Domain.Core.Events;
 using Domain.Core.Extensions;
+using Identity.API.Persistence.Configurations;
 using Identity.Domain.Entities;
 using Identity.Domain.Enumerations;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.Options;
 using Npgsql;
+using Persistence.Infrastructure;
 
 namespace Identity.API.Persistence;
 
@@ -22,13 +27,24 @@ namespace Identity.API.Persistence;
 public sealed class UserDbContext
     : IdentityDbContext<User, IdentityRole<Guid>, Guid>, IDbContext
 {
+    private readonly IPublisher _publisher;
+    private readonly ConnectionString _connectionString;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="UserDbContext"/> class.
     /// </summary>
     /// <param name="options">The database context options.</param>
+    /// <param name="publisher">The publisher.</param>
+    /// <param name="connectionStringOptions">The connection string options.</param>
     public UserDbContext(
-        DbContextOptions<UserDbContext> options)
-        : base(options) { }
+        DbContextOptions<UserDbContext> options,
+        IPublisher publisher,
+        ConnectionString connectionStringOptions)
+        : base(options)
+    {
+        _connectionString = connectionStringOptions;
+        _publisher = publisher;
+    }
 
     /// <inheritdoc />
     public UserDbContext() { }
@@ -42,7 +58,7 @@ public sealed class UserDbContext
         optionsBuilder
             .ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.ForeignKeyPropertiesMappedToUnrelatedTables));
         optionsBuilder
-            .UseNpgsql();
+            .UseNpgsql(_connectionString);
     }
 
     /// <inheritdoc />
@@ -50,7 +66,10 @@ public sealed class UserDbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        modelBuilder.ApplyConfiguration(new PermissionConfiguration())
+            .ApplyConfiguration(new RoleConfiguration())
+            .ApplyConfiguration(new UserConfiguration())
+            .ApplyConfiguration(new RolePermissionConfiguration());
 
         modelBuilder.HasDefaultSchema("dbo");
 
@@ -184,6 +203,28 @@ public sealed class UserDbContext
                     UpdateDeletedEntityEntryReferencesToUnchanged(referenceEntry.TargetEntry);
                 }
             }
+        }
+        
+        /// <summary>
+        /// Publishes and then clears all the domain events that exist within the current transaction.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        private async Task PublishDomainEventsForIdentity(CancellationToken cancellationToken)
+        {
+            List<EntityEntry<User>> aggregateRoots = ChangeTracker
+                .Entries<User>()
+                .Where(entityEntry => entityEntry.Entity.DomainEvents.Count is not 0)
+                .ToList();
+
+            List<IDomainEvent> domainEvents = aggregateRoots
+                .SelectMany(entityEntry => entityEntry.Entity.DomainEvents).ToList();
+
+            aggregateRoots.ForEach(entityEntry => entityEntry.Entity.ClearDomainEvents());
+
+            IEnumerable<Task> tasks = domainEvents.Select(async domainEvent => 
+                await _publisher .Publish(domainEvent, cancellationToken));
+
+            await Task.WhenAll(tasks);
         }
 
         /// <inheritdoc cref="FormattableString" />

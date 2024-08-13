@@ -23,7 +23,9 @@ using Domain.Core.Primitives.Result;
 using Domain.ValueObjects;
 using Identity.API.Abstractions.Idempotency;
 using Identity.API.ApiHelpers.Responses;
+using Identity.API.Persistence;
 using Identity.Domain.Entities;
+using ServiceDefaults;
 
 namespace Identity.API.Mediatr.Commands;
 
@@ -122,7 +124,9 @@ public static class Register
                 Result<Password> passwordResult = Password.Create(request.Password);
                 
                 User? user = await userManager.FindByNameAsync(request.UserName);
-    
+
+                var str = httpContextAccessor.HttpContext.User;
+                
                 if (user is not null)
                 {
                     logger.LogWarning("User with the same name already taken");

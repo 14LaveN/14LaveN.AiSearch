@@ -1,0 +1,13 @@
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\bin\Debug\net8.0\ServiceDefaults.deps.json
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\bin\Debug\net8.0\ServiceDefaults.dll
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\bin\Debug\net8.0\ServiceDefaults.pdb
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\obj\Debug\net8.0\ServiceDefaults.csproj.AssemblyReference.cache
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\obj\Debug\net8.0\ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\obj\Debug\net8.0\ServiceDefaults.AssemblyInfoInputs.cache
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\obj\Debug\net8.0\ServiceDefaults.AssemblyInfo.cs
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\obj\Debug\net8.0\ServiceDefaults.csproj.CoreCompileInputs.cache
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\obj\Debug\net8.0\ServiceDefaults.sourcelink.json
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\obj\Debug\net8.0\ServiceDefaults.dll
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\obj\Debug\net8.0\refint\ServiceDefaults.dll
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\obj\Debug\net8.0\ServiceDefaults.pdb
+G:\DotNetProjects\14LaveN.AiSearch\ServiceDefaults\obj\Debug\net8.0\ref\ServiceDefaults.dll
