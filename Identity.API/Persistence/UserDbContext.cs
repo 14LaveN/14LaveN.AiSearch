@@ -5,8 +5,8 @@ using Domain.Common.Core.Primitives;
 using Domain.Common.Core.Primitives.Maybe;
 using Domain.Core.Events;
 using Domain.Core.Extensions;
+using Identity.API.Domain.Entities;
 using Identity.API.Persistence.Configurations;
-using Identity.Domain.Entities;
 using Identity.Domain.Enumerations;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -135,6 +135,8 @@ public sealed class UserDbContext
        UpdateAuditableEntities(utcNow);
        UpdateSoftDeletableEntities(utcNow);
 
+       await PublishDomainEventsForIdentity(cancellationToken);
+
        return await base.SaveChangesAsync(cancellationToken);
     }
 
@@ -215,7 +217,7 @@ public sealed class UserDbContext
                 .Entries<User>()
                 .Where(entityEntry => entityEntry.Entity.DomainEvents.Count is not 0)
                 .ToList();
-
+        
             List<IDomainEvent> domainEvents = aggregateRoots
                 .SelectMany(entityEntry => entityEntry.Entity.DomainEvents).ToList();
 

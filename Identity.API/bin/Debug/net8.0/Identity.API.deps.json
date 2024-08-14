@@ -9,6 +9,7 @@
       "Identity.API/1.0.0": {
         "dependencies": {
           "Application": "1.0.0",
+          "AspNetCore.HealthChecks.Redis": "8.0.1",
           "AspNetCore.HealthChecks.UI.Client": "8.0.1",
           "Common.Logging": "1.0.0",
           "Database.MetricsAndRabbitMessages": "1.0.0",
@@ -59,6 +60,18 @@
         },
         "runtime": {
           "lib/net8.0/HealthChecks.NpgSql.dll": {
+            "assemblyVersion": "8.0.1.0",
+            "fileVersion": "8.0.1.0"
+          }
+        }
+      },
+      "AspNetCore.HealthChecks.Redis/8.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "8.0.6",
+          "StackExchange.Redis": "2.7.27"
+        },
+        "runtime": {
+          "lib/net6.0/HealthChecks.Redis.dll": {
             "assemblyVersion": "8.0.1.0",
             "fileVersion": "8.0.1.0"
           }
@@ -2055,6 +2068,13 @@
       "sha512": "sha512-SQAXxr70LjGdDzSXsr2hxYqcBRhMTddL/kHRs5ftpysdVw6UQhY2/mHl4Q+6yd8ajJsQW5My4tmqk1/zyBAY8w==",
       "path": "aspnetcore.healthchecks.npgsql/8.0.1",
       "hashPath": "aspnetcore.healthchecks.npgsql.8.0.1.nupkg.sha512"
+    },
+    "AspNetCore.HealthChecks.Redis/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-45jqq4ydvmm7yKpTf0jEpUuYloe2vlytN9dasmqwmQyorpNbjdvWuyvSmjVZM5nBa5e5ryF5MU+F7bXv6Zp2vQ==",
+      "path": "aspnetcore.healthchecks.redis/8.0.1",
+      "hashPath": "aspnetcore.healthchecks.redis.8.0.1.nupkg.sha512"
     },
     "AspNetCore.HealthChecks.UI.Client/8.0.1": {
       "type": "package",

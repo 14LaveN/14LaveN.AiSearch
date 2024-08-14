@@ -13,6 +13,8 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+        <InternalsVisibleTo
+                Include="Identity.UnitTests"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -27,6 +29,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="8.0.1" />
       <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
       <PackageReference Include="IdentityServer4" Version="4.1.2" />
       <PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.1.2" />
@@ -51,6 +54,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Common\HealthChecks\" />
       <Folder Include="Contracts\" />
       <Folder Include="IntegrationEvents\" />
       <Folder Include="Services\" />

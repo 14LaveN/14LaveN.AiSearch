@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Domain.Common.Core.Abstractions;
+﻿using Domain.Common.Core.Abstractions;
 using Domain.Common.Core.Errors;
-using Domain.Common.Core.Primitives.Result;
 using Domain.Common.ValueObjects;
 using Domain.Core.Events;
 using Domain.Core.Primitives;
@@ -10,9 +8,9 @@ using Domain.Core.Utility;
 using Domain.Entities;
 using Domain.ValueObjects;
 using Identity.Domain.Events.User;
-using Permission = Domain.Enumerations.Permission;
+using Microsoft.AspNetCore.Identity;
 
-namespace Identity.Domain.Entities;
+namespace Identity.API.Domain.Entities;
 
 /// <summary>
 /// Represents the user entity.

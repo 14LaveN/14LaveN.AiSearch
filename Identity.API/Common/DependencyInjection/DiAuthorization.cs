@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
 using Domain.Core.Utility;
+using Identity.API.Domain.Entities;
 using Identity.API.Infrastructure.Settings.User;
 using Identity.API.Persistence;
-using Identity.Domain.Entities;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Identity.Api.Common.DependencyInjection;

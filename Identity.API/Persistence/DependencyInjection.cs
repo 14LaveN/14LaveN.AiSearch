@@ -1,4 +1,5 @@
 using Application.Core.Abstractions;
+using Application.Core.Abstractions.HealthChecks;
 using Application.Core.Abstractions.Idempotency;
 using Application.Core.Extensions;
 using Identity.API.Domain.Repositories;
@@ -6,6 +7,8 @@ using Identity.API.Persistence.Repositories;
 using MediatR.NotificationPublishers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Persistence;
 using Persistence.Infrastructure;
 
@@ -23,18 +26,18 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        if (services is null)
-        {
-            throw new ArgumentNullException(nameof(services));
-        }
-        
+        ArgumentNullException.ThrowIfNull(services);
+
         ConnectionString connectionString = configuration.GetConnectionStringOrThrow(ConnectionString.SettingsKey);
 
-        services.AddSingleton<ConnectionString>(_ => connectionString);
+        services.TryAddSingleton<ConnectionString>(_ => connectionString);
         
-        //TODO HealthChecks.
-        //TODO services.AddHealthChecks()
-        //TODO     .AddNpgSql(connectionString);
+        services
+            .AddHealthChecks()
+            .AddCheck<DbContextHealthCheck<UserDbContext>>(
+                "UserDatabase",
+                failureStatus: HealthStatus.Unhealthy,
+                tags: new[] { "db", "sql" });
         
         services.AddDbContext<UserDbContext>((sp, o) =>
             o.UseNpgsql(connectionString, act

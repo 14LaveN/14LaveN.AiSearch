@@ -1,6 +1,6 @@
 using System.Net;
 using Domain.Core.Primitives.Result;
-using Identity.Domain.Entities;
+using Identity.API.Domain.Entities;
 
 namespace Identity.API.ApiHelpers.Responses;
 

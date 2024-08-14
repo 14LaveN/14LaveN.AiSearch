@@ -292,3 +292,4 @@ G:\DotNetProjects\14LaveN.AiSearch\Identity.API\bin\Debug\net8.0\ru\Microsoft.Co
 G:\DotNetProjects\14LaveN.AiSearch\Identity.API\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 G:\DotNetProjects\14LaveN.AiSearch\Identity.API\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 G:\DotNetProjects\14LaveN.AiSearch\Identity.API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\DotNetProjects\14LaveN.AiSearch\Identity.API\bin\Debug\net8.0\HealthChecks.Redis.dll

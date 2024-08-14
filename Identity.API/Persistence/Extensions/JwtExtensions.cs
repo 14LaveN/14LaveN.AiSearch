@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Application.Core.Abstractions;
 using Domain.Entities;
-using Identity.Domain.Entities;
+using Identity.API.Domain.Entities;
 
 namespace Identity.API.Persistence.Extensions;
 

@@ -1,4 +1,4 @@
-namespace Identity.Domain.Entities;
+namespace Identity.API.Domain.Entities;
 
 /// <summary>
 /// Represents the user identifier record.

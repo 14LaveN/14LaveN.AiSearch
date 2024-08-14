@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Domain.Common.ValueObjects;
 using Domain.Entities;
 using Domain.ValueObjects;
-using Identity.Domain.Entities;
+using Identity.API.Domain.Entities;
 
 namespace Identity.API.Persistence.Configurations;
 

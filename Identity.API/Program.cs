@@ -6,12 +6,15 @@ using Application.ApiHelpers.Configurations;
 using Application.ApiHelpers.Middlewares;
 using AspNetCore.Serilog.RequestLoggingMiddleware;
 using Common.Logging;
+using HealthChecks.UI.Client;
 using Identity.Api.Common.DependencyInjection;
 using Identity.API.Common.DependencyInjection;
 using Identity.API.Infrastructure;
 using Identity.API.IntegrationEvents.User.Events.UserCreated;
+using Identity.API.Persistence.Extensions;
 using Microsoft.AspNetCore.ResponseCompression;
 using Infrastructure;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Persistence;
 using Prometheus;
 using Prometheus.Client.AspNetCore;
@@ -84,8 +87,6 @@ builder.Host.UseSerilog(Logging.ConfigureLogger);
 
 builder.Services.AddTransient<LogContextEnrichmentMiddleware>();
 
-//TODO builder.Services.AddServiceDiscovery(o => o.UseConsul());
-
 builder.Services.AddApplication();
 
 builder.Services
@@ -104,7 +105,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwaggerApp();
-    app.ApplyMigrations();
+    app.ApplyUserDbMigrations();
 }
 
 app.UseRateLimiter();
@@ -123,10 +124,10 @@ app.UseIdentityServer();
 
 app.UseEndpoints(endpoints =>
 {
-   //TODO endpoints.MapHealthChecks("/health", new HealthCheckOptions
-   //TODO {
-   //TODO     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-   //TODO });
+   endpoints.MapHealthChecks("/health", new HealthCheckOptions
+   {
+       ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+   });
 });
 
 app.MapControllers();
@@ -147,9 +148,12 @@ void UseCustomMiddlewares()
     if (app is null)
         throw new ArgumentException();
 
-    app.UseMiddleware<RequestLoggingMiddleware>(app.Logger);
-    app.UseMiddleware<ResponseCachingMiddleware>();
-    app.UseMiddleware<LogContextEnrichmentMiddleware>();
+    app
+        .UseMiddleware<IdempotentRequestMiddleware>()
+        .UseMiddleware<RequestLoggingMiddleware>(app.Logger)
+        .UseMiddleware<ResponseCachingMiddleware>()
+        .UseMiddleware<LogContextEnrichmentMiddleware>();
+    
 }
 
 void UseMetrics()

@@ -17,8 +17,8 @@ using Domain.Common.Core.Primitives.Result;
 using Domain.Common.ValueObjects;
 using Domain.Core.Primitives.Result;
 using Domain.Enumerations;
+using Identity.API.Domain.Entities;
 using Identity.API.Domain.Repositories;
-using Identity.Domain.Entities;
 
 namespace Identity.API.Mediatr.Commands;
 

@@ -1,10 +1,13 @@
 using Application.Core.Behaviours;
 using Domain.Core.Utility;
+using Identity.API.IntegrationEvents.User.Events.PasswordChanged;
 using Identity.API.IntegrationEvents.User.Events.UserCreated;
+using Identity.API.IntegrationEvents.User.Handlers.PasswordChanged;
 using Identity.API.IntegrationEvents.User.Handlers.UserCreated;
 using Identity.API.Mediatr.Behaviour;
 using Identity.API.Mediatr.Commands;
 using Identity.API.Mediatr.Queries.GetTheUserById;
+using Identity.Domain.Events.User;
 using MediatR.NotificationPublishers;
 
 namespace Identity.API.Common.DependencyInjection;
@@ -34,8 +37,12 @@ public static class DiMediator
                     typeof(ChangeName.CommandHandler).Assembly)
                 .RegisterServicesFromAssemblies(typeof(GetTheUserByIdQuery).Assembly,
                     typeof(GetTheUserByIdQueryHandler).Assembly)
+                .RegisterServicesFromAssemblies(typeof(UserCreatedDomainEvent).Assembly,
+                    typeof(PublishIntegrationEventOnUserCreatedDomainEventHandler).Assembly)
                 .RegisterServicesFromAssemblies(typeof(UserCreatedIntegrationEvent).Assembly,
-                    typeof(PublishIntegrationEventOnUserCreatedDomainEventHandler).Assembly);;
+                    typeof(SendWelcomeEmailOnUserCreatedIntegrationEventHandler).Assembly)
+                .RegisterServicesFromAssemblies(typeof(UserPasswordChangedIntegrationEvent).Assembly,
+                    typeof(NotifyUserOnPasswordChangedIntegrationEventHandler).Assembly);
             
             x.AddOpenBehavior(typeof(QueryCachingBehavior<,>))
                 //TODO .AddOpenBehavior(typeof(IdentityIdempotentCommandPipelineBehavior<,>))

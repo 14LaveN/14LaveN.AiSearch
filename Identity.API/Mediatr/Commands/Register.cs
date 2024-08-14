@@ -23,8 +23,8 @@ using Domain.Core.Primitives.Result;
 using Domain.ValueObjects;
 using Identity.API.Abstractions.Idempotency;
 using Identity.API.ApiHelpers.Responses;
+using Identity.API.Domain.Entities;
 using Identity.API.Persistence;
-using Identity.Domain.Entities;
 using ServiceDefaults;
 
 namespace Identity.API.Mediatr.Commands;
@@ -97,7 +97,7 @@ public static class Register
     /// <param name="signInManager">The sign in manager.</param>
     /// <param name="jwtOptions">The json web token options.</param>
     /// <param name="dbContext">The database context.</param>
-    internal sealed class CommandHandler(
+    public sealed class CommandHandler(
         ILogger<CommandHandler> logger,
         UserManager<User> userManager,
         SignInProvider<User> signInManager,

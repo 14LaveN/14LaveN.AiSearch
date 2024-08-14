@@ -1,7 +1,9 @@
+using Application.Core.Extensions;
 using Domain.Core.Utility;
 using Persistence;
 using Database.MetricsAndRabbitMessages;
 using Identity.API.Persistence;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 
 namespace Identity.Api.Common.DependencyInjection;
 
@@ -22,13 +24,21 @@ internal static class DiDatabase
         Ensure.NotNull(services, "Services is required.", nameof(services));
 
         services
-            .AddBaseDatabase(configuration)
+            //TODO.AddBaseDatabase(configuration)
             .AddUserDatabase(configuration)
             .AddMongoDatabase(configuration);
         
         string pathToFirebaseConfig = environment.IsDevelopment() 
             ? @"G:\DotNetProjects\TeamTasks\firebase.json" 
             : "/app/firebase.json";
+
+        services
+            .AddHealthChecks()
+            .AddRedis(
+            configuration.GetConnectionStringOrThrow("Redis"),
+            name: "redis",
+            failureStatus: HealthStatus.Unhealthy,
+            tags: new[] { "db", "redis" });
 
         //TODO FirebaseApp.Create(new AppOptions
         //TODO {

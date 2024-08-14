@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Domain.Entities;
-using Identity.Domain.Entities;
+using Identity.API.Domain.Entities;
 
 namespace Identity.API.Persistence.Configurations;
 

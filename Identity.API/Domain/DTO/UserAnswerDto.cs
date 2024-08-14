@@ -1,4 +1,4 @@
-namespace Identity.Domain.DTO;
+namespace Identity.API.Domain.DTO;
 
 /// <summary>
 /// Represents the user answer dto record.

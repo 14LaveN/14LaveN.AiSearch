@@ -193,6 +193,170 @@
         <member name="P:Identity.API.Contracts.Register.RegisterRequest.UserName">
             <summary>The user name.</summary>
         </member>
+        <member name="T:Identity.API.Domain.DTO.UserAnswerDto">
+            <summary>
+            Represents the user answer dto record.
+            </summary>
+            <param name="Title">The title.</param>
+            <param name="UserName">The user name.</param>
+            <param name="TotalAnswers">The total answers.</param>
+        </member>
+        <member name="M:Identity.API.Domain.DTO.UserAnswerDto.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Represents the user answer dto record.
+            </summary>
+            <param name="Title">The title.</param>
+            <param name="UserName">The user name.</param>
+            <param name="TotalAnswers">The total answers.</param>
+        </member>
+        <member name="P:Identity.API.Domain.DTO.UserAnswerDto.Title">
+            <summary>The title.</summary>
+        </member>
+        <member name="P:Identity.API.Domain.DTO.UserAnswerDto.UserName">
+            <summary>The user name.</summary>
+        </member>
+        <member name="P:Identity.API.Domain.DTO.UserAnswerDto.TotalAnswers">
+            <summary>The total answers.</summary>
+        </member>
+        <member name="T:Identity.API.Domain.Entities.User">
+            <summary>
+            Represents the user entity.
+            </summary>
+        </member>
+        <member name="M:Identity.API.Domain.Entities.User.#ctor(System.String,Domain.Common.ValueObjects.FirstName,Domain.Common.ValueObjects.LastName,Domain.ValueObjects.EmailAddress,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Identity.API.Domain.Entities.User"/> class.
+            </summary>
+            <param name="userName">The user name.</param>
+            <param name="firstName">The user first name.</param>
+            <param name="lastName">The user last name.</param>
+            <param name="emailAddress">The user email address.</param>
+            <param name="passwordHash">The user password hash.</param>
+        </member>
+        <member name="M:Identity.API.Domain.Entities.User.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="P:Identity.API.Domain.Entities.User.Roles">
+            <summary>
+            Gets or sets roles.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Domain.Entities.User.FirstName">
+            <summary>
+            Gets or sets the user first name.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Domain.Entities.User.LastName">
+            <summary>
+            Gets or sets the user last name.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Domain.Entities.User.FullName">
+            <summary>
+            Gets the user full name.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Domain.Entities.User.EmailAddress">
+            <summary>
+            Gets or sets the user email address.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Domain.Entities.User.CreatedOnUtc">
+            <inheritdoc />
+        </member>
+        <member name="P:Identity.API.Domain.Entities.User.ModifiedOnUtc">
+            <inheritdoc />
+        </member>
+        <member name="P:Identity.API.Domain.Entities.User.DeletedOnUtc">
+            <inheritdoc />
+        </member>
+        <member name="P:Identity.API.Domain.Entities.User.Deleted">
+            <inheritdoc />
+        </member>
+        <member name="P:Identity.API.Domain.Entities.User.RefreshToken">
+            <inheritdoc cref="P:Identity.API.Domain.Entities.User.RefreshToken" />
+        </member>
+        <member name="F:Identity.API.Domain.Entities.User._domainEvents">
+            <summary>
+            The domain events.
+            </summary>
+        </member>
+        <member name="P:Identity.API.Domain.Entities.User.DomainEvents">
+            <summary>
+            Gets the domain events. This collection is readonly.
+            </summary>
+        </member>
+        <member name="M:Identity.API.Domain.Entities.User.ClearDomainEvents">
+            <summary>
+            Clears all the domain events from the <see cref="T:Domain.Core.Primitives.AggregateRoot"/>.
+            </summary>
+        </member>
+        <member name="M:Identity.API.Domain.Entities.User.AddDomainEvent(Domain.Core.Events.IDomainEvent)">
+            <summary>
+            Adds the specified <see cref="T:Domain.Core.Events.IDomainEvent"/> to the <see cref="T:Domain.Core.Primitives.AggregateRoot"/>.
+            </summary>
+            <param name="domainEvent">The domain event.</param>
+        </member>
+        <member name="M:Identity.API.Domain.Entities.User.Create(Domain.Common.ValueObjects.FirstName,Domain.Common.ValueObjects.LastName,System.String,Domain.ValueObjects.EmailAddress,System.String)">
+            <summary>
+            Creates a new user with the specified first name, last name, email address and password hash.
+            </summary>
+            <param name="firstName">The first name.</param>
+            <param name="lastName">The last name.</param>
+            <param name="userName">The user name.</param>
+            <param name="emailAddress">The email address.</param>
+            <param name="passwordHash">The password hash.</param>
+            <returns>The newly created user instance.</returns>
+        </member>
+        <member name="M:Identity.API.Domain.Entities.User.ChangePassword(System.String)">
+            <summary>
+            Changes the user's password.
+            </summary>
+            <param name="passwordHash">The password hash of the new password.</param>
+            <returns>The success result or an error.</returns>
+        </member>
+        <member name="M:Identity.API.Domain.Entities.User.ChangeName(Domain.Common.ValueObjects.FirstName,Domain.Common.ValueObjects.LastName)">
+            <summary>
+            Changes the user's first and last name.
+            </summary>
+            <param name="firstName">The new first name.</param>
+            <param name="lastName">The new last name.</param>
+        </member>
+        <member name="T:Identity.API.Domain.Entities.UserId">
+            <summary>
+            Represents the user identifier record.
+            </summary>
+            <param name="Value">The guid value.</param>
+        </member>
+        <member name="M:Identity.API.Domain.Entities.UserId.#ctor(System.Guid)">
+            <summary>
+            Represents the user identifier record.
+            </summary>
+            <param name="Value">The guid value.</param>
+        </member>
+        <member name="P:Identity.API.Domain.Entities.UserId.Value">
+            <summary>The guid value.</summary>
+        </member>
+        <member name="M:Identity.API.Domain.Entities.UserId.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Domain.Entities.UserId.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Domain.Entities.UserId.op_Implicit(Identity.API.Domain.Entities.UserId)~System.Guid">
+            <summary>
+            Create the <see cref="T:System.Guid"/> value with specified <see cref="T:Identity.API.Domain.Entities.UserId"/> record.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns>Returns new <see cref="T:System.Guid"/> value.</returns>
+        </member>
+        <member name="M:Identity.API.Domain.Entities.UserId.op_Explicit(System.Guid)~Identity.API.Domain.Entities.UserId">
+            <summary>
+            Create the <see cref="T:Identity.API.Domain.Entities.UserId"/> value with specified <see cref="T:System.Guid"/> value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>Returns new <see cref="T:Identity.API.Domain.Entities.UserId"/> record.</returns>
+        </member>
         <member name="T:Identity.API.Domain.Repositories.IUserRepository">
             <summary>
             Represents the user repository interface.
@@ -532,6 +696,21 @@
             Gets the user identifier.
             </summary>
         </member>
+        <member name="T:Identity.API.IntegrationEvents.User.Handlers.PasswordChanged.NotifyUserOnPasswordChangedIntegrationEventHandler">
+            <summary>
+            Represents the <see cref="T:Identity.API.IntegrationEvents.User.Events.PasswordChanged.UserPasswordChangedIntegrationEvent"/> handler.
+            </summary>
+        </member>
+        <member name="M:Identity.API.IntegrationEvents.User.Handlers.PasswordChanged.NotifyUserOnPasswordChangedIntegrationEventHandler.#ctor(Identity.API.Domain.Repositories.IUserRepository,Email.Emails.IEmailNotificationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Identity.API.IntegrationEvents.User.Handlers.PasswordChanged.NotifyUserOnPasswordChangedIntegrationEventHandler"/> class.
+            </summary>
+            <param name="userRepository">The user repository.</param>
+            <param name="emailNotificationService">The email notification service.</param>
+        </member>
+        <member name="M:Identity.API.IntegrationEvents.User.Handlers.PasswordChanged.NotifyUserOnPasswordChangedIntegrationEventHandler.Handle(Identity.API.IntegrationEvents.User.Events.PasswordChanged.UserPasswordChangedIntegrationEvent,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
         <member name="T:Identity.API.IntegrationEvents.User.Handlers.PasswordChanged.PublishIntegrationEventOnUserPasswordChangedDomainEventHandler">
             <summary>
             Represents the <see cref="T:Identity.Domain.Events.User.UserPasswordChangedDomainEvent"/> handler.
@@ -558,6 +737,21 @@
             <param name="integrationEventPublisher">The integration event publisher.</param>
         </member>
         <member name="M:Identity.API.IntegrationEvents.User.Handlers.UserCreated.PublishIntegrationEventOnUserCreatedDomainEventHandler.Handle(Identity.Domain.Events.User.UserCreatedDomainEvent,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:Identity.API.IntegrationEvents.User.Handlers.UserCreated.SendWelcomeEmailOnUserCreatedIntegrationEventHandler">
+            <summary>
+            Represents the <see cref="T:Identity.API.IntegrationEvents.User.Events.UserCreated.UserCreatedIntegrationEvent"/> handler.
+            </summary>
+        </member>
+        <member name="M:Identity.API.IntegrationEvents.User.Handlers.UserCreated.SendWelcomeEmailOnUserCreatedIntegrationEventHandler.#ctor(Identity.API.Domain.Repositories.IUserRepository,Email.Emails.IEmailNotificationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Identity.API.IntegrationEvents.User.Handlers.UserCreated.SendWelcomeEmailOnUserCreatedIntegrationEventHandler"/> class.
+            </summary>
+            <param name="userRepository">The user repository.</param>
+            <param name="emailNotificationService">The email notification service.</param>
+        </member>
+        <member name="M:Identity.API.IntegrationEvents.User.Handlers.UserCreated.SendWelcomeEmailOnUserCreatedIntegrationEventHandler.Handle(Identity.API.IntegrationEvents.User.Events.UserCreated.UserCreatedIntegrationEvent,System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
         <member name="T:Identity.API.Mediatr.Behaviour.UserTransactionBehavior`2">
@@ -615,7 +809,7 @@
             Represents the <see cref="T:Identity.API.Mediatr.Commands.ChangeName.Command"/> handler.
             </summary>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.ChangeName.CommandHandler.#ctor(Identity.API.Domain.Repositories.IUserUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{Identity.Domain.Entities.User},Application.Core.Abstractions.Helpers.JWT.IUserIdentifierProvider)">
+        <member name="M:Identity.API.Mediatr.Commands.ChangeName.CommandHandler.#ctor(Identity.API.Domain.Repositories.IUserUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Application.Core.Abstractions.Helpers.JWT.IUserIdentifierProvider)">
             <summary>
             Initializes a new instance of the <see cref="T:Identity.API.Mediatr.Commands.ChangeName.CommandHandler"/> class.
             </summary>
@@ -669,7 +863,7 @@
             Represents the <see cref="T:Identity.API.Mediatr.Commands.ChangePassword.Command"/> handler.
             </summary>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.ChangePassword.CommandHandler.#ctor(Identity.API.Domain.Repositories.IUserUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{Identity.Domain.Entities.User},Application.Core.Abstractions.Helpers.JWT.IUserIdentifierProvider)">
+        <member name="M:Identity.API.Mediatr.Commands.ChangePassword.CommandHandler.#ctor(Identity.API.Domain.Repositories.IUserUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Application.Core.Abstractions.Helpers.JWT.IUserIdentifierProvider)">
             <summary>
             Initializes a new instance of the <see cref="T:Identity.API.Mediatr.Commands.ChangePassword.CommandHandler"/> class.
             </summary>
@@ -735,7 +929,7 @@
             <param name="dbContext">The database context.</param>
             <param name="signInManager">The sign in manager.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.Login.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Login.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Microsoft.AspNetCore.Identity.SignInManager{Identity.Domain.Entities.User},Identity.API.Persistence.UserDbContext)">
+        <member name="M:Identity.API.Mediatr.Commands.Login.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Login.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Microsoft.AspNetCore.Identity.SignInManager{Identity.API.Domain.Entities.User},Identity.API.Persistence.UserDbContext)">
             <summary>
             Represents the login command handler class.
             </summary>
@@ -818,7 +1012,7 @@
             <param name="jwtOptions">The json web token options.</param>
             <param name="dbContext">The database context.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.Register.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Register.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.Domain.Entities.User},Identity.API.Infrastructure.Authentication.SignIn.SignInProvider{Identity.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Application.Core.Abstractions.IDbContext,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+        <member name="M:Identity.API.Mediatr.Commands.Register.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Register.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Identity.API.Infrastructure.Authentication.SignIn.SignInProvider{Identity.API.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Application.Core.Abstractions.IDbContext,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
             <summary>
             Represents the register command handler class.
             </summary>
@@ -923,10 +1117,10 @@
         </member>
         <member name="T:Identity.API.Persistence.Configurations.UserConfiguration">
             <summary>
-            Represents the configuration for the <see cref="T:Identity.Domain.Entities.User"/> entity.
+            Represents the configuration for the <see cref="T:Identity.API.Domain.Entities.User"/> entity.
             </summary>
         </member>
-        <member name="M:Identity.API.Persistence.Configurations.UserConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Identity.Domain.Entities.User})">
+        <member name="M:Identity.API.Persistence.Configurations.UserConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{Identity.API.Domain.Entities.User})">
             <inheritdoc />
         </member>
         <member name="M:Identity.API.Persistence.DependencyInjection.AddUserDatabase(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
@@ -963,7 +1157,7 @@
             Represents the json web token extensions class.
             </summary>
         </member>
-        <member name="M:Identity.API.Persistence.Extensions.JwtExtensions.GenerateRefreshToken(Identity.Domain.Entities.User,Identity.API.Infrastructure.Settings.User.JwtOptions)">
+        <member name="M:Identity.API.Persistence.Extensions.JwtExtensions.GenerateRefreshToken(Identity.API.Domain.Entities.User,Identity.API.Infrastructure.Settings.User.JwtOptions)">
             <summary>
             Generate new refresh token by options.
             </summary>
@@ -971,7 +1165,7 @@
             <param name="jwtOptions">The json web token options.</param>
             <returns>Returns refresh token.</returns>
         </member>
-        <member name="M:Identity.API.Persistence.Extensions.JwtExtensions.GenerateAccessToken(Identity.Domain.Entities.User,Application.Core.Abstractions.IDbContext,Identity.API.Infrastructure.Settings.User.JwtOptions,System.Threading.CancellationToken)">
+        <member name="M:Identity.API.Persistence.Extensions.JwtExtensions.GenerateAccessToken(Identity.API.Domain.Entities.User,Application.Core.Abstractions.IDbContext,Identity.API.Infrastructure.Settings.User.JwtOptions,System.Threading.CancellationToken)">
             <summary>
             Generate new access token by options.
             </summary>
@@ -980,6 +1174,17 @@
             <param name="jwtOptions">The json web token options.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns access token.</returns>
+        </member>
+        <member name="T:Identity.API.Persistence.Extensions.MigrationExtensions">
+            <summary>
+            Represents the extensions for migration.
+            </summary>
+        </member>
+        <member name="M:Identity.API.Persistence.Extensions.MigrationExtensions.ApplyUserDbMigrations(Microsoft.AspNetCore.Builder.WebApplication)">
+            <summary>
+            Apply migrations.
+            </summary>
+            <param name="app">The web application.</param>
         </member>
         <member name="T:Identity.API.Persistence.Extensions.StringRandomizer">
             <summary>
@@ -1060,7 +1265,7 @@
         </member>
         <member name="T:Identity.API.Persistence.UserDbContext">
             <summary>
-            Represents the <see cref="T:Identity.Domain.Entities.User"/> database context base class.
+            Represents the <see cref="T:Identity.API.Domain.Entities.User"/> database context base class.
             </summary>
         </member>
         <member name="M:Identity.API.Persistence.UserDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{Identity.API.Persistence.UserDbContext},MediatR.IPublisher,Persistence.Infrastructure.ConnectionString)">
@@ -1193,170 +1398,6 @@
             <param name="services">The service collection.</param>
             <returns>The same service collection.</returns>
         </member>
-        <member name="T:Identity.Domain.DTO.UserAnswerDto">
-            <summary>
-            Represents the user answer dto record.
-            </summary>
-            <param name="Title">The title.</param>
-            <param name="UserName">The user name.</param>
-            <param name="TotalAnswers">The total answers.</param>
-        </member>
-        <member name="M:Identity.Domain.DTO.UserAnswerDto.#ctor(System.String,System.String,System.Int32)">
-            <summary>
-            Represents the user answer dto record.
-            </summary>
-            <param name="Title">The title.</param>
-            <param name="UserName">The user name.</param>
-            <param name="TotalAnswers">The total answers.</param>
-        </member>
-        <member name="P:Identity.Domain.DTO.UserAnswerDto.Title">
-            <summary>The title.</summary>
-        </member>
-        <member name="P:Identity.Domain.DTO.UserAnswerDto.UserName">
-            <summary>The user name.</summary>
-        </member>
-        <member name="P:Identity.Domain.DTO.UserAnswerDto.TotalAnswers">
-            <summary>The total answers.</summary>
-        </member>
-        <member name="T:Identity.Domain.Entities.User">
-            <summary>
-            Represents the user entity.
-            </summary>
-        </member>
-        <member name="M:Identity.Domain.Entities.User.#ctor(System.String,Domain.Common.ValueObjects.FirstName,Domain.Common.ValueObjects.LastName,Domain.ValueObjects.EmailAddress,System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Identity.Domain.Entities.User"/> class.
-            </summary>
-            <param name="userName">The user name.</param>
-            <param name="firstName">The user first name.</param>
-            <param name="lastName">The user last name.</param>
-            <param name="emailAddress">The user email address.</param>
-            <param name="passwordHash">The user password hash.</param>
-        </member>
-        <member name="M:Identity.Domain.Entities.User.#ctor">
-            <inheritdoc />
-        </member>
-        <member name="P:Identity.Domain.Entities.User.Roles">
-            <summary>
-            Gets or sets roles.
-            </summary>
-        </member>
-        <member name="P:Identity.Domain.Entities.User.FirstName">
-            <summary>
-            Gets or sets the user first name.
-            </summary>
-        </member>
-        <member name="P:Identity.Domain.Entities.User.LastName">
-            <summary>
-            Gets or sets the user last name.
-            </summary>
-        </member>
-        <member name="P:Identity.Domain.Entities.User.FullName">
-            <summary>
-            Gets the user full name.
-            </summary>
-        </member>
-        <member name="P:Identity.Domain.Entities.User.EmailAddress">
-            <summary>
-            Gets or sets the user email address.
-            </summary>
-        </member>
-        <member name="P:Identity.Domain.Entities.User.CreatedOnUtc">
-            <inheritdoc />
-        </member>
-        <member name="P:Identity.Domain.Entities.User.ModifiedOnUtc">
-            <inheritdoc />
-        </member>
-        <member name="P:Identity.Domain.Entities.User.DeletedOnUtc">
-            <inheritdoc />
-        </member>
-        <member name="P:Identity.Domain.Entities.User.Deleted">
-            <inheritdoc />
-        </member>
-        <member name="P:Identity.Domain.Entities.User.RefreshToken">
-            <inheritdoc cref="P:Identity.Domain.Entities.User.RefreshToken" />
-        </member>
-        <member name="F:Identity.Domain.Entities.User._domainEvents">
-            <summary>
-            The domain events.
-            </summary>
-        </member>
-        <member name="P:Identity.Domain.Entities.User.DomainEvents">
-            <summary>
-            Gets the domain events. This collection is readonly.
-            </summary>
-        </member>
-        <member name="M:Identity.Domain.Entities.User.ClearDomainEvents">
-            <summary>
-            Clears all the domain events from the <see cref="T:Domain.Core.Primitives.AggregateRoot"/>.
-            </summary>
-        </member>
-        <member name="M:Identity.Domain.Entities.User.AddDomainEvent(Domain.Core.Events.IDomainEvent)">
-            <summary>
-            Adds the specified <see cref="T:Domain.Core.Events.IDomainEvent"/> to the <see cref="T:Domain.Core.Primitives.AggregateRoot"/>.
-            </summary>
-            <param name="domainEvent">The domain event.</param>
-        </member>
-        <member name="M:Identity.Domain.Entities.User.Create(Domain.Common.ValueObjects.FirstName,Domain.Common.ValueObjects.LastName,System.String,Domain.ValueObjects.EmailAddress,System.String)">
-            <summary>
-            Creates a new user with the specified first name, last name, email address and password hash.
-            </summary>
-            <param name="firstName">The first name.</param>
-            <param name="lastName">The last name.</param>
-            <param name="userName">The user name.</param>
-            <param name="emailAddress">The email address.</param>
-            <param name="passwordHash">The password hash.</param>
-            <returns>The newly created user instance.</returns>
-        </member>
-        <member name="M:Identity.Domain.Entities.User.ChangePassword(System.String)">
-            <summary>
-            Changes the user's password.
-            </summary>
-            <param name="passwordHash">The password hash of the new password.</param>
-            <returns>The success result or an error.</returns>
-        </member>
-        <member name="M:Identity.Domain.Entities.User.ChangeName(Domain.Common.ValueObjects.FirstName,Domain.Common.ValueObjects.LastName)">
-            <summary>
-            Changes the user's first and last name.
-            </summary>
-            <param name="firstName">The new first name.</param>
-            <param name="lastName">The new last name.</param>
-        </member>
-        <member name="T:Identity.Domain.Entities.UserId">
-            <summary>
-            Represents the user identifier record.
-            </summary>
-            <param name="Value">The guid value.</param>
-        </member>
-        <member name="M:Identity.Domain.Entities.UserId.#ctor(System.Guid)">
-            <summary>
-            Represents the user identifier record.
-            </summary>
-            <param name="Value">The guid value.</param>
-        </member>
-        <member name="P:Identity.Domain.Entities.UserId.Value">
-            <summary>The guid value.</summary>
-        </member>
-        <member name="M:Identity.Domain.Entities.UserId.ToString">
-            <inheritdoc />
-        </member>
-        <member name="M:Identity.Domain.Entities.UserId.GetHashCode">
-            <inheritdoc />
-        </member>
-        <member name="M:Identity.Domain.Entities.UserId.op_Implicit(Identity.Domain.Entities.UserId)~System.Guid">
-            <summary>
-            Create the <see cref="T:System.Guid"/> value with specified <see cref="T:Identity.Domain.Entities.UserId"/> record.
-            </summary>
-            <param name="userId">The user identifier.</param>
-            <returns>Returns new <see cref="T:System.Guid"/> value.</returns>
-        </member>
-        <member name="M:Identity.Domain.Entities.UserId.op_Explicit(System.Guid)~Identity.Domain.Entities.UserId">
-            <summary>
-            Create the <see cref="T:Identity.Domain.Entities.UserId"/> value with specified <see cref="T:System.Guid"/> value.
-            </summary>
-            <param name="value">The value.</param>
-            <returns>Returns new <see cref="T:Identity.Domain.Entities.UserId"/> record.</returns>
-        </member>
         <member name="T:Identity.Domain.Enumerations.Category">
             <summary>
             Represents the category enumeration.
@@ -1398,7 +1439,7 @@
             Represents the event that is raised when a user is created.
             </summary>
         </member>
-        <member name="M:Identity.Domain.Events.User.UserCreatedDomainEvent.#ctor(Identity.Domain.Entities.User)">
+        <member name="M:Identity.Domain.Events.User.UserCreatedDomainEvent.#ctor(Identity.API.Domain.Entities.User)">
             <summary>
             Initializes a new instance of the <see cref="T:Identity.Domain.Events.User.UserCreatedDomainEvent"/> class.
             </summary>
@@ -1414,7 +1455,7 @@
             Represents the event that is raised when a users first and last name is changed.
             </summary>
         </member>
-        <member name="M:Identity.Domain.Events.User.UserNameChangedDomainEvent.#ctor(Identity.Domain.Entities.User)">
+        <member name="M:Identity.Domain.Events.User.UserNameChangedDomainEvent.#ctor(Identity.API.Domain.Entities.User)">
             <summary>
             Initializes a new instance of the <see cref="T:Identity.Domain.Events.User.UserNameChangedDomainEvent"/> class. 
             </summary>
@@ -1430,7 +1471,7 @@
             Represents the event that is raised when a users password is changed.
             </summary>
         </member>
-        <member name="M:Identity.Domain.Events.User.UserPasswordChangedDomainEvent.#ctor(Identity.Domain.Entities.User)">
+        <member name="M:Identity.Domain.Events.User.UserPasswordChangedDomainEvent.#ctor(Identity.API.Domain.Entities.User)">
             <summary>
             Initializes a new instance of the <see cref="T:Identity.Domain.Events.User.UserPasswordChangedDomainEvent"/> class. 
             </summary>

@@ -2,8 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Application.Core.Abstractions;
 using Domain.Common.Core.Primitives.Maybe;
 using Domain.ValueObjects;
+using Identity.API.Domain.Entities;
 using Identity.API.Domain.Repositories;
-using Identity.Domain.Entities;
 
 namespace Identity.API.Persistence.Repositories;
 

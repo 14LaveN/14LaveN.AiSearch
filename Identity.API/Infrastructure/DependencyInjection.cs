@@ -2,7 +2,7 @@ using Identity.API.Infrastructure.Authentication;
 using Identity.API.Infrastructure.Authentication.SignIn;
 using Microsoft.AspNetCore.Authorization;
 using Domain.Core.Utility;
-using Identity.Domain.Entities;
+using Identity.API.Domain.Entities;
 
 namespace Identity.API.Infrastructure;
 

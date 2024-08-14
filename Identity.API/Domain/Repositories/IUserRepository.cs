@@ -1,6 +1,6 @@
 using Domain.Common.Core.Primitives.Maybe;
 using Domain.ValueObjects;
-using Identity.Domain.Entities;
+using Identity.API.Domain.Entities;
 
 namespace Identity.API.Domain.Repositories;
 

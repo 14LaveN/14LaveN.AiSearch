@@ -1,7 +1,7 @@
 using Application.Core.Abstractions.Messaging;
 using Domain.Core.Primitives.Result;
 using Identity.API.ApiHelpers.Responses;
-using Identity.Domain.Entities;
+using Identity.API.Domain.Entities;
 
 namespace Identity.API.Abstractions.Idempotency;
 

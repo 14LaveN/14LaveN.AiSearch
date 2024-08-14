@@ -12,10 +12,10 @@ public sealed class UserNameChangedDomainEvent : IDomainEvent
     /// Initializes a new instance of the <see cref="UserNameChangedDomainEvent"/> class. 
     /// </summary>
     /// <param name="user">The user.</param>
-    internal UserNameChangedDomainEvent(Entities.User user) => User = user;
+    internal UserNameChangedDomainEvent(API.Domain.Entities.User user) => User = user;
 
     /// <summary>
     /// Gets the user.
     /// </summary>
-    public Entities.User User { get; }
+    public API.Domain.Entities.User User { get; }
 }

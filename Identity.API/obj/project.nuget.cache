@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "1WEihe3BuOAT/HlRd0Sj7yQ0VxX8fGx/4Y+riPQg+3sX16JBRG6mx/rPpWSnCGJv6IVIQHTnRaIC8BSeeKxNHw==",
+  "dgSpecHash": "2K8FLB4Ds/RrUGfpyVaDmbMav9Uq9YpwW8P2KyalX3s031gkB8WmRFArGPS1Q7+BRZGAlblk5YAz2DooBCoiHg==",
   "success": true,
   "projectFilePath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\Identity.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ponom\\.nuget\\packages\\aspnetcore.healthchecks.mongodb\\8.0.1\\aspnetcore.healthchecks.mongodb.8.0.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\aspnetcore.healthchecks.npgsql\\8.0.1\\aspnetcore.healthchecks.npgsql.8.0.1.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\aspnetcore.healthchecks.redis\\8.0.1\\aspnetcore.healthchecks.redis.8.0.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\aspnetcore.healthchecks.ui.client\\8.0.1\\aspnetcore.healthchecks.ui.client.8.0.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\aspnetcore.healthchecks.ui.core\\8.0.1\\aspnetcore.healthchecks.ui.core.8.0.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
