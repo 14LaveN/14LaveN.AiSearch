@@ -81,6 +81,19 @@
             <param name="services">The service collection.</param>
             <returns>The same service collection.</returns>
         </member>
+        <member name="T:Identity.API.Common.Refit.Users.IUsersClient">
+            <summary>
+            Represents the users client interface.
+            </summary>
+        </member>
+        <member name="M:Identity.API.Common.Refit.Users.IUsersClient.Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
+            <summary>
+            The register controller component.
+            </summary>
+            <param name="request">The <see cref="T:Identity.API.Contracts.Register.RegisterRequest"/>.</param>
+            <param name="requestId">The request identifier.</param>
+            <returns>Returns the result of <see cref="T:Identity.API.Domain.Entities.User"/> entity.</returns>
+        </member>
         <member name="T:Identity.API.Contracts.ChangeName.ChangeNameRequest">
             <summary>
             Represents the change name request.
@@ -1332,19 +1345,6 @@
         <member name="M:Identity.API.Persistence.UserDbContext.ExecuteSqlAsync(System.FormattableString)">
             <inheritdoc cref="T:System.FormattableString" />
         </member>
-        <member name="T:Identity.API.Refit.Users.IUsersClient">
-            <summary>
-            Represents the users client interface.
-            </summary>
-        </member>
-        <member name="M:Identity.API.Refit.Users.IUsersClient.Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
-            <summary>
-            The register controller component.
-            </summary>
-            <param name="request">The <see cref="T:Identity.API.Contracts.Register.RegisterRequest"/>.</param>
-            <param name="requestId">The request identifier.</param>
-            <returns>Returns the result of <see cref="T:Identity.API.Domain.Entities.User"/> entity.</returns>
-        </member>
         <member name="M:Identity.Api.Common.DependencyInjection.DiAuthorization.AddAuthorizationExtension(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Registers the necessary services with the DI framework.
@@ -1517,19 +1517,19 @@
         <member name="T:Refit.Implementation.Generated">
             <inheritdoc />
         </member>
-        <member name="T:Refit.Implementation.Generated.IdentityAPIRefitUsersIUsersClient">
+        <member name="T:Refit.Implementation.Generated.IdentityAPICommonRefitUsersIUsersClient">
             <inheritdoc />
         </member>
-        <member name="P:Refit.Implementation.Generated.IdentityAPIRefitUsersIUsersClient.Client">
+        <member name="P:Refit.Implementation.Generated.IdentityAPICommonRefitUsersIUsersClient.Client">
             <inheritdoc />
         </member>
-        <member name="M:Refit.Implementation.Generated.IdentityAPIRefitUsersIUsersClient.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+        <member name="M:Refit.Implementation.Generated.IdentityAPICommonRefitUsersIUsersClient.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:Refit.Implementation.Generated.IdentityAPIRefitUsersIUsersClient.Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
+        <member name="M:Refit.Implementation.Generated.IdentityAPICommonRefitUsersIUsersClient.Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
             <inheritdoc />
         </member>
-        <member name="M:Refit.Implementation.Generated.IdentityAPIRefitUsersIUsersClient.Identity#API#Refit#Users#IUsersClient#Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
+        <member name="M:Refit.Implementation.Generated.IdentityAPICommonRefitUsersIUsersClient.Identity#API#Common#Refit#Users#IUsersClient#Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
             <inheritdoc />
         </member>
     </members>

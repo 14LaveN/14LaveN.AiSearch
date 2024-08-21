@@ -11,11 +11,11 @@ using Common.Logging;
 using HealthChecks.UI.Client;
 using Identity.Api.Common.DependencyInjection;
 using Identity.API.Common.DependencyInjection;
+using Identity.API.Common.Refit.Users;
 using Identity.API.Components;
 using Identity.API.Infrastructure;
 using Identity.API.IntegrationEvents.User.Events.UserCreated;
 using Identity.API.Persistence.Extensions;
-using Identity.API.Refit.Users;
 using Microsoft.AspNetCore.ResponseCompression;
 using Infrastructure;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -34,44 +34,11 @@ using ServiceDefaults;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorComponents()
+builder.Services
+    .AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.AddServiceDefaults();
-
-builder.Services.AddRateLimiter(options =>
-{
-    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
-    
-    options.AddPolicy("fixed", context =>
-        RateLimitPartition.GetFixedWindowLimiter(
-            partitionKey: context.User.Identity?.Name?.ToString(),
-            factory: _ => 
-                new FixedWindowRateLimiterOptions
-            {
-                PermitLimit = 10,
-                Window = TimeSpan.FromSeconds(10),
-                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
-                QueueLimit = 2
-            }));
-});
-
-builder.Services
-    .AddResponseCompression(options =>
-    {
-        options.EnableForHttps = true;
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.MimeTypes = ResponseCompressionDefaults.MimeTypes;
-    })
-    .Configure<BrotliCompressionProviderOptions>(options =>
-    {
-        options.Level = System.IO.Compression.CompressionLevel.Optimal;
-    })
-    .Configure<GzipCompressionProviderOptions>(options =>
-    {
-        options.Level = System.IO.Compression.CompressionLevel.SmallestSize;
-    });
 
 builder.Services
     .AddMediatr()
@@ -80,12 +47,12 @@ builder.Services
 builder.Services
     .AddEmailService(builder.Configuration)
     .AddInfrastructure()
+    .AddApplication()
     .AddIdentityInfrastructure()
     .AddDatabase(builder.Configuration, builder.Environment)
     .AddMetricsOpenTelemetry(builder.Logging)
     .AddSwagger();
     //TODO .AddBackgroundTasks(builder.Configuration)
-    //TODO .AddCaching(builder.Configuration)
 
 builder.Services
     .AddRabbitMq(builder.Configuration)
@@ -95,8 +62,6 @@ builder.Host.UseSerilog(Logging.ConfigureLogger);
 
 builder.Services.AddTransient<LogContextEnrichmentMiddleware>();
 
-builder.Services.AddApplication();
-
 builder.Services
     .AddAuthorizationExtension(builder.Configuration)
     .AddCors(options => options.AddDefaultPolicy(corsPolicyBuilder =>
@@ -104,41 +69,9 @@ builder.Services
             .AllowAnyHeader()
             .AllowAnyMethod()));
 
-builder.WebHost.ConfigureKestrel(options =>
-{
-    options.Listen(IPAddress.Any, 5000, listenOptions =>
-    {
-        listenOptions.UseConnectionLogging();
-    });
-    
-    options.Limits.MaxRequestBodySize = 10 * 1024; // 10 KB
-    options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(2);
-    options.Limits.MaxConcurrentConnections = 100;
-    options.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(1);
-});
-
-
-
-var refitSettings = new RefitSettings
-{
-    // Настройка обработки ошибок
-    ExceptionFactory = async response =>
-    {
-        if (!response.IsSuccessStatusCode)
-        {
-            var content = await response.Content.ReadAsStringAsync();
-            return new Exception($"API Error: {content}");
-        }
-        return null;
-    }
-};
-
-builder.Services.AddTransient<LoggingHandler>();
 builder.Services
-    .AddRefitClient<IUsersClient>(refitSettings)
-    .ConfigureHttpClient(c => c.BaseAddress = new Uri("http://localhost:5000"))
-    .AddHttpMessageHandler<LoggingHandler>();
-
+    .AddHttpClientExtensions(builder.WebHost)
+    .AddHttpHelpers();
 
 #endregion
 
@@ -157,7 +90,6 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
 
 app.UseRateLimiter();
 

@@ -5,13 +5,15 @@ using Identity.API.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Refit;
 
-namespace Identity.API.Refit.Users;
+namespace Identity.API.Common.Refit.Users;
 
 /// <summary>
 /// Represents the users client interface.
 /// </summary>
 public interface IUsersClient
 {
+    //TODO In Notion information How Create IntegrationTest with Refit.
+    
     /// <summary>
     /// The register controller component.
     /// </summary>

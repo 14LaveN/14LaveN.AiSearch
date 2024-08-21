@@ -81,12 +81,18 @@
             <param name="services">The service collection.</param>
             <returns>The same service collection.</returns>
         </member>
-        <member name="M:Identity.API.Common.DependencyInjection.DiValidator.AddValidators(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="T:Identity.API.Common.Refit.Users.IUsersClient">
             <summary>
-            Registers the necessary services with the DI framework.
+            Represents the users client interface.
             </summary>
-            <param name="services">The service collection.</param>
-            <returns>The same service collection.</returns>
+        </member>
+        <member name="M:Identity.API.Common.Refit.Users.IUsersClient.Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
+            <summary>
+            The register controller component.
+            </summary>
+            <param name="request">The <see cref="T:Identity.API.Contracts.Register.RegisterRequest"/>.</param>
+            <param name="requestId">The request identifier.</param>
+            <returns>Returns the result of <see cref="T:Identity.API.Domain.Entities.User"/> entity.</returns>
         </member>
         <member name="T:Identity.API.Contracts.ChangeName.ChangeNameRequest">
             <summary>
@@ -375,6 +381,12 @@
             </summary>
             <param name="name">The user name.</param>
             <returns>The maybe instance that may contain the user with the specified identifier.</returns>
+        </member>
+        <member name="M:Identity.API.Domain.Repositories.IUserRepository.GetUsersJoin">
+            <summary>
+            Gets users.
+            </summary>
+            <returns>The maybe queryable of users.</returns>
         </member>
         <member name="M:Identity.API.Domain.Repositories.IUserRepository.GetByEmailAsync(Domain.ValueObjects.EmailAddress)">
             <summary>
@@ -1012,7 +1024,7 @@
             <param name="jwtOptions">The json web token options.</param>
             <param name="dbContext">The database context.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.Register.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Register.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Identity.API.Infrastructure.Authentication.SignIn.SignInProvider{Identity.API.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Application.Core.Abstractions.IDbContext,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+        <member name="M:Identity.API.Mediatr.Commands.Register.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Register.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Identity.API.Infrastructure.Authentication.SignIn.SignInProvider{Identity.API.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Application.Core.Abstractions.IDbContext,Identity.API.Domain.Repositories.IUserRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
             <summary>
             Represents the register command handler class.
             </summary>
@@ -1026,8 +1038,7 @@
             <inheritdoc />
         </member>
         <member name="T:Identity.API.Mediatr.Commands.Register.CommandValidator">
-            <summary>ч
-            жэ
+            <summary>
             Represents the register command validator class.
             </summary>
         </member>
@@ -1200,6 +1211,9 @@
             <param name="userDbContext">The user database context.</param>
         </member>
         <member name="M:Identity.API.Persistence.Repositories.UserRepository.GetByIdAsync(System.Ulid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Persistence.Repositories.UserRepository.GetUsersJoin">
             <inheritdoc />
         </member>
         <member name="M:Identity.API.Persistence.Repositories.UserRepository.GetByNameAsync(System.String)">
@@ -1499,6 +1513,24 @@
         </member>
         <member name="M:IntegrationEventContext.GetTypeInfo(System.Type)">
             <inheritdoc/>
+        </member>
+        <member name="T:Refit.Implementation.Generated">
+            <inheritdoc />
+        </member>
+        <member name="T:Refit.Implementation.Generated.IdentityAPICommonRefitUsersIUsersClient">
+            <inheritdoc />
+        </member>
+        <member name="P:Refit.Implementation.Generated.IdentityAPICommonRefitUsersIUsersClient.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.IdentityAPICommonRefitUsersIUsersClient.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.IdentityAPICommonRefitUsersIUsersClient.Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.IdentityAPICommonRefitUsersIUsersClient.Identity#API#Common#Refit#Users#IUsersClient#Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
+            <inheritdoc />
         </member>
     </members>
 </doc>

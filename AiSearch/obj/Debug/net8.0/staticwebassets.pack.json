@@ -1,23 +1,23 @@
 {
   "Files": [
     {
-      "Id": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AiSearch.bundle.scp.css",
+      "Id": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AiSearch.bundle.scp.css",
       "PackagePath": "staticwebassets\\AiSearch.bundle.scp.css"
     },
     {
-      "Id": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\app.css",
+      "Id": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\favicon.png",
+      "Id": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {

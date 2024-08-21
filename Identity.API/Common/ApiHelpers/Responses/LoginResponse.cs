@@ -2,7 +2,7 @@ using System.Net;
 using Domain.Core.Primitives.Result;
 using Identity.API.Domain.Entities;
 
-namespace Identity.API.ApiHelpers.Responses;
+namespace Identity.API.Common.ApiHelpers.Responses;
 
 /// <summary>
 /// Gets or sets login response class.

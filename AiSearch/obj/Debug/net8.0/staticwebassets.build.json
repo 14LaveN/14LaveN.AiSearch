@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hpzh9LyrXllQubepFTw6+XPO/rMVFuNqqzdxPBW7UU0=",
+  "Hash": "MrrC4XZkrP570svAuYvY3G8EeRfCy3L8MDrDpSIhKto=",
   "Source": "AiSearch",
   "BasePath": "_content/AiSearch",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "AiSearch\\wwwroot",
       "Source": "AiSearch",
-      "ContentRoot": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\",
+      "ContentRoot": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\",
       "BasePath": "_content/AiSearch",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AiSearch.styles.css",
+      "Identity": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AiSearch.styles.css",
       "SourceId": "AiSearch",
       "SourceType": "Computed",
-      "ContentRoot": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/AiSearch",
       "RelativePath": "AiSearch.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AiSearch.styles.css"
+      "OriginalItemSpec": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AiSearch.styles.css"
     },
     {
-      "Identity": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AiSearch.bundle.scp.css",
+      "Identity": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AiSearch.bundle.scp.css",
       "SourceId": "AiSearch",
       "SourceType": "Computed",
-      "ContentRoot": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/AiSearch",
       "RelativePath": "AiSearch.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AiSearch.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AiSearch.bundle.scp.css"
     },
     {
-      "Identity": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\app.css",
+      "Identity": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\app.css",
       "SourceId": "AiSearch",
       "SourceType": "Discovered",
-      "ContentRoot": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\",
+      "ContentRoot": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\",
       "BasePath": "_content/AiSearch",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "AiSearch",
       "SourceType": "Discovered",
-      "ContentRoot": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\",
+      "ContentRoot": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\",
       "BasePath": "_content/AiSearch",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "AiSearch",
       "SourceType": "Discovered",
-      "ContentRoot": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\",
+      "ContentRoot": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\",
       "BasePath": "_content/AiSearch",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\favicon.png",
+      "Identity": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\favicon.png",
       "SourceId": "AiSearch",
       "SourceType": "Discovered",
-      "ContentRoot": "G:\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\",
+      "ContentRoot": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\AiSearch\\wwwroot\\",
       "BasePath": "_content/AiSearch",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

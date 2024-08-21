@@ -1,0 +1,83 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0/win-x64",
+    "signature": "sha256:9a4d4b6b5a529d26b3a5cfa91f84b9b2e4c7c8d82c16fef1d0f3e004d7357f5"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0/win-x64": {
+      "Identity.IntegrationTests/1.0.0": {
+        "dependencies": {
+          "AutoFixture": "5.0.0-preview0011",
+          "FluentAssertions": "7.0.0-alpha.4",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Testing": "8.0.7",
+          "Microsoft.EntityFrameworkCore": "8.0.7",
+          "Moq": "4.20.70",
+          "Testcontainers.PostgreSql": "3.9.0",
+          "Testcontainers.Redis": "3.9.0",
+          "xunit": "2.4.2",
+          "xunit.runner.visualstudio": "2.4.5",
+          "coverlet.collector": "6.0.0"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AutoFixture/5.0.0-preview0011": {
+      "type": "package",
+      "serviceable": false,
+      "sha512": "..."
+    },
+    "FluentAssertions/7.0.0-alpha.4": {
+      "type": "package",
+      "serviceable": false,
+      "sha512": "..."
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": false,
+      "sha512": "..."
+    },
+    "Microsoft.AspNetCore.Mvc.Testing/8.0.7": {
+      "type": "package",
+      "serviceable": false,
+      "sha512": "..."
+    },
+    "Microsoft.EntityFrameworkCore/8.0.7": {
+      "type": "package",
+      "serviceable": false,
+      "sha512": "..."
+    },
+    "Moq/4.20.70": {
+      "type": "package",
+      "serviceable": false,
+      "sha512": "..."
+    },
+    "Testcontainers.PostgreSql/3.9.0": {
+      "type": "package",
+      "serviceable": false,
+      "sha512": "..."
+    },
+    "Testcontainers.Redis/3.9.0": {
+      "type": "package",
+      "serviceable": false,
+      "sha512": "..."
+    },
+    "xunit/2.4.2": {
+      "type": "package",
+      "serviceable": false,
+      "sha512": "..."
+    },
+    "xunit.runner.visualstudio/2.4.5": {
+      "type": "package",
+      "serviceable": false,
+      "sha512": "..."
+    },
+    "coverlet.collector/6.0.0": {
+      "type": "package",
+      "serviceable": false,
+      "sha512": "..."
+    }
+  }
+}

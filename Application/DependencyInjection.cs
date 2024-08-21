@@ -16,7 +16,8 @@ public static class DependencyInjection
         if (services is null)
             throw new ArgumentException();
         
-        services.AddScoped<CreateMetricsHelper>()
+        services
+            .AddScoped<CreateMetricsHelper>()
             .AddScoped<SaveChangesResult>();
         
         services

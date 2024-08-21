@@ -1,6 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
@@ -8,9 +9,11 @@
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
     </PropertyGroup>
-
+    
     <ItemGroup>
         <PackageReference Include="AutoFixture" Version="5.0.0-preview0011" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+        <PackageReference Include="xunit" Version="2.4.2" />
         <PackageReference Include="FluentAssertions" Version="7.0.0-alpha.4" />
         <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.7" />
@@ -19,7 +22,6 @@
         <PackageReference Include="Moq" Version="4.20.70" />
         <PackageReference Include="Testcontainers.PostgreSql" Version="3.9.0" />
         <PackageReference Include="Testcontainers.Redis" Version="3.9.0" />
-        <PackageReference Include="xunit" Version="2.4.2"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
@@ -34,5 +36,5 @@
       <ProjectReference Include="..\Common.Tests\Common.Tests.csproj" />
       <ProjectReference Include="..\Identity.API\Identity.API.csproj" />
     </ItemGroup>
-
+    
 </Project>

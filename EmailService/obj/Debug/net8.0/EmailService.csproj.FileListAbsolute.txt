@@ -11,3 +11,16 @@ G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.dl
 G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\refint\EmailService.dll
 G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.pdb
 G:\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\ref\EmailService.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\bin\Debug\net8.0\EmailService.deps.json
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\bin\Debug\net8.0\EmailService.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\bin\Debug\net8.0\EmailService.pdb
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.csproj.AssemblyReference.cache
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.AssemblyInfoInputs.cache
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.AssemblyInfo.cs
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.csproj.CoreCompileInputs.cache
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.sourcelink.json
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\refint\EmailService.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\EmailService.pdb
+C:\Programming\DotNetProjects\14LaveN.AiSearch\EmailService\obj\Debug\net8.0\ref\EmailService.dll

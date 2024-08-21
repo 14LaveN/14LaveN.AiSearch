@@ -1,6 +1,6 @@
 using Common.Tests.Abstractions;
 using Domain.Core.Primitives.Result;
-using Identity.API.ApiHelpers.Responses;
+using Identity.API.Common.ApiHelpers.Responses;
 using Identity.API.Domain.Entities;
 using Identity.API.Mediatr.Commands;
 using MediatR;

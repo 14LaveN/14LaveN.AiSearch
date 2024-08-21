@@ -20,3 +20,13 @@ G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.dll
 G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\refint\Application.dll
 G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.pdb
 G:\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\ref\Application.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\bin\Debug\net8.0\Application.deps.json
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\bin\Debug\net8.0\Application.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\bin\Debug\net8.0\Application.pdb
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\bin\Debug\net8.0\Domain.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\bin\Debug\net8.0\Domain.pdb
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\refint\Application.dll
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\Application.pdb
+C:\Programming\DotNetProjects\14LaveN.AiSearch\Application\obj\Debug\net8.0\ref\Application.dll

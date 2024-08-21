@@ -1,8 +1,8 @@
 using Application.Core.Abstractions.Idempotency;
-using Identity.API.Abstractions.Idempotency;
+using Identity.API.Common.Abstractions.Idempotency;
 using MediatR;
 
-namespace Identity.API.Abstractions.Behaviors;
+namespace Identity.API.Common.Abstractions.Behaviors;
 
 /// <summary>
 /// Represents the identity idempotent command pipeline behavior class.
