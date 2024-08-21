@@ -1,10 +1,12 @@
 using MediatR.NotificationPublishers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using RabbitMq.Abstractions;
+using RabbitMq.Abstractions.HealthChecks;
 using RabbitMq.Abstractions.Settings;
 using RabbitMq.Messaging;
 
@@ -23,6 +25,11 @@ public static class DependencyInjection
             .BindConfiguration(MessageBrokerSettings.SettingsKey)
             .ValidateOnStart();
 
+        services.AddHealthChecks()
+            .AddCheck<RabbitMqHealthCheck>("RabbitMQ", 
+                failureStatus: HealthStatus.Unhealthy, 
+                tags: new[] { "rabbitmq", "messagebus" });
+        
         services.AddMediatR(x =>
         {
             x.RegisterServicesFromAssemblyContaining<Program>();

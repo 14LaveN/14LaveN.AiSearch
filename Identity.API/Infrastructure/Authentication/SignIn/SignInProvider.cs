@@ -60,7 +60,7 @@ public class SignInProvider<TUser>(
     public virtual Task SignInAsync(
         TUser user,
         bool isPersistent,
-        List<Claim> claims,
+        IEnumerable<Claim> claims,
         string? authenticationMethod = null)
         => SignInAsync(user, new AuthenticationProperties { IsPersistent = isPersistent }, claims, authenticationMethod);
 
@@ -75,7 +75,7 @@ public class SignInProvider<TUser>(
     [SuppressMessage("ApiDesign", "RS0026:Do not add multiple public overloads with optional parameters", Justification = "Required for backwards compatibility")]
     public virtual Task SignInAsync(TUser user,
         AuthenticationProperties authenticationProperties,
-        List<Claim> claims,
+        IEnumerable<Claim> claims,
         string? authenticationMethod = null)
     {
         IList<Claim>? additionalClaims = Array.Empty<Claim>();

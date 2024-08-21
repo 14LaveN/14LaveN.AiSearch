@@ -1,17 +1,21 @@
+using System.Net;
 using System.Text.Json.Serialization;
 using System.Threading.RateLimiting;
 using EmailService;
 using Application;
 using Application.ApiHelpers.Configurations;
 using Application.ApiHelpers.Middlewares;
+using Application.ApiHelpers.Middlewares.DelegatingHandlers;
 using AspNetCore.Serilog.RequestLoggingMiddleware;
 using Common.Logging;
 using HealthChecks.UI.Client;
 using Identity.Api.Common.DependencyInjection;
 using Identity.API.Common.DependencyInjection;
+using Identity.API.Components;
 using Identity.API.Infrastructure;
 using Identity.API.IntegrationEvents.User.Events.UserCreated;
 using Identity.API.Persistence.Extensions;
+using Identity.API.Refit.Users;
 using Microsoft.AspNetCore.ResponseCompression;
 using Infrastructure;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -21,12 +25,17 @@ using Prometheus.Client.AspNetCore;
 using Prometheus.Client.HttpRequestDurations;
 using RabbitMq;
 using RabbitMq.Extensions;
+using Refit;
 using Serilog;
 using ServiceDefaults;
 
 #region BuilderRegion
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
 
 builder.AddServiceDefaults();
 
@@ -65,7 +74,6 @@ builder.Services
     });
 
 builder.Services
-    .AddValidators()
     .AddMediatr()
     .AddEndpoints(typeof(DiMediator).Assembly);
 
@@ -96,6 +104,42 @@ builder.Services
             .AllowAnyHeader()
             .AllowAnyMethod()));
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Listen(IPAddress.Any, 5000, listenOptions =>
+    {
+        listenOptions.UseConnectionLogging();
+    });
+    
+    options.Limits.MaxRequestBodySize = 10 * 1024; // 10 KB
+    options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(2);
+    options.Limits.MaxConcurrentConnections = 100;
+    options.Limits.RequestHeadersTimeout = TimeSpan.FromMinutes(1);
+});
+
+
+
+var refitSettings = new RefitSettings
+{
+    // Настройка обработки ошибок
+    ExceptionFactory = async response =>
+    {
+        if (!response.IsSuccessStatusCode)
+        {
+            var content = await response.Content.ReadAsStringAsync();
+            return new Exception($"API Error: {content}");
+        }
+        return null;
+    }
+};
+
+builder.Services.AddTransient<LoggingHandler>();
+builder.Services
+    .AddRefitClient<IUsersClient>(refitSettings)
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri("http://localhost:5000"))
+    .AddHttpMessageHandler<LoggingHandler>();
+
+
 #endregion
 
 #region ApplicationRegion
@@ -104,9 +148,16 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwaggerApp();
+        //app.UseSwaggerApp();
     app.ApplyUserDbMigrations();
 }
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
 
 app.UseRateLimiter();
 
@@ -115,11 +166,14 @@ app.UseCors();
 UseMetrics();
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseAntiforgery();
 app.UseIdentityServer();
 
 app.UseEndpoints(endpoints =>
@@ -129,6 +183,9 @@ app.UseEndpoints(endpoints =>
        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
    });
 });
+
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
 
 app.MapControllers();
 
@@ -151,7 +208,7 @@ void UseCustomMiddlewares()
     app
         .UseMiddleware<IdempotentRequestMiddleware>()
         .UseMiddleware<RequestLoggingMiddleware>(app.Logger)
-        .UseMiddleware<ResponseCachingMiddleware>()
+        //TODO .UseMiddleware<ResponseCachingMiddleware>()
         .UseMiddleware<LogContextEnrichmentMiddleware>();
     
 }

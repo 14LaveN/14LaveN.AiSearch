@@ -12,7 +12,7 @@ public class UserInfo(ClaimsPrincipal claims)
     /// <summary>
     /// The identifier.
     /// </summary>
-    public Guid Id { get; set; } = Guid.Parse(claims.FindFirstValue(JwtRegisteredClaimNames.NameId) ?? string.Empty);
+    public Ulid Id { get; set; } = Ulid.Parse(claims.FindFirstValue(JwtRegisteredClaimNames.NameId) ?? string.Empty);
     
     /// <summary>
     /// The username.

@@ -16,7 +16,7 @@ namespace Identity.API.Domain.Entities;
 /// Represents the user entity.
 /// </summary>
 public sealed class User 
-    : IdentityUser<Guid>,
+    : IdentityUser<Ulid>,
         IAuditableEntity,
         ISoftDeletableEntity
 {
@@ -53,7 +53,7 @@ public sealed class User
     /// <inheritdoc />
     public User() { }
 
-    public override Guid Id
+    public override Ulid Id
     {
         get => new UserId(base.Id);
         set => base.Id = new UserId(value);

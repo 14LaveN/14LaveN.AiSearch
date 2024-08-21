@@ -8,7 +8,7 @@ internal sealed class IdempotentRequest
     /// <summary>
     /// Gets or sets identifier.
     /// </summary>
-    public Guid Id { get; set; }
+    public Ulid Id { get; set; }
 
     /// <summary>
     /// Gets or sets name.

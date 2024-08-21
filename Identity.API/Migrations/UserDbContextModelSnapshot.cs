@@ -64,8 +64,8 @@ namespace Identity.API.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
 
                     b.HasKey("Value");
 
@@ -108,11 +108,11 @@ namespace Identity.API.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Identity.Domain.Entities.User", b =>
+            modelBuilder.Entity("Identity.API.Domain.Entities.User", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("text");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
@@ -205,11 +205,10 @@ namespace Identity.API.Migrations
                     b.ToTable("Category", "dbo");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Ulid>", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -232,7 +231,7 @@ namespace Identity.API.Migrations
                     b.ToTable("AspNetRoles", "dbo");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Ulid>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -246,8 +245,9 @@ namespace Identity.API.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -256,7 +256,7 @@ namespace Identity.API.Migrations
                     b.ToTable("AspNetRoleClaims", "dbo");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Ulid>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -270,8 +270,9 @@ namespace Identity.API.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -280,7 +281,7 @@ namespace Identity.API.Migrations
                     b.ToTable("AspNetUserClaims", "dbo");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Ulid>", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("text");
@@ -291,8 +292,9 @@ namespace Identity.API.Migrations
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("text");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -301,13 +303,13 @@ namespace Identity.API.Migrations
                     b.ToTable("AspNetUserLogins", "dbo");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Ulid>", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
 
-                    b.Property<Guid>("RoleId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("RoleId")
+                        .HasColumnType("text");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -316,10 +318,10 @@ namespace Identity.API.Migrations
                     b.ToTable("AspNetUserRoles", "dbo");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Ulid>", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
 
                     b.Property<string>("LoginProvider")
                         .HasColumnType("text");
@@ -340,8 +342,8 @@ namespace Identity.API.Migrations
                     b.Property<int>("RoleValue")
                         .HasColumnType("integer");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
 
                     b.HasKey("RoleValue", "UserId");
 
@@ -355,8 +357,8 @@ namespace Identity.API.Migrations
                     b.Property<int>("Role1Value")
                         .HasColumnType("integer");
 
-                    b.Property<Guid>("User1Id")
-                        .HasColumnType("uuid");
+                    b.Property<string>("User1Id")
+                        .HasColumnType("text");
 
                     b.HasKey("Role1Value", "User1Id");
 
@@ -367,7 +369,7 @@ namespace Identity.API.Migrations
 
             modelBuilder.Entity("Domain.Entities.Role", b =>
                 {
-                    b.HasOne("Identity.Domain.Entities.User", null)
+                    b.HasOne("Identity.API.Domain.Entities.User", null)
                         .WithMany("Roles")
                         .HasForeignKey("UserId");
                 });
@@ -387,12 +389,13 @@ namespace Identity.API.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Identity.Domain.Entities.User", b =>
+            modelBuilder.Entity("Identity.API.Domain.Entities.User", b =>
                 {
                     b.OwnsOne("Domain.Common.ValueObjects.FirstName", "FirstName", b1 =>
                         {
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uuid");
+                            b1.Property<string>("UserId")
+                                .HasColumnType("text")
+                                .HasColumnName("Id");
 
                             b1.Property<string>("Value")
                                 .IsRequired()
@@ -410,8 +413,9 @@ namespace Identity.API.Migrations
 
                     b.OwnsOne("Domain.Common.ValueObjects.LastName", "LastName", b1 =>
                         {
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uuid");
+                            b1.Property<string>("UserId")
+                                .HasColumnType("text")
+                                .HasColumnName("Id");
 
                             b1.Property<string>("Value")
                                 .IsRequired()
@@ -429,8 +433,9 @@ namespace Identity.API.Migrations
 
                     b.OwnsOne("Domain.ValueObjects.EmailAddress", "EmailAddress", b1 =>
                         {
-                            b1.Property<Guid>("UserId")
-                                .HasColumnType("uuid");
+                            b1.Property<string>("UserId")
+                                .HasColumnType("text")
+                                .HasColumnName("Id");
 
                             b1.Property<string>("Value")
                                 .IsRequired()
@@ -456,51 +461,51 @@ namespace Identity.API.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Ulid>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Ulid>", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Ulid>", b =>
                 {
-                    b.HasOne("Identity.Domain.Entities.User", null)
+                    b.HasOne("Identity.API.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Ulid>", b =>
                 {
-                    b.HasOne("Identity.Domain.Entities.User", null)
+                    b.HasOne("Identity.API.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Ulid>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", null)
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<System.Ulid>", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Identity.Domain.Entities.User", null)
+                    b.HasOne("Identity.API.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Ulid>", b =>
                 {
-                    b.HasOne("Identity.Domain.Entities.User", null)
+                    b.HasOne("Identity.API.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -515,7 +520,7 @@ namespace Identity.API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Identity.Domain.Entities.User", null)
+                    b.HasOne("Identity.API.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -530,14 +535,14 @@ namespace Identity.API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Identity.Domain.Entities.User", null)
+                    b.HasOne("Identity.API.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("User1Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Identity.Domain.Entities.User", b =>
+            modelBuilder.Entity("Identity.API.Domain.Entities.User", b =>
                 {
                     b.Navigation("Roles");
                 });

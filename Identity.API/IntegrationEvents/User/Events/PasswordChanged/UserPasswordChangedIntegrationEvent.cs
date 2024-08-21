@@ -18,10 +18,10 @@ public sealed class UserPasswordChangedIntegrationEvent
         Id = userPasswordChangedDomainEvent.User.Id;
 
     [JsonConstructor]
-    private UserPasswordChangedIntegrationEvent(Guid userId) => Id = userId;
+    private UserPasswordChangedIntegrationEvent(Ulid userId) => Id = userId;
 
     /// <summary>
     /// Gets the user identifier.
     /// </summary>
-    public Guid Id { get; }
+    public Ulid Id { get; }
 }

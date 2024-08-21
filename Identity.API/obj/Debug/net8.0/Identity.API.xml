@@ -29,7 +29,7 @@
             </summary>
             <param name="RequestId">The request identifier.</param>
         </member>
-        <member name="M:Identity.API.Abstractions.Idempotency.IdentityIdempotentCommand.#ctor(System.Guid)">
+        <member name="M:Identity.API.Abstractions.Idempotency.IdentityIdempotentCommand.#ctor(System.Ulid)">
             <summary>
             Represents the identity idempotent command record.
             </summary>
@@ -75,13 +75,6 @@
             </summary>
         </member>
         <member name="M:Identity.API.Common.DependencyInjection.DiMediator.AddMediatr(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            Registers the necessary services with the DI framework.
-            </summary>
-            <param name="services">The service collection.</param>
-            <returns>The same service collection.</returns>
-        </member>
-        <member name="M:Identity.API.Common.DependencyInjection.DiValidator.AddValidators(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Registers the necessary services with the DI framework.
             </summary>
@@ -328,7 +321,7 @@
             </summary>
             <param name="Value">The guid value.</param>
         </member>
-        <member name="M:Identity.API.Domain.Entities.UserId.#ctor(System.Guid)">
+        <member name="M:Identity.API.Domain.Entities.UserId.#ctor(System.Ulid)">
             <summary>
             Represents the user identifier record.
             </summary>
@@ -343,16 +336,16 @@
         <member name="M:Identity.API.Domain.Entities.UserId.GetHashCode">
             <inheritdoc />
         </member>
-        <member name="M:Identity.API.Domain.Entities.UserId.op_Implicit(Identity.API.Domain.Entities.UserId)~System.Guid">
+        <member name="M:Identity.API.Domain.Entities.UserId.op_Implicit(Identity.API.Domain.Entities.UserId)~System.Ulid">
             <summary>
-            Create the <see cref="T:System.Guid"/> value with specified <see cref="T:Identity.API.Domain.Entities.UserId"/> record.
+            Create the <see cref="T:System.Ulid"/> value with specified <see cref="T:Identity.API.Domain.Entities.UserId"/> record.
             </summary>
             <param name="userId">The user identifier.</param>
-            <returns>Returns new <see cref="T:System.Guid"/> value.</returns>
+            <returns>Returns new <see cref="T:System.Ulid"/> value.</returns>
         </member>
-        <member name="M:Identity.API.Domain.Entities.UserId.op_Explicit(System.Guid)~Identity.API.Domain.Entities.UserId">
+        <member name="M:Identity.API.Domain.Entities.UserId.op_Explicit(System.Ulid)~Identity.API.Domain.Entities.UserId">
             <summary>
-            Create the <see cref="T:Identity.API.Domain.Entities.UserId"/> value with specified <see cref="T:System.Guid"/> value.
+            Create the <see cref="T:Identity.API.Domain.Entities.UserId"/> value with specified <see cref="T:System.Ulid"/> value.
             </summary>
             <param name="value">The value.</param>
             <returns>Returns new <see cref="T:Identity.API.Domain.Entities.UserId"/> record.</returns>
@@ -362,7 +355,7 @@
             Represents the user repository interface.
             </summary>
         </member>
-        <member name="M:Identity.API.Domain.Repositories.IUserRepository.GetByIdAsync(System.Guid)">
+        <member name="M:Identity.API.Domain.Repositories.IUserRepository.GetByIdAsync(System.Ulid)">
             <summary>
             Gets the user with the specified identifier.
             </summary>
@@ -375,6 +368,12 @@
             </summary>
             <param name="name">The user name.</param>
             <returns>The maybe instance that may contain the user with the specified identifier.</returns>
+        </member>
+        <member name="M:Identity.API.Domain.Repositories.IUserRepository.GetUsersJoin">
+            <summary>
+            Gets users.
+            </summary>
+            <returns>The maybe queryable of users.</returns>
         </member>
         <member name="M:Identity.API.Domain.Repositories.IUserRepository.GetByEmailAsync(Domain.ValueObjects.EmailAddress)">
             <summary>
@@ -493,7 +492,7 @@
             <param name="user">The user to create a <see cref="T:System.Security.Claims.ClaimsPrincipal"/> for.</param>
             <returns>The task object representing the asynchronous operation, containing the ClaimsPrincipal for the specified user.</returns>
         </member>
-        <member name="M:Identity.API.Infrastructure.Authentication.SignIn.SignInProvider`1.SignInAsync(`0,System.Boolean,System.Collections.Generic.List{System.Security.Claims.Claim},System.String)">
+        <member name="M:Identity.API.Infrastructure.Authentication.SignIn.SignInProvider`1.SignInAsync(`0,System.Boolean,System.Collections.Generic.IEnumerable{System.Security.Claims.Claim},System.String)">
             <summary>
             Signs in the specified <paramref name="user"/>.
             </summary>
@@ -502,7 +501,7 @@
             <param name="authenticationMethod">Name of the method used to authenticate the user.</param>
             <returns>The task object representing the asynchronous operation.</returns>
         </member>
-        <member name="M:Identity.API.Infrastructure.Authentication.SignIn.SignInProvider`1.SignInAsync(`0,Microsoft.AspNetCore.Authentication.AuthenticationProperties,System.Collections.Generic.List{System.Security.Claims.Claim},System.String)">
+        <member name="M:Identity.API.Infrastructure.Authentication.SignIn.SignInProvider`1.SignInAsync(`0,Microsoft.AspNetCore.Authentication.AuthenticationProperties,System.Collections.Generic.IEnumerable{System.Security.Claims.Claim},System.String)">
             <summary>
             Signs in the specified <paramref name="user"/>.
             </summary>
@@ -782,7 +781,7 @@
             <param name="LastName">The last name.</param>
             <param name="RequestId">The request identifier.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.ChangeName.Command.#ctor(System.Guid,Domain.Common.ValueObjects.FirstName,Domain.Common.ValueObjects.LastName)">
+        <member name="M:Identity.API.Mediatr.Commands.ChangeName.Command.#ctor(System.Ulid,Domain.Common.ValueObjects.FirstName,Domain.Common.ValueObjects.LastName)">
             <summary>
             Represents the change <see cref="T:Domain.Common.ValueObjects.Name"/> command record.
             </summary>
@@ -897,7 +896,7 @@
             <param name="Password">The password.</param>
             <param name="RequestId">The request identifier.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.Login.Command.#ctor(System.Guid,System.String,Domain.Common.ValueObjects.Password)">
+        <member name="M:Identity.API.Mediatr.Commands.Login.Command.#ctor(System.Ulid,System.String,Domain.Common.ValueObjects.Password)">
             <summary>
             Represents the login command record class.
             </summary>
@@ -968,7 +967,7 @@
             <param name="Password">The password.</param>
             <param name="UserName">The username.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.Register.Command.#ctor(System.Guid,Domain.Common.ValueObjects.FirstName,Domain.Common.ValueObjects.LastName,Domain.ValueObjects.EmailAddress,Domain.Common.ValueObjects.Password,System.String)">
+        <member name="M:Identity.API.Mediatr.Commands.Register.Command.#ctor(System.Ulid,Domain.Common.ValueObjects.FirstName,Domain.Common.ValueObjects.LastName,Domain.ValueObjects.EmailAddress,Domain.Common.ValueObjects.Password,System.String)">
             <summary>
             Represents the register command record class.
             </summary>
@@ -1012,7 +1011,7 @@
             <param name="jwtOptions">The json web token options.</param>
             <param name="dbContext">The database context.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.Register.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Register.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Identity.API.Infrastructure.Authentication.SignIn.SignInProvider{Identity.API.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Application.Core.Abstractions.IDbContext,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+        <member name="M:Identity.API.Mediatr.Commands.Register.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Register.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Identity.API.Infrastructure.Authentication.SignIn.SignInProvider{Identity.API.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Application.Core.Abstractions.IDbContext,Identity.API.Domain.Repositories.IUserRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
             <summary>
             Represents the register command handler class.
             </summary>
@@ -1041,7 +1040,7 @@
             </summary>
             <param name="UserId">The user identifier.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Queries.GetTheUserById.GetTheUserByIdQuery.#ctor(System.Guid)">
+        <member name="M:Identity.API.Mediatr.Queries.GetTheUserById.GetTheUserByIdQuery.#ctor(System.Ulid)">
             <summary>
             Represents the get user by id query record.
             </summary>
@@ -1077,18 +1076,6 @@
             <inheritdoc />
         </member>
         <member name="M:Identity.API.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:Identity.API.Migrations.AddPermissions">
-            <inheritdoc />
-        </member>
-        <member name="M:Identity.API.Migrations.AddPermissions.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:Identity.API.Migrations.AddPermissions.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:Identity.API.Migrations.AddPermissions.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="T:Identity.API.Persistence.Configurations.PermissionConfiguration">
@@ -1165,12 +1152,12 @@
             <param name="jwtOptions">The json web token options.</param>
             <returns>Returns refresh token.</returns>
         </member>
-        <member name="M:Identity.API.Persistence.Extensions.JwtExtensions.GenerateAccessToken(Identity.API.Domain.Entities.User,Application.Core.Abstractions.IDbContext,Identity.API.Infrastructure.Settings.User.JwtOptions,System.Threading.CancellationToken)">
+        <member name="M:Identity.API.Persistence.Extensions.JwtExtensions.GenerateAccessToken(Identity.API.Domain.Entities.User,System.Collections.Generic.IEnumerable{System.Security.Claims.Claim},Identity.API.Infrastructure.Settings.User.JwtOptions,System.Threading.CancellationToken)">
             <summary>
             Generate new access token by options.
             </summary>
             <param name="user">The user.</param>
-            <param name="dbContext">The database context.</param>
+            <param name="claims">The claims.</param>
             <param name="jwtOptions">The json web token options.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <returns>Returns access token.</returns>
@@ -1210,7 +1197,10 @@
             </summary>
             <param name="userDbContext">The user database context.</param>
         </member>
-        <member name="M:Identity.API.Persistence.Repositories.UserRepository.GetByIdAsync(System.Guid)">
+        <member name="M:Identity.API.Persistence.Repositories.UserRepository.GetByIdAsync(System.Ulid)">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Persistence.Repositories.UserRepository.GetUsersJoin">
             <inheritdoc />
         </member>
         <member name="M:Identity.API.Persistence.Repositories.UserRepository.GetByNameAsync(System.String)">
@@ -1291,7 +1281,7 @@
         <member name="M:Identity.API.Persistence.UserDbContext.Set``1">
             <inheritdoc />
         </member>
-        <member name="M:Identity.API.Persistence.UserDbContext.GetByIdAsync``1(System.Guid)">
+        <member name="M:Identity.API.Persistence.UserDbContext.GetByIdAsync``1(System.Ulid)">
             <exception cref="T:System.ArgumentNullException"></exception>
             <inheritdoc />
         </member>
@@ -1341,6 +1331,19 @@
         </member>
         <member name="M:Identity.API.Persistence.UserDbContext.ExecuteSqlAsync(System.FormattableString)">
             <inheritdoc cref="T:System.FormattableString" />
+        </member>
+        <member name="T:Identity.API.Refit.Users.IUsersClient">
+            <summary>
+            Represents the users client interface.
+            </summary>
+        </member>
+        <member name="M:Identity.API.Refit.Users.IUsersClient.Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
+            <summary>
+            The register controller component.
+            </summary>
+            <param name="request">The <see cref="T:Identity.API.Contracts.Register.RegisterRequest"/>.</param>
+            <param name="requestId">The request identifier.</param>
+            <returns>Returns the result of <see cref="T:Identity.API.Domain.Entities.User"/> entity.</returns>
         </member>
         <member name="M:Identity.Api.Common.DependencyInjection.DiAuthorization.AddAuthorizationExtension(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
@@ -1487,7 +1490,7 @@
             Defines the source generated JSON serialization contract metadata for a given type.
             </summary>
         </member>
-        <member name="P:IntegrationEventContext.Guid">
+        <member name="P:IntegrationEventContext.Ulid">
             <summary>
             Defines the source generated JSON serialization contract metadata for a given type.
             </summary>
@@ -1510,6 +1513,24 @@
         </member>
         <member name="M:IntegrationEventContext.GetTypeInfo(System.Type)">
             <inheritdoc/>
+        </member>
+        <member name="T:Refit.Implementation.Generated">
+            <inheritdoc />
+        </member>
+        <member name="T:Refit.Implementation.Generated.IdentityAPIRefitUsersIUsersClient">
+            <inheritdoc />
+        </member>
+        <member name="P:Refit.Implementation.Generated.IdentityAPIRefitUsersIUsersClient.Client">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.IdentityAPIRefitUsersIUsersClient.#ctor(System.Net.Http.HttpClient,Refit.IRequestBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.IdentityAPIRefitUsersIUsersClient.Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Refit.Implementation.Generated.IdentityAPIRefitUsersIUsersClient.Identity#API#Refit#Users#IUsersClient#Register(Identity.API.Contracts.Register.RegisterRequest,System.String)">
+            <inheritdoc />
         </member>
     </members>
 </doc>

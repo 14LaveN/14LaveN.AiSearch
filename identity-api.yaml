@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: identity-api-deployment
+  labels:
+    app: identity-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: identity-api
+  template:
+    metadata:
+      labels:
+        app: identity-api
+        app.kubernetes.io/name: identity-api
+    spec:
+      containers:
+        - name: identity-api
+          image: identity.api
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:80
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: MongoConnection__ConnectionString
+              value: "mongodb://localhost:27017"
+            - name: MongoConnection__Database
+              value: "AS"
+            - name: MongoConnection__RabbitMessagesCollectionName
+              value: "RabbitMessages"
+            - name: MongoConnection__MetricsCollectionName
+              value: "Metrics"
+            - name: ConnectionStrings__ASGenericDb
+              value: "Server=localhost;Port=5433;Database=ASGenericDb;User Id=postgres;Password=1111;"
+            - name: ConnectionStrings__ElasticSearch
+              value: "http://localhost:9200"
+            - name: ConnectionStrings__Redis
+              value: "localhost:6379"
+            - name: Logging__LogLevel__Default
+              value: "Trace"
+            - name: Logging__LogLevel__Microsoft.AspNetCore
+              value: "Warning"
+            - name: Logging__LogLevel__Microsoft.Hosting.Lifetime
+              value: "Information"
+            - name: Consul__Host
+              value: "localhost"
+            - name: Consul__Port
+              value: "8500"
+            - name: Consul__Discovery__ServiceName
+              value: "teamtasks-identity-service"
+            - name: Consul__Discovery__Hostname
+              value: "teamtasks-identity-api"
+            - name: Consul__Discovery__Port
+              value: "8080"
+            - name: MessageBroker__AmqpLink
+              value: "amqps://dgpswpjt:tbQvnOh93n-sdqDMjXAjfB53OiShmOka@chimpanzee.rmq.cloudamqp.com/dgpswpjt"
+            - name: MessageBroker__QueueName
+              value: "User"
+            - name: Jwt__Secret
+              value: "secretsecret123456"
+            - name: Jwt__ValidIssuers__0
+              value: "https://localhost:7135"
+            - name: Jwt__ValidAudiences__0
+              value: "https://localhost:7135"
+            - name: Jwt__Expire
+              value: "3600"
+            - name: Jwt__RefreshTokenExpire
+              value: "20160"
+            - name: AllowedHosts
+              value: "*"
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: identity-api-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: identity-api
+    app.kubernetes.io/name: identity-api
+  ports:
+    - protocol: TCP
+      port: 8084
+      targetPort: 80

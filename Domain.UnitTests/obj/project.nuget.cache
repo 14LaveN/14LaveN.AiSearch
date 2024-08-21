@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cFCHoIW/UgkYdb7hI+J03b7OczLaaliEB3nxxpfm42AEBXISMUUf+Skfx1TQ5J3c96Lh65IAUKZM4FDU0O38Qg==",
+  "dgSpecHash": "OXPVwBOX4wiupSL8+QA7NBEbk2aKnv7X5twIyflrPCpS4sMNIKCb8u8OnN3Eeb2+q0R/e9gKbA1JwXjJwUYGRA==",
   "success": true,
   "projectFilePath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain.UnitTests\\Domain.UnitTests.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\ponom\\.nuget\\packages\\bogus\\35.6.0\\bogus.35.6.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\docker.dotnet\\3.125.15\\docker.dotnet.3.125.15.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\docker.dotnet.x509\\3.125.15\\docker.dotnet.x509.3.125.15.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\fare\\2.2.1\\fare.2.2.1.nupkg.sha512",
@@ -178,6 +179,7 @@
     "C:\\Users\\ponom\\.nuget\\packages\\testcontainers\\3.9.0\\testcontainers.3.9.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\testcontainers.postgresql\\3.9.0\\testcontainers.postgresql.3.9.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\testcontainers.redis\\3.9.0\\testcontainers.redis.3.9.0.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\ulid\\1.3.4\\ulid.1.3.4.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\xunit\\2.4.2\\xunit.2.4.2.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\xunit.analyzers\\1.0.0\\xunit.analyzers.1.0.0.nupkg.sha512",

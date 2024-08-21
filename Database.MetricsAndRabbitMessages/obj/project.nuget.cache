@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ldq4tOZmkRqGXFFhCGSQ7FlZkg///kEBf6RHfMAwt6LeetldzlSq56HlucWP/m+Tb2w9hErNLwy3WWUwuk2kYQ==",
+  "dgSpecHash": "qMBfzSeQjonRZyZ5hYX4OxSksMr2xF771R83+lqsGTQCrTMvMUfiZuhLJl981e4HEKEH3yPXO38U0SbWoQT4Lg==",
   "success": true,
   "projectFilePath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj",
   "expectedPackageFiles": [
@@ -61,6 +61,7 @@
     "C:\\Users\\ponom\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\ulid\\1.3.4\\ulid.1.3.4.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
   "logs": []

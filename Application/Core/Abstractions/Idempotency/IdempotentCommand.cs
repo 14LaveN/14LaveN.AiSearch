@@ -10,7 +10,7 @@ namespace Application.Core.Abstractions.Idempotency;
 /// Represents the idempotent command record.
 /// </summary>
 /// <param name="RequestId">The request identifier.</param>
-public abstract record IdempotentCommand(Guid RequestId)
+public abstract record IdempotentCommand(Ulid RequestId)
     : ICommand<IBaseResponse<Result>>;
 
 /// <summary>
@@ -18,6 +18,6 @@ public abstract record IdempotentCommand(Guid RequestId)
 /// </summary>
 /// <param name="RequestId">The request identifier.</param>
 /// <typeparam name="TValue">The generic type.</typeparam>
-public abstract record IdempotentCommand<TValue>(Guid RequestId)
+public abstract record IdempotentCommand<TValue>(Ulid RequestId)
     : ICommand<IBaseResponse<Result<TValue>>>;
 

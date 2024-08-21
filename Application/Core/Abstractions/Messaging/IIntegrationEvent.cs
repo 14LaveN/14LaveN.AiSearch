@@ -10,5 +10,5 @@ public interface IIntegrationEvent : INotification
     /// <summary>
     /// Gets user identifier.
     /// </summary>
-    Guid Id { get; }
+    Ulid Id { get; }
 }

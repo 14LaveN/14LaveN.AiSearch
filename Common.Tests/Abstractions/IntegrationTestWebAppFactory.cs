@@ -22,7 +22,6 @@ public class IntegrationTestWebAppFactory : WebApplicationFactory<Program>, IAsy
         .WithImage("redis:7.0")
         .Build();
     
-        //TODO Change container.
     private readonly PostgreSqlContainer _databaseContainer = new PostgreSqlBuilder()
         .WithImage("postgres:latest")
         .WithDatabase("BSGenericDb")

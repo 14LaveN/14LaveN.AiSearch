@@ -8,7 +8,9 @@ using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Persistence;
 using Persistence.Infrastructure;
 using Application.Core.Abstractions;
+using Application.Core.Abstractions.HealthChecks;
 using Application.Core.Abstractions.Idempotency;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Persistence;
 using Persistence.Idempotency;
 
@@ -55,6 +57,13 @@ public static class DependencyInjection
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IDbContext, BaseDbContext>();
         services.AddScoped<IIdempotencyService, IdempotencyService>();
+        
+        services
+            .AddHealthChecks()
+            .AddCheck<DbContextHealthCheck<BaseDbContext>>(
+                "BaseDatabase",
+                failureStatus: HealthStatus.Unhealthy,
+                tags: new[] { "db", "sql" });
         
         services.AddMediatR(x =>
         {

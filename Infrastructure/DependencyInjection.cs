@@ -17,8 +17,7 @@ public static class DependencyInjection
     /// <returns>The same service collection.</returns>
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
-        if (services is null)
-            throw new ArgumentException();
+        ArgumentNullException.ThrowIfNull(services);
 
         services.AddMediatR(x =>
         {
@@ -28,9 +27,10 @@ public static class DependencyInjection
             x.NotificationPublisherType = typeof(TaskWhenAllPublisher);
         });
         
-        services.AddScoped<IDateTime, MachineDateTime>();
-        services.AddScoped<IUserIdentifierProvider, UserIdentifierProvider>();
-        services.AddScoped<IPermissionProvider, PermissionProvider>();
+        services
+            .AddScoped<IDateTime, MachineDateTime>()
+            .AddScoped<IUserIdentifierProvider, UserIdentifierProvider>()
+            .AddScoped<IPermissionProvider, PermissionProvider>();
         
         return services;
     }

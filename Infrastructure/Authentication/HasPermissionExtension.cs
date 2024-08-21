@@ -27,7 +27,7 @@ public static class HasPermissionExtension
             var originalRequestDelegate = endpointBuilder.RequestDelegate;
             endpointBuilder.RequestDelegate = async context =>
             {
-                string userId = GetClaimByJwtToken.GetIdByToken(context.Request.Headers["Authorization"]
+                string? userId = GetClaimByJwtToken.GetIdByToken(context.Request.Headers["Authorization"]
                     .FirstOrDefault()?.Split(" ").Last());
 
                 HashSet<string> permissions = GetClaimByJwtToken.GetPermissionsByToken(context.Request

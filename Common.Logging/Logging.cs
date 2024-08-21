@@ -13,7 +13,7 @@ public static class Logging
         (context, loggerConfiguration) =>
         {
             var env = context.HostingEnvironment;
-            loggerConfiguration.MinimumLevel.Information()
+            loggerConfiguration.MinimumLevel.Is(LogEventLevel.Verbose)
                 .Enrich.FromLogContext()
                 .Enrich.WithProperty("ApplicationName", env.ApplicationName)
                 .Enrich.WithProperty("EnvironmentName", env.EnvironmentName)
@@ -21,6 +21,7 @@ public static class Logging
                 .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
                 .MinimumLevel.Override("Microsoft.Hosting.Lifetime", LogEventLevel.Information)
                 .WriteTo.Console();
+            
             if (context.HostingEnvironment.IsDevelopment())
             {
                 loggerConfiguration.MinimumLevel.Override("Identity", LogEventLevel.Debug);

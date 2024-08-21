@@ -1,0 +1,49 @@
+﻿@page "/counter"
+@using global::Domain.Core.Primitives.Result
+@using Identity.API.Contracts.Register
+@using Identity.API.Domain.Entities
+@using Identity.API.Refit.Users
+@inject IUsersClient UsersClient
+
+<h3>Weather forecast</h3>
+
+@if (result == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (result.IsFailure)
+{
+    <p><em>Error loading data</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Temp. (C)</th>
+            <th>Summary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td colspan="3">@result.Value.FullName</td>
+        </tr>
+        </tbody>
+    </table>
+}
+
+@code {
+    private Result<User>? result;
+
+    protected override async Task OnInitializedAsync()
+    {
+        result = await UsersClient.Register(new RegisterRequest(
+                "djkfgjnhdjfkg",
+                "jhdff",
+                "lox@mail.ru",
+                "Sasha_2008!",
+                "fhjgfds"),
+            default);
+    }
+}

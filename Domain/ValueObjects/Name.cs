@@ -32,7 +32,7 @@ public class Name : ValueObject
     public static implicit operator Name(string name) =>
         new(name);
     
-    public Guid ProductId { get; set; }
+    public Ulid ProductId { get; set; }
     
     /// <summary>
     /// Creates a new <see cref="Name"/> instance based on the specified value.

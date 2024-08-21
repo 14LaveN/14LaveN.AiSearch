@@ -28,14 +28,14 @@ internal sealed class IdempotencyService
     }
 
     /// <inheritdoc />
-    public async Task<bool> RequestExistsAsync(Guid requestId) =>
+    public async Task<bool> RequestExistsAsync(Ulid requestId) =>
          await _dbContext
              .Set<IdempotentRequest>()
              .AnyAsync(r => r.Id == requestId);
     
 
     /// <inheritdoc />
-    public async Task CreateRequestAsync(Guid requestId, string name)
+    public async Task CreateRequestAsync(Ulid requestId, string name)
     {
         IdempotentRequest idempotentRequest = new IdempotentRequest
         {

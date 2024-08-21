@@ -21,15 +21,15 @@ public static class Ensure
     }
 
     /// <summary>
-    /// Ensures that the specified <see cref="Guid"/> value is not empty.
+    /// Ensures that the specified <see cref="Ulid"/> value is not empty.
     /// </summary>
     /// <param name="value">The value to check.</param>
     /// <param name="message">The message to show if the check fails.</param>
     /// <param name="argumentName">The name of the argument being checked.</param>
     /// <exception cref="ArgumentException"> if the specified value is empty.</exception>
-    public static void NotEmpty(Guid value, string message, string argumentName)
+    public static void NotEmpty(Ulid value, string message, string argumentName)
     {
-        if (value == Guid.Empty)
+        if (value == Ulid.Empty)
         {
             throw new ArgumentException(message, argumentName);
         }

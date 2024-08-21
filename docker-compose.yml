@@ -18,13 +18,100 @@
       dockerfile: AiChat.API/Dockerfile
 
   identity.api:
-    image: identity.api
+    image: ${DOCKER_REGISTRY-}identity.api
+    container_name: identity.api
     build:
       context: .
       dockerfile: Identity.API/Dockerfile
+    cpus: 1
+    mem_limit: "0.5G"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - 8082:80
+    networks:
+      - proxybackend
+    
 
   searchingservice.api:
     image: searchingservice.api
     build:
       context: .
       dockerfile: SearchingService.API/Dockerfile
+
+  aigemini.api:
+    image: aigemini.api
+    build:
+      context: .
+      dockerfile: AiGemini.API/Dockerfile
+  
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9090:9090
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+      
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.9.2
+    ports:
+      - 5601:5601
+      
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+    ports:
+      - 9200:9200
+      
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+      
+  db:
+    container_name: postgres
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 1111
+      POSTGRES_DB: ASGenericDb
+      POSTGRES_USER: sasha
+    ports:
+      - 5432:5432
+    volumes:
+      - /data/mount:/var/lib/postgresql/data
+    networks:
+      - proxybackend
+  
+  pg-admin:
+    image: dpage/pgadmin4:latest
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@mail.ru
+      - PGADMIN_DEFAULT_PASSWORD=1111
+      - PGADMIN_LISTEN_PORT=5050
+    ports:
+      - 5050:5050
+    networks:
+      - proxybackend
+  
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+networks:
+  proxybackend:
+    name: proxybackend
+    driver: bridge
+  elastic:
+    driver: bridge
+
+volumes:
+  grafana-storage:
+  elasticsearch-data:
+  redis-data:
+  mongo_data:

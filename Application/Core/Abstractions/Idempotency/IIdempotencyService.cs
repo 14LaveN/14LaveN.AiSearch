@@ -10,7 +10,7 @@ public interface IIdempotencyService
     /// </summary>
     /// <param name="requestId">The request identifier.</param>
     /// <returns>Returns boolean value if request exists.</returns>
-    Task<bool> RequestExistsAsync(Guid requestId);
+    Task<bool> RequestExistsAsync(Ulid requestId);
 
     /// <summary>
     /// Create the request with specified request identifier and name.
@@ -18,5 +18,5 @@ public interface IIdempotencyService
     /// <param name="requestId">The request identifier.</param>
     /// <param name="name">The name.</param>
     /// <returns>Returns <see cref="Task{TResult}"/>.</returns>
-    Task CreateRequestAsync(Guid requestId, string name);
+    Task CreateRequestAsync(Ulid requestId, string name);
 }

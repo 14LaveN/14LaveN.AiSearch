@@ -39,7 +39,7 @@ public static class ChangeName
     /// <param name="LastName">The last name.</param>
     /// <param name="RequestId">The request identifier.</param>
     public sealed record Command(
-        Guid RequestId,
+        Ulid RequestId,
         FirstName FirstName,
         LastName LastName)
         : IdempotentCommand<User>(RequestId);
@@ -58,8 +58,8 @@ public static class ChangeName
                     [FromHeader(Name = "X-Idempotency-Key")] string requestId,
                     ISender sender) =>
                 {
-                    if (!Guid.TryParse(requestId, out Guid parsedRequestId))
-                        throw new GuidParseException(nameof(requestId), requestId);
+                    if (!Ulid.TryParse(requestId, out Ulid parsedRequestId))
+                        throw new UlidParseException(nameof(requestId), requestId);
                     
                     var result = await Result.Create(request, DomainErrors.General.UnProcessableRequest)
                         .Map(changeNameRequest => new Command(

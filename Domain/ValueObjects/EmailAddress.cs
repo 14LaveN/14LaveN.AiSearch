@@ -48,6 +48,12 @@ public sealed class EmailAddress : ValueObject
             .Ensure(e => EmailFormatRegex.Value.IsMatch(e), DomainErrors.Email.InvalidFormat)
             .Map(e => new EmailAddress(e));
     
+    
+    /// <summary>
+    /// Gets or sets user identifier.
+    /// </summary>
+    public Ulid UserId { get; set; }
+    
     /// <inheritdoc />
     protected override IEnumerable<object> GetAtomicValues()
     {

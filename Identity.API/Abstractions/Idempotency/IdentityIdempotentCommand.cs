@@ -9,5 +9,5 @@ namespace Identity.API.Abstractions.Idempotency;
 /// Represents the identity idempotent command record.
 /// </summary>
 /// <param name="RequestId">The request identifier.</param>
-public abstract record IdentityIdempotentCommand(Guid RequestId)
+public abstract record IdentityIdempotentCommand(Ulid RequestId)
     : ICommand<LoginResponse<Result<User>>>;

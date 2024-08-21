@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Net;
 using System.Security.Authentication;
+using System.Security.Claims;
 using Application.ApiHelpers.Responses;
 using Application.Core.Abstractions.Idempotency;
 using FluentValidation;
@@ -24,6 +26,8 @@ using Domain.ValueObjects;
 using Identity.API.Abstractions.Idempotency;
 using Identity.API.ApiHelpers.Responses;
 using Identity.API.Domain.Entities;
+using Identity.API.Domain.Repositories;
+using Identity.API.Infrastructure.Authentication;
 using Identity.API.Persistence;
 using ServiceDefaults;
 
@@ -44,7 +48,7 @@ public static class Register
     /// <param name="Password">The password.</param>
     /// <param name="UserName">The username.</param>
     public sealed record Command(
-        Guid RequestId,
+        Ulid RequestId,
         FirstName FirstName,
         LastName LastName,
         EmailAddress Email,
@@ -66,12 +70,12 @@ public static class Register
                     [FromHeader(Name = "X-Idempotency-Key")] string requestId,
                     ISender sender) =>
                 {
-                    if (!Guid.TryParse(requestId, out Guid parsedRequestId))
-                        throw new GuidParseException(nameof(requestId), requestId);
+                    //if (!Ulid.TryParse(requestId, out Ulid parsedRequestId))
+                    //    throw new UlidParseException(nameof(requestId), requestId);
                     
                     var result = await Result.Create(request, DomainErrors.General.UnProcessableRequest)
                         .Map(registerRequest => new Command(
-                            parsedRequestId,
+                            Ulid.Empty, 
                             FirstName.Create(registerRequest.FirstName).Value,
                             LastName.Create(registerRequest.LastName).Value,
                             new EmailAddress(registerRequest.Email),
@@ -103,6 +107,7 @@ public static class Register
         SignInProvider<User> signInManager,
         IOptions<JwtOptions> jwtOptions,
         IDbContext dbContext,
+        IUserRepository userRepository,
         IHttpContextAccessor httpContextAccessor)
         : ICommandHandler<Command, LoginResponse<Result<User>>>
     {
@@ -122,10 +127,10 @@ public static class Register
                 Result<LastName> lastNameResult = LastName.Create(request.LastName);
                 Result<EmailAddress> emailResult = EmailAddress.Create(request.Email);
                 Result<Password> passwordResult = Password.Create(request.Password);
-                
-                User? user = await userManager.FindByNameAsync(request.UserName);
 
-                var str = httpContextAccessor.HttpContext.User;
+                var strs = await userRepository.GetUsersJoin();
+                var value = strs.Value;
+                User? user = await userManager.FindByNameAsync(request.UserName);
                 
                 if (user is not null)
                 {
@@ -135,12 +140,17 @@ public static class Register
                 
                 user = User.Create(firstNameResult.Value, lastNameResult.Value,request.UserName, emailResult.Value, passwordResult.Value);
                 
-               var result = await userManager.CreateAsync(user, request.Password);
+                user.Id = Ulid.NewUlid();
                 
+               var result = await userManager.CreateAsync(user, request.Password);
+
+               IEnumerable<Claim> claims = Enumerable.Empty<Claim>();
+               
                 if (result.Succeeded)
                 {
-                    //TODO Make the claims.
-                    await _signInManager.SignInAsync(user, false,null);
+                    claims = await user.GenerateClaims(dbContext, _jwtOptions, cancellationToken);
+                    
+                    await _signInManager.SignInAsync(user, false, claims);
                     
                     logger.LogInformation($"User authorized - {user.UserName} {DateTime.UtcNow}");
                 }
@@ -157,7 +167,7 @@ public static class Register
                     Description = "Register account",
                     StatusCode = HttpStatusCode.OK,
                     Data = Task.FromResult(Result.Create(user, DomainErrors.General.ServerError)),
-                    AccessToken = await user.GenerateAccessToken(dbContext,_jwtOptions, cancellationToken),
+                    AccessToken = await user.GenerateAccessToken(claims,_jwtOptions, cancellationToken),
                     RefreshToken = refreshToken,
                     RefreshTokenExpireAt = refreshTokenExpireAt
                 };

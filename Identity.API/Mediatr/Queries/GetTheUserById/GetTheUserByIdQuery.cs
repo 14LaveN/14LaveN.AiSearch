@@ -8,7 +8,7 @@ namespace Identity.API.Mediatr.Queries.GetTheUserById;
 /// Represents the get user by id query record.
 /// </summary>
 /// <param name="UserId">The user identifier.</param>
-public sealed record GetTheUserByIdQuery(Guid UserId)
+public sealed record GetTheUserByIdQuery(Ulid UserId)
     : ICachedQuery<Maybe<GetUserResponse>>
 {
     public string Key { get; } = $"get-user-by-{UserId}";

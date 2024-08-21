@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "03RI4KuQRarjqqNImuFO6w4TnTWHuTNJdnSPpKT4qFuUxhwILZjyN8KtejLvxIB4TCsh/h6Fl3ZaL+wO+KyzqQ==",
+  "dgSpecHash": "k8zKKrsKdedoxkJMe7nPZ+Dxvl/eKPpLvFddAEo6b3pMQTU8SYMcZ4EpLZQu5vc1uzYDWKVHw1xM9Pvaarm1ZQ==",
   "success": true,
   "projectFilePath": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj",
   "expectedPackageFiles": [
@@ -76,6 +76,7 @@
     "C:\\Users\\ponom\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\ulid\\1.3.4\\ulid.1.3.4.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
   "logs": []

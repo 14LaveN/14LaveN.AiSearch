@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 10s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'ai-search-identity'
+    metrics_path: '/metrics'
+    scheme: 'https'
+    honor_timestamps: true
+    static_configs:
+      - targets: ['localhost:7267']
+
+  - job_name: 'prometheus'
+    static_configs:

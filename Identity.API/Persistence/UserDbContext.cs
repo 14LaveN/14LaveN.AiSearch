@@ -25,7 +25,7 @@ namespace Identity.API.Persistence;
 /// Represents the <see cref="User"/> database context base class.
 /// </summary>
 public sealed class UserDbContext
-    : IdentityDbContext<User, IdentityRole<Guid>, Guid>, IDbContext
+    : IdentityDbContext<User, IdentityRole<Ulid>, Ulid>, IDbContext
 {
     private readonly IPublisher _publisher;
     private readonly ConnectionString _connectionString;
@@ -73,13 +73,20 @@ public sealed class UserDbContext
 
         modelBuilder.HasDefaultSchema("dbo");
 
-        modelBuilder.Entity<IdentityUserLogin<Guid>>()
+        modelBuilder.Entity<IdentityUserLogin<Ulid>>()
            .HasKey(l => new { l.LoginProvider, l.ProviderKey });
 
-        modelBuilder.Entity<IdentityUserRole<Guid>>()
+        modelBuilder.Entity<IdentityUserRole<Ulid>>()
              .HasKey(l => new { l.UserId, l.RoleId });
+        
+        modelBuilder.Entity<IdentityRole<Ulid>>(entity =>
+        {
+            entity.Property(e => e.Id).HasConversion(
+                v => v.ToString(),
+                v => Ulid.Parse(v));
+        });
 
-        modelBuilder.Entity<IdentityUserToken<Guid>>()
+        modelBuilder.Entity<IdentityUserToken<Ulid>>()
             .HasKey(l => new { l.UserId, l.LoginProvider, l.Name });
 
         modelBuilder.Entity<Category>()
@@ -93,9 +100,9 @@ public sealed class UserDbContext
 
     /// <exception cref="ArgumentNullException"></exception>
     /// <inheritdoc />
-    public async Task<Maybe<TEntity>> GetByIdAsync<TEntity>(Guid id)
+    public async Task<Maybe<TEntity>> GetByIdAsync<TEntity>(Ulid id)
         where TEntity : Entity
-        => id == Guid.Empty ?
+        => id == Ulid.Empty ?
             Maybe<TEntity>.None :
             Maybe<TEntity>.From(await Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id) 
             ?? throw new ArgumentNullException());

@@ -4,6 +4,7 @@ using Domain.Common.ValueObjects;
 using Domain.Entities;
 using Domain.ValueObjects;
 using Identity.API.Domain.Entities;
+using Identity.API.Persistence.Converters;
 
 namespace Identity.API.Persistence.Configurations;
 
@@ -23,23 +24,28 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasMany<Role>()
             .WithMany();
 
+        UlidToStringConverter converter = new UlidToStringConverter();
+        
         //TODO builder.HasData(new User(
         //TODO     "sdfsdf",
         //TODO     FirstName.Create("dfsdf").Value,
         //TODO     LastName.Create("fdfsdfsf").Value,
         //TODO     new EmailAddress("dfsdfs@mail.ru")
         //TODO     {
-        //TODO         UserId  = Guid.NewGuid()
+        //TODO         UserId  = Ulid.NewUlid()
         //TODO     },
         //TODO     "Sdfdsf_2008")
         //TODO {
-        //TODO     Id = Guid.NewGuid()
+        //TODO     Id = Ulid.NewUlid()
         //TODO });
 
         builder.HasKey(user => user.Id);
 
         builder
             .Property(u => u.Id)
+            .HasConversion(
+                v => v.ToString(),
+                v => Ulid.Parse(v))
             .ValueGeneratedOnAdd();
         
         builder.OwnsOne(user => user.FirstName, firstNameBuilder =>
@@ -49,6 +55,11 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
             firstNameBuilder.Property(firstName => firstName.Value)
                 .HasColumnName(nameof(User.FirstName))
                 .HasMaxLength(FirstName.MaxLength)
+                .IsRequired();
+            
+            firstNameBuilder.Property(firstName => firstName.UserId)
+                .HasConversion(converter)
+                .HasColumnName(nameof(User.Id))
                 .IsRequired();
         });
         
@@ -60,6 +71,11 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
                 .HasColumnName(nameof(User.LastName))
                 .HasMaxLength(LastName.MaxLength)
                 .IsRequired();
+            
+            lastNameBuilder.Property(firstName => firstName.UserId)
+                .HasConversion(converter)
+                .HasColumnName(nameof(User.Id))
+                .IsRequired();
         });
 
         builder.OwnsOne(user => user.EmailAddress, emailBuilder =>
@@ -69,6 +85,11 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
             emailBuilder.Property(email => email.Value)
                 .HasColumnName(nameof(User.EmailAddress))
                 .HasMaxLength(EmailAddress.MaxLength)
+                .IsRequired();
+            
+            emailBuilder.Property(firstName => firstName.UserId)
+                .HasConversion(converter)
+                .HasColumnName(nameof(User.Id))
                 .IsRequired();
         });
 

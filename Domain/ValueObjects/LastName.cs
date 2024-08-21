@@ -42,7 +42,7 @@ public sealed class LastName : ValueObject
     /// <summary>
     /// Gets or sets user identifier.
     /// </summary>
-    public Guid UserId { get; set; }
+    public Ulid UserId { get; set; }
     
     /// <inheritdoc />
     public override string ToString() => Value;

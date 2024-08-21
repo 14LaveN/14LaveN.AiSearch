@@ -63,8 +63,6 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
                     logger.LogTrace("Creating RabbitMQ consumer channel");
                 }
 
-                channel = connection.CreateModel();
-
                 channel.CallbackException += (sender, ea) =>
                 {
                     logger.LogWarning(ea.Exception, "Error with RabbitMQ consumer channel");
@@ -74,7 +72,7 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
                                         type: ExchangeType.Direct);
 
                 channel.QueueDeclare(queue: _messageBrokerSettings.QueueName,
-                                     durable: true,
+                                     durable: false,
                                      exclusive: false,
                                      autoDelete: false,
                                      arguments: null);
@@ -86,7 +84,10 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
 
                 var consumer = new AsyncEventingBasicConsumer(channel);
 
-                consumer.Received += OnMessageReceived;
+                consumer.Received += async (model, ea) =>
+                {
+                    await OnMessageReceived(model, ea);
+                };
 
                 channel.BasicConsume(
                     queue: _messageBrokerSettings.QueueName,
@@ -171,10 +172,7 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
 
             activity.SetExceptionTags(ex);
         }
-
-        // Even on exception we take the message off the queue.
-        // in a REAL WORLD app this should be handled with a Dead Letter Exchange (DLX). 
-        // For more information see: https://www.rabbitmq.com/dlx.html
+        
         channel.BasicAck(eventArgs.DeliveryTag, multiple: false);
     }
 

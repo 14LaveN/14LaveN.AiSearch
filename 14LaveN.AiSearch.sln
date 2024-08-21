@@ -5,6 +5,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C2E71E8-5861-4AF4-B481-D2A01005DC59}"
 	ProjectSection(SolutionItems) = preProject
 		docker-compose.yml = docker-compose.yml
+		docker-compose.override.yml = docker-compose.override.yml
+		prometheus.yml = prometheus.yml
+		identity-api.yaml = identity-api.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AEE01FDA-146E-49A7-B521-EC2F9ED523AD}"
@@ -66,6 +69,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Tests", "Common.Tests\Common.Tests.csproj", "{9E726856-8336-42C3-BC4A-A8F5EB6197E4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceDefaults", "ServiceDefaults\ServiceDefaults.csproj", "{810B5E69-5BF1-4F98-BCE3-07C44EE9B487}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AiGemini.API", "AiGemini.API\AiGemini.API.csproj", "{DA8B55E4-139B-4D66-A047-AB37228B5660}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AiGemini", "AiGemini", "{7B896792-8B34-4F96-B22A-86B4988D7CE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.IntegrationTests", "Identity.IntegrationTests\Identity.IntegrationTests.csproj", "{A187079A-806C-4D14-9EBF-3EE8036E39BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.FunctionalTests", "Identity.FunctionalTests\Identity.FunctionalTests.csproj", "{605C140B-2865-48DE-A92D-822EAD626422}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -157,6 +168,18 @@ Global
 		{810B5E69-5BF1-4F98-BCE3-07C44EE9B487}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{810B5E69-5BF1-4F98-BCE3-07C44EE9B487}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{810B5E69-5BF1-4F98-BCE3-07C44EE9B487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA8B55E4-139B-4D66-A047-AB37228B5660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA8B55E4-139B-4D66-A047-AB37228B5660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA8B55E4-139B-4D66-A047-AB37228B5660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA8B55E4-139B-4D66-A047-AB37228B5660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A187079A-806C-4D14-9EBF-3EE8036E39BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A187079A-806C-4D14-9EBF-3EE8036E39BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A187079A-806C-4D14-9EBF-3EE8036E39BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A187079A-806C-4D14-9EBF-3EE8036E39BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{605C140B-2865-48DE-A92D-822EAD626422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{605C140B-2865-48DE-A92D-822EAD626422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{605C140B-2865-48DE-A92D-822EAD626422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{605C140B-2865-48DE-A92D-822EAD626422}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{35EE44B2-232C-48DD-AA63-C6400A6DE4CC} = {AEE01FDA-146E-49A7-B521-EC2F9ED523AD}
@@ -188,5 +211,9 @@ Global
 		{A962147A-5228-4C21-BC95-C075BF4AA273} = {6D65970B-BCCA-4D04-8016-7FE2EE5A03C9}
 		{9E726856-8336-42C3-BC4A-A8F5EB6197E4} = {6D65970B-BCCA-4D04-8016-7FE2EE5A03C9}
 		{810B5E69-5BF1-4F98-BCE3-07C44EE9B487} = {AE2FCB8A-F04C-492B-9574-B88B07D6AFF2}
+		{7B896792-8B34-4F96-B22A-86B4988D7CE1} = {AE8CDA61-4041-43AF-9145-9EE7C6C057FD}
+		{DA8B55E4-139B-4D66-A047-AB37228B5660} = {7B896792-8B34-4F96-B22A-86B4988D7CE1}
+		{A187079A-806C-4D14-9EBF-3EE8036E39BA} = {2E41254E-0C76-4170-8825-C5D43AFBFFC0}
+		{605C140B-2865-48DE-A92D-822EAD626422} = {2E41254E-0C76-4170-8825-C5D43AFBFFC0}
 	EndGlobalSection
 EndGlobal

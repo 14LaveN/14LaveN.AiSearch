@@ -18,10 +18,10 @@ public sealed class UserCreatedIntegrationEvent
         Id = userCreatedDomainEvent.User.Id;
         
     [JsonConstructor]
-    public UserCreatedIntegrationEvent(Guid userId) => Id = userId;
+    public UserCreatedIntegrationEvent(Ulid userId) => Id = userId;
 
     /// <summary>
     /// Gets the user identifier.
     /// </summary>
-    public Guid Id { get; }
+    public Ulid Id { get; }
 }

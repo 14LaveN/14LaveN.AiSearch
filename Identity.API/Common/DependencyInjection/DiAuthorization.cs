@@ -30,7 +30,7 @@ internal static class DiAuthorization
         
         services.AddHttpContextAccessor();
         
-        services.AddIdentity<User, IdentityRole<Guid>>(options =>
+        services.AddIdentity<User, IdentityRole<Ulid>>(options =>
             {
                 options.User.RequireUniqueEmail = false;
             })

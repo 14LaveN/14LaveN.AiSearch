@@ -1,5 +1,6 @@
 using Application.Core.Behaviours;
 using Domain.Core.Utility;
+using FluentValidation;
 using Identity.API.IntegrationEvents.User.Events.PasswordChanged;
 using Identity.API.IntegrationEvents.User.Events.UserCreated;
 using Identity.API.IntegrationEvents.User.Handlers.PasswordChanged;
@@ -23,6 +24,8 @@ public static class DiMediator
     {
         Ensure.NotNull(services, "Services is required.", nameof(services));
 
+        services.AddValidatorsFromAssemblyContaining<Program>();
+        
         services.AddMediatR(x =>
         {
             x.RegisterServicesFromAssemblyContaining<Program>();

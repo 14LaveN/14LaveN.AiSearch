@@ -1,5 +1,6 @@
 using System.Net;
 using System.Security.Authentication;
+using System.Security.Claims;
 using Application.ApiHelpers.Contracts;
 using Application.ApiHelpers.Policy;
 using Application.Core.Abstractions;
@@ -14,6 +15,7 @@ using FluentValidation;
 using Identity.API.Abstractions.Idempotency;
 using Identity.API.ApiHelpers.Responses;
 using Identity.API.Domain.Entities;
+using Identity.API.Infrastructure.Authentication;
 using Identity.API.Infrastructure.Settings.User;
 using Identity.API.Persistence;
 using Identity.API.Persistence.Extensions;
@@ -36,7 +38,7 @@ public static class Login
     /// <param name="Password">The password.</param>
     /// <param name="RequestId">The request identifier.</param>
     public sealed record Command(
-        Guid RequestId,
+        Ulid RequestId,
         string UserName,
         Password Password)
         : IdentityIdempotentCommand(RequestId);
@@ -55,8 +57,8 @@ public static class Login
                     [FromHeader(Name = "X-Idempotency-Key")] string requestId,
                     ISender sender) =>
                 {
-                    if (!Guid.TryParse(requestId, out Guid parsedRequestId))
-                        throw new GuidParseException(nameof(requestId), requestId);
+                    if (!Ulid.TryParse(requestId, out Ulid parsedRequestId))
+                        throw   new UlidParseException(nameof(requestId), requestId);
 
                     var result = await Result.Create(request, DomainErrors.General.UnProcessableRequest)
                         .Map(loginRequest => new Command(
@@ -101,7 +103,7 @@ public static class Login
         {
             try
             {
-                var user = await userManager.FindByNameAsync(request.UserName);
+                User? user = await userManager.FindByNameAsync(request.UserName);
     
                 if (user is null)
                 {
@@ -115,7 +117,8 @@ public static class Login
                     throw new AuthenticationException();
                 }
                 
-                //TODO Create the roles in generate access token.
+                
+                IEnumerable<Claim> claims = await user.GenerateClaims(dbContext, _jwtOptions, cancellationToken);
                 
                 var result = await _signInManager.PasswordSignInAsync(
                     request.UserName,
@@ -137,7 +140,7 @@ public static class Login
                     Description = "Login account",
                     StatusCode = HttpStatusCode.OK,
                     Data =  Task.FromResult(Result.Create(user, DomainErrors.General.ServerError)),
-                    AccessToken =  await user.GenerateAccessToken(dbContext, _jwtOptions, cancellationToken), 
+                    AccessToken =  await user.GenerateAccessToken(claims, _jwtOptions, cancellationToken), 
                     RefreshToken = refreshToken,
                     RefreshTokenExpireAt = refreshTokenExpireAt
                 };

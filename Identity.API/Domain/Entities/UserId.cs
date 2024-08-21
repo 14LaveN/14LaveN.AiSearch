@@ -4,7 +4,7 @@ namespace Identity.API.Domain.Entities;
 /// Represents the user identifier record.
 /// </summary>
 /// <param name="Value">The guid value.</param>
-public record UserId(Guid Value)
+public record UserId(Ulid Value)
 {
     /// <inheritdoc />
     public override string ToString() =>
@@ -15,18 +15,18 @@ public record UserId(Guid Value)
         Value.GetHashCode();
 
     /// <summary>
-    /// Create the <see cref="Guid"/> value with specified <see cref="UserId"/> record.
+    /// Create the <see cref="Ulid"/> value with specified <see cref="UserId"/> record.
     /// </summary>
     /// <param name="userId">The user identifier.</param>
-    /// <returns>Returns new <see cref="Guid"/> value.</returns>
-    public static implicit operator Guid(UserId userId) => 
+    /// <returns>Returns new <see cref="Ulid"/> value.</returns>
+    public static implicit operator Ulid(UserId userId) => 
         userId.Value;
 
     /// <summary>
-    /// Create the <see cref="UserId"/> value with specified <see cref="Guid"/> value.
+    /// Create the <see cref="UserId"/> value with specified <see cref="Ulid"/> value.
     /// </summary>
     /// <param name="value">The value.</param>
     /// <returns>Returns new <see cref="UserId"/> record.</returns>
-    public static explicit operator UserId(Guid value) =>
+    public static explicit operator UserId(Ulid value) =>
         new(value);
 }

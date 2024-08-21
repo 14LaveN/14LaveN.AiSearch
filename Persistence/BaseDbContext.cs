@@ -14,6 +14,7 @@ using Domain.Common.Core.Primitives.Maybe;
 using Domain.Core.Events;
 using Domain.Core.Extensions;
 using Domain.Core.Primitives;
+using Persistence.Infrastructure;
 
 namespace Persistence;
 
@@ -23,21 +24,24 @@ namespace Persistence;
 public class BaseDbContext
     : DbContext, IDbContext
 {
-    private readonly IPublisher _publisher ;
+    private readonly IPublisher _publisher;
+    private readonly ConnectionString _connectionString;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="BaseDbContext"/> class.
     /// </summary>
     /// <param name="options">The database context options.</param>
     /// <param name="publisher">The publisher.</param>
+    /// <param name="connectionString">The connection string.</param>
     public BaseDbContext(
         DbContextOptions<BaseDbContext> options,
-        IPublisher publisher)
-        : base(options)
-    {
-        _publisher   = publisher  ;
-    }
+        IPublisher publisher,
+        ConnectionString connectionString)
+        : base(options) =>
+        (_publisher, _connectionString) =
+        (publisher, connectionString);
     
+
 
     /// <inheritdoc />
     public BaseDbContext() { }
@@ -52,7 +56,7 @@ public class BaseDbContext
             .ConfigureWarnings(warnings => 
                 warnings.Ignore(RelationalEventId.ForeignKeyPropertiesMappedToUnrelatedTables));
         optionsBuilder
-            .UseNpgsql("Server=localhost;Port=5433;Database=TTGenericDb;User Id=postgres;Password=1111;");
+            .UseNpgsql(_connectionString);
     }
 
     /// <inheritdoc />
@@ -71,9 +75,9 @@ public class BaseDbContext
 
     /// <exception cref="ArgumentNullException"></exception>
     /// <inheritdoc />
-    public async Task<Maybe<TEntity>> GetByIdAsync<TEntity>(Guid id)
+    public async Task<Maybe<TEntity>> GetByIdAsync<TEntity>(Ulid id)
         where TEntity : Entity
-        => id == Guid.Empty ?
+        => id == Ulid.Empty ?
             Maybe<TEntity>.None :
             Maybe<TEntity>
                 .From(await Set<TEntity>()
@@ -102,7 +106,10 @@ public class BaseDbContext
             .ExecuteDeleteAsync();
     
     /// <inheritdoc />
-    public Task<int> ExecuteSqlAsync(string sql, IEnumerable<NpgsqlParameter> parameters, CancellationToken cancellationToken = default)
+    public Task<int> ExecuteSqlAsync(
+        string sql,
+        IEnumerable<NpgsqlParameter> parameters,
+        CancellationToken cancellationToken = default)
         => Database.ExecuteSqlRawAsync(sql, parameters, cancellationToken);
     
    /// <summary>

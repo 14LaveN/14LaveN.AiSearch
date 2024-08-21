@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using Application.Core.Abstractions;
 using Domain.Entities;
 using Identity.API.Domain.Entities;
+using Identity.API.Infrastructure.Authentication;
 
 namespace Identity.API.Persistence.Extensions;
 
@@ -42,48 +43,16 @@ internal static class JwtExtensions
     /// Generate new access token by options.
     /// </summary>
     /// <param name="user">The user.</param>
-    /// <param name="dbContext">The database context.</param>
+    /// <param name="claims">The claims.</param>
     /// <param name="jwtOptions">The json web token options.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>Returns access token.</returns>
     public static async Task<string> GenerateAccessToken(
         this User user,
-        IDbContext dbContext,
+        IEnumerable<Claim> claims,
         JwtOptions jwtOptions,
         CancellationToken cancellationToken = default)
     {
-        Role? existingRole = await dbContext
-            .Set<Role>()
-            .Include(x => x.Permissions)
-            .FirstOrDefaultAsync(r => r.Value == Role.Registered.Value, cancellationToken: cancellationToken);
-
-        user.Roles ??= [];
-
-        if (existingRole != null
-            && user.Roles is not null
-            && !user.Roles.Any(r => r.Value == existingRole.Value))
-        {
-            bool hasAllPermissions = existingRole.Permissions
-                .All(permission =>
-                    user.Roles
-                        .SelectMany(r => r.Permissions)
-                        .Any(p => p.Id == permission.Id));
-
-            if (!hasAllPermissions)
-            {
-                user.Roles.Add(existingRole);
-            }
-        }
-
-        List<Claim> claims = [];
-        
-        claims.AddRange(user.Roles!
-            .First()
-            .Permissions
-            .ToList()
-            .Select(permission =>
-                new Claim(CustomClaims.Permissions, permission.Name)));
-
         var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Secret.PadRight(64)));
         var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256Signature);
         
@@ -92,15 +61,7 @@ internal static class JwtExtensions
             var tokeOptions = new JwtSecurityToken(
                 jwtOptions.ValidIssuers.Last(),
                 jwtOptions.ValidAudiences.Last(),
-                claims: new List<Claim>
-                {
-                    new (JwtRegisteredClaimNames.NameId, user.Id.ToString()),
-                    new (JwtRegisteredClaimNames.Name, user.UserName),
-                    new (JwtRegisteredClaimNames.Email, user.EmailAddress),
-                    new (JwtRegisteredClaimNames.GivenName, user.FirstName ?? string.Empty),
-                    new (JwtRegisteredClaimNames.FamilyName, user.LastName ?? string.Empty)
-                }
-                    .Union(claims),
+                claims: claims,
                 expires: DateTime.Now.AddMinutes(jwtOptions.Expire),
                 signingCredentials: signinCredentials
             );

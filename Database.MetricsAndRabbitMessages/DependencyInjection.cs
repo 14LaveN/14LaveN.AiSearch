@@ -6,6 +6,7 @@ using Application.Core.Settings;
 using Database.MetricsAndRabbitMessages;
 using Database.MetricsAndRabbitMessages.Data.Interfaces;
 using Database.MetricsAndRabbitMessages.Data.Repositories;
+using Database.MetricsAndRabbitMessages.HealthChecks;
 using Domain.Entities;
 
 namespace Database.MetricsAndRabbitMessages;
@@ -33,9 +34,14 @@ public static class DependencyInjection
             .BindConfiguration(MongoSettings.MongoSettingsKey)
             .ValidateOnStart();
 
-        services.AddSingleton<IMetricsRepository, MetricsRepository>();
-        services.AddSingleton<IMongoRepository<RabbitMessage>, RabbitMessagesRepository>();
-        services.AddSingleton<ICommonMongoDbContext, CommonMongoDbContext>();
+        services.AddHealthChecks()
+            .AddCheck<MongoDbHealthCheck>("mongodb", 
+                failureStatus: Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus.Unhealthy, 
+                tags: new[] { "db", "mongodb" });
+        
+        services.AddSingleton<IMetricsRepository, MetricsRepository>()
+            .AddSingleton<IMongoRepository<RabbitMessage>, RabbitMessagesRepository>()
+            .AddSingleton<ICommonMongoDbContext, CommonMongoDbContext>();
         
         services.AddTransient<MongoSettings>();
         

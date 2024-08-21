@@ -11,7 +11,7 @@ public abstract class Entity : IEquatable<Entity>
     /// Initializes a new instance of the <see cref="Entity"/> class.
     /// </summary>
     /// <param name="id">The entity identifier.</param>
-    protected Entity(Guid id)
+    protected Entity(Ulid id)
         : this()
     {
         Ensure.NotEmpty(id, "The identifier is required.", nameof(id));
@@ -32,7 +32,7 @@ public abstract class Entity : IEquatable<Entity>
     /// <summary>
     /// Gets or sets the entity identifier.
     /// </summary>
-    public Guid Id { get;}
+    public Ulid Id { get;}
 
     public static bool operator ==(Entity a, Entity b)
     {
@@ -85,7 +85,7 @@ public abstract class Entity : IEquatable<Entity>
             return false;
         }
 
-        if (Id == Guid.Empty || other.Id == Guid.Empty)
+        if (Id == Ulid.Empty || other.Id == Ulid.Empty)
         {
             return false;
         }

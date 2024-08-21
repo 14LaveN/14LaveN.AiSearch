@@ -33,7 +33,7 @@ public abstract class GenericRepository<TEntity>
     /// </summary>
     /// <param name="id">The entity identifier.</param>
     /// <returns>The maybe instance that may contain the entity with the specified identifier.</returns>
-    public async Task<Maybe<TEntity>> GetByIdAsync(Guid id) 
+    public async Task<Maybe<TEntity>> GetByIdAsync(Ulid id) 
         => await DbContext.GetByIdAsync<TEntity>(id);
 
     /// <summary>

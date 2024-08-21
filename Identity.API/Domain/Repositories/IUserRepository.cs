@@ -14,7 +14,7 @@ public interface IUserRepository
     /// </summary>
     /// <param name="userId">The user identifier.</param>
     /// <returns>The maybe instance that may contain the user with the specified identifier.</returns>
-    Task<Maybe<User>> GetByIdAsync(Guid userId);
+    Task<Maybe<User>> GetByIdAsync(Ulid userId);
     
     /// <summary>
     /// Gets the user with the user name.
@@ -23,6 +23,12 @@ public interface IUserRepository
     /// <returns>The maybe instance that may contain the user with the specified identifier.</returns>
     Task<Maybe<User>> GetByNameAsync(string name);
 
+    /// <summary>
+    /// Gets users.
+    /// </summary>
+    /// <returns>The maybe queryable of users.</returns>
+    Task<Maybe<IEnumerable<(string UserName, string RoleName)>>> GetUsersJoin();
+    
     /// <summary>
     /// Gets the user with the specified emailAddress.
     /// </summary>
