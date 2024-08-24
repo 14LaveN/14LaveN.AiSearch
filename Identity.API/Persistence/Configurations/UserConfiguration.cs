@@ -4,7 +4,7 @@ using Domain.Common.ValueObjects;
 using Domain.Entities;
 using Domain.ValueObjects;
 using Identity.API.Domain.Entities;
-using Identity.API.Persistence.Converters;
+using Persistence.Converters;
 
 namespace Identity.API.Persistence.Configurations;
 
@@ -24,20 +24,7 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasMany<Role>()
             .WithMany();
 
-        UlidToStringConverter converter = new UlidToStringConverter();
-        
-        //TODO builder.HasData(new User(
-        //TODO     "sdfsdf",
-        //TODO     FirstName.Create("dfsdf").Value,
-        //TODO     LastName.Create("fdfsdfsf").Value,
-        //TODO     new EmailAddress("dfsdfs@mail.ru")
-        //TODO     {
-        //TODO         UserId  = Ulid.NewUlid()
-        //TODO     },
-        //TODO     "Sdfdsf_2008")
-        //TODO {
-        //TODO     Id = Ulid.NewUlid()
-        //TODO });
+        UlidToStringConverter converter = new();
 
         builder.HasKey(user => user.Id);
 

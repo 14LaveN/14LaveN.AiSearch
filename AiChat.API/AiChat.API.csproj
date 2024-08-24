@@ -13,4 +13,23 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+      <ProjectReference Include="..\Persistence\Persistence.csproj" />
+      <ProjectReference Include="..\ServiceDefaults\ServiceDefaults.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Contracts\" />
+      <Folder Include="Domain\Entities\" />
+      <Folder Include="Domain\Events\" />
+      <Folder Include="Domain\Repositories\" />
+      <Folder Include="Infrastructure\Settings\" />
+      <Folder Include="IntegrationEvents\" />
+      <Folder Include="Mediatr\Commands\" />
+      <Folder Include="Mediatr\Queries\" />
+      <Folder Include="Persistence\Configurations\" />
+      <Folder Include="Persistence\Repositories\" />
+    </ItemGroup>
+
 </Project>

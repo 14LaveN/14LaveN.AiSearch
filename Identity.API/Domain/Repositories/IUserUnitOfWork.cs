@@ -1,3 +1,4 @@
+using System.Data;
 using Application.Core.Abstractions;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -22,6 +23,18 @@ public interface IUserUnitOfWork
     /// <param name="useIfExists">The use if exists.</param>
     /// <returns>The new database context transaction.</returns>
     Task<IDbContextTransaction> BeginTransactionAsync(
+        CancellationToken cancellationToken = default,
+        bool useIfExists = false);
+
+    /// <summary>
+    /// Begins a transaction on the current unit of work.
+    /// </summary>
+    /// <param name="isolationLevel">The isolation level.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <param name="useIfExists">The use if exists.</param>
+    /// <returns>The new database context transaction.</returns>
+    Task<IDbContextTransaction> BeginTransactionAsync(
+        IsolationLevel isolationLevel,
         CancellationToken cancellationToken = default,
         bool useIfExists = false);
     

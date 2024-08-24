@@ -47,7 +47,7 @@ internal static class JwtExtensions
     /// <param name="jwtOptions">The json web token options.</param>
     /// <param name="cancellationToken">The cancellation token.</param>
     /// <returns>Returns access token.</returns>
-    public static async Task<string> GenerateAccessToken(
+    public static Task<string> GenerateAccessToken(
         this User user,
         IEnumerable<Claim> claims,
         JwtOptions jwtOptions,
@@ -65,7 +65,7 @@ internal static class JwtExtensions
                 expires: DateTime.Now.AddMinutes(jwtOptions.Expire),
                 signingCredentials: signinCredentials
             );
-            return new JwtSecurityTokenHandler().WriteToken(tokeOptions);
+            return Task.FromResult(new JwtSecurityTokenHandler().WriteToken(tokeOptions));
         }
 
         throw new InvalidOperationException();

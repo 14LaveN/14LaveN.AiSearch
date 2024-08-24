@@ -2620,19 +2620,18 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "RabbitMQ.Client/6.7.0-rc.1": {
+      "RabbitMQ.Client/7.0.0-rc.8": {
         "type": "package",
         "dependencies": {
-          "System.Memory": "4.5.5",
-          "System.Threading.Channels": "7.0.0"
+          "System.IO.Pipelines": "6.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+          "lib/net6.0/RabbitMQ.Client.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+          "lib/net6.0/RabbitMQ.Client.dll": {
             "related": ".xml"
           }
         }
@@ -3671,6 +3670,8 @@
           "Microsoft.EntityFrameworkCore": "8.0.7",
           "Microsoft.TestPlatform.TestHost": "17.6.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.4",
+          "OpenTelemetry.Extensions.Hosting": "1.9.0",
+          "RabbitMq": "1.0.0",
           "Ulid": "1.3.4"
         },
         "compile": {
@@ -3691,7 +3692,7 @@
           "OpenTelemetry": "1.9.0",
           "OpenTelemetry.Api": "1.9.0",
           "OpenTelemetry.Extensions.Hosting": "1.9.0",
-          "RabbitMQ.Client": "6.7.0-rc.1"
+          "RabbitMQ.Client": "7.0.0-rc.8"
         },
         "compile": {
           "bin/placeholder/RabbitMq.dll": {}
@@ -3704,6 +3705,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.7",
           "Microsoft.IdentityModel.JsonWebTokens": "8.0.1",
           "OpenTelemetry": "1.9.0",
           "OpenTelemetry.Exporter.OpenTelemetryProtocol": "1.9.0",
@@ -7123,20 +7125,20 @@
         "prometheus.client.httprequestdurations.nuspec"
       ]
     },
-    "RabbitMQ.Client/6.7.0-rc.1": {
-      "sha512": "wRI1E++weaW6FRBwm7td588H0+N92bbh4wG3BDUYELtAmvEa98HfiZ0LCyinD30yV2Uqtr9ORlrkPMfwqf+upw==",
+    "RabbitMQ.Client/7.0.0-rc.8": {
+      "sha512": "fGmjNHrtXCzHZ9gYzihJ4f+rPi4qe1rEq3Q/FQT1WxhzsxxRnJViIFTvz1TqFCdx8pOtNjUZRvLC1KmpLBim5Q==",
       "type": "package",
-      "path": "rabbitmq.client/6.7.0-rc.1",
+      "path": "rabbitmq.client/7.0.0-rc.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
         "icon.png",
-        "lib/net462/RabbitMQ.Client.dll",
-        "lib/net462/RabbitMQ.Client.xml",
+        "lib/net6.0/RabbitMQ.Client.dll",
+        "lib/net6.0/RabbitMQ.Client.xml",
         "lib/netstandard2.0/RabbitMQ.Client.dll",
         "lib/netstandard2.0/RabbitMQ.Client.xml",
-        "rabbitmq.client.6.7.0-rc.1.nupkg.sha512",
+        "rabbitmq.client.7.0.0-rc.8.nupkg.sha512",
         "rabbitmq.client.nuspec"
       ]
     },
@@ -8782,53 +8784,61 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Александр Пономарев\\.nuget\\packages\\": {}
+    "C:\\Users\\ponom\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\Identity.API.csproj",
+      "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\Identity.API.csproj",
       "projectName": "Identity.API",
-      "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\Identity.API.csproj",
-      "packagesPath": "C:\\Users\\Александр Пономарев\\.nuget\\packages\\",
-      "outputPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\obj\\",
+      "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\Identity.API.csproj",
+      "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+      "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Александр Пономарев\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj": {
-              "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj"
+            "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj": {
+              "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj"
             },
-            "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging\\Common.Logging.csproj": {
-              "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging\\Common.Logging.csproj"
+            "G:\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging\\Common.Logging.csproj": {
+              "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging\\Common.Logging.csproj"
             },
-            "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj": {
-              "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj"
+            "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj": {
+              "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj"
             },
-            "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\EmailService\\EmailService.csproj": {
-              "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\EmailService\\EmailService.csproj"
+            "G:\\DotNetProjects\\14LaveN.AiSearch\\EmailService\\EmailService.csproj": {
+              "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\EmailService\\EmailService.csproj"
             },
-            "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure\\Infrastructure.csproj"
+            "G:\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure\\Infrastructure.csproj"
             },
-            "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Persistence\\Persistence.csproj": {
-              "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Persistence\\Persistence.csproj"
+            "G:\\DotNetProjects\\14LaveN.AiSearch\\Persistence\\Persistence.csproj": {
+              "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Persistence\\Persistence.csproj"
             },
-            "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj": {
-              "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj"
+            "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj": {
+              "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj"
             },
-            "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj": {
-              "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj"
+            "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj": {
+              "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj"
             }
           }
         }
@@ -8965,7 +8975,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

@@ -44,9 +44,6 @@ public static class DependencyInjection
             .AddSingleton<ICommonMongoDbContext, CommonMongoDbContext>();
         
         services.AddTransient<MongoSettings>();
-        
-        //TODO services.AddHealthChecks()
-        //TODO     .AddMongoDb(configuration.GetConnectionString("MongoConnection")!);
 
         return services;
     }

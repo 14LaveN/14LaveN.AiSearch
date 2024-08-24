@@ -58,12 +58,12 @@ public static class ChangeName
                     [FromHeader(Name = "X-Idempotency-Key")] string requestId,
                     ISender sender) =>
                 {
-                    if (!Ulid.TryParse(requestId, out Ulid parsedRequestId))
-                        throw new UlidParseException(nameof(requestId), requestId);
+                    //if (!Ulid.TryParse(requestId, out Ulid parsedRequestId))
+                    //    throw new UlidParseException(nameof(requestId), requestId);
                     
                     var result = await Result.Create(request, DomainErrors.General.UnProcessableRequest)
                         .Map(changeNameRequest => new Command(
-                            parsedRequestId,
+                            Ulid.Empty, 
                             FirstName.Create(changeNameRequest.FirstName).Value,
                             LastName.Create(changeNameRequest.LastName).Value))
                         .Bind(command => Task.FromResult(BaseRetryPolicy.Policy.Execute(async () =>

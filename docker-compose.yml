@@ -115,3 +115,8 @@ volumes:
   elasticsearch-data:
   redis-data:
   mongo_data:
+  web:
+    image: web
+    build:
+      context: .
+      dockerfile: Web/Dockerfile

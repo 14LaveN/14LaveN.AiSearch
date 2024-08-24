@@ -5,6 +5,7 @@ using Identity.API.Common;
 using Identity.API.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
+using Persistence;
 
 namespace Identity.API.Persistence;
 

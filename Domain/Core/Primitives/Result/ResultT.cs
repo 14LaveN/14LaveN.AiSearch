@@ -1,4 +1,5 @@
-﻿using Domain.Common.Core.Primitives;
+﻿using System.Text.Json.Serialization;
+using Domain.Common.Core.Primitives;
 using Domain.Common.Core.Primitives.Result;
 
 namespace Domain.Core.Primitives.Result;
@@ -17,6 +18,7 @@ public class Result<TValue> : Result
     /// <param name="value">The result value.</param>
     /// <param name="isSuccess">The flag indicating if the result is successful.</param>
     /// <param name="error">The error.</param>
+    [JsonConstructor]
     protected internal Result(TValue value, bool isSuccess, Error error)
         : base(isSuccess, error)
         => _value = value;

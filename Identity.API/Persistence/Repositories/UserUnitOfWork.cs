@@ -1,5 +1,7 @@
+using System.Data;
 using Application.Core.Abstractions;
 using Identity.API.Domain.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage;
 
@@ -35,6 +37,22 @@ internal sealed class UserUnitOfWork
         if (transaction == null)
         {
             return await _userDbContext.Database.BeginTransactionAsync(cancellationToken);
+        }
+
+        return await (useIfExists ? Task.FromResult(transaction) : _userDbContext.Database.BeginTransactionAsync(cancellationToken));
+    }
+
+    /// <inheritdoc />
+    public async Task<IDbContextTransaction> BeginTransactionAsync(
+        IsolationLevel isolationLevel,
+        CancellationToken cancellationToken = default,
+        bool useIfExists = false)
+    {
+        IDbContextTransaction? transaction = _userDbContext.Database.CurrentTransaction;
+            
+        if (transaction == null)
+        {
+            return await _userDbContext.Database.BeginTransactionAsync(isolationLevel, cancellationToken);
         }
 
         return await (useIfExists ? Task.FromResult(transaction) : _userDbContext.Database.BeginTransactionAsync(cancellationToken));

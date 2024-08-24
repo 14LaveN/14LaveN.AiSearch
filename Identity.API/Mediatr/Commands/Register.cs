@@ -67,11 +67,11 @@ public static class Register
         {
             app.MapPost("api/v{version:apiVersion}/" + ApiRoutes.Users.Register, async (
                     [FromBody] Contracts.Register.RegisterRequest request,
-                    [FromHeader(Name = "X-Idempotency-Key")] string requestId,
+                    //TODO [FromHeader(Name = "X-Idempotency-Key")] string requestId,
                     ISender sender) =>
                 {
-                    //if (!Ulid.TryParse(requestId, out Ulid parsedRequestId))
-                    //    throw new UlidParseException(nameof(requestId), requestId);
+                    //TODO if (!Ulid.TryParse(requestId, out Ulid parsedRequestId))
+                    //TODO     throw new UlidParseException(nameof(requestId), requestId);
                     
                     var result = await Result.Create(request, DomainErrors.General.UnProcessableRequest)
                         .Map(registerRequest => new Command(
@@ -140,9 +140,7 @@ public static class Register
                 
                 user = User.Create(firstNameResult.Value, lastNameResult.Value,request.UserName, emailResult.Value, passwordResult.Value);
                 
-                user.Id = Ulid.NewUlid();
-                
-               var result = await userManager.CreateAsync(user, request.Password);
+               IdentityResult result = await userManager.CreateAsync(user, request.Password);
 
                IEnumerable<Claim> claims = Enumerable.Empty<Claim>();
                
@@ -151,6 +149,7 @@ public static class Register
                     claims = await user.GenerateClaims(dbContext, _jwtOptions, cancellationToken);
                     
                     await _signInManager.SignInAsync(user, false, claims);
+                    var context = httpContextAccessor.HttpContext.User;
                     
                     logger.LogInformation($"User authorized - {user.UserName} {DateTime.UtcNow}");
                 }

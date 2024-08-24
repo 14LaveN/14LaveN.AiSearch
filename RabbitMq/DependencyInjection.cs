@@ -48,12 +48,12 @@ public static class DependencyInjection
             .AddSingleton<IConnection>(sp =>
             {
                 IConnectionFactory factory = sp.GetRequiredService<IConnectionFactory>();
-                return factory.CreateConnection();
+                return factory.CreateConnectionAsync().Result;
             })
-            .AddSingleton<IModel>(sp =>
+            .AddSingleton<IChannel>(sp =>
             {
                 IConnection connection = sp.GetRequiredService<IConnection>();
-                return connection.CreateModel();
+                return connection.CreateChannelAsync().Result;
             });
         
         services.AddHostedService<IntegrationEventConsumerBackgroundService>();

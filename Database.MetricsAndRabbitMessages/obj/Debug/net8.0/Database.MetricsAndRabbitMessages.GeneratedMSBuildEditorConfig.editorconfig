@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Database.MetricsAndRabbitMessages
-build_property.ProjectDir = C:\Programming\DotNetProjects\14LaveN.AiSearch\Database.MetricsAndRabbitMessages\
+build_property.ProjectDir = G:\DotNetProjects\14LaveN.AiSearch\Database.MetricsAndRabbitMessages\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

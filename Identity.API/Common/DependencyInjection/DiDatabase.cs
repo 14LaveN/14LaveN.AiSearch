@@ -24,8 +24,9 @@ internal static class DiDatabase
         Ensure.NotNull(services, "Services is required.", nameof(services));
 
         services
-            //TODO.AddBaseDatabase(configuration)
+            .AddBaseDatabase(configuration)
             .AddUserDatabase(configuration)
+            .AddMigration<UserDbContext, UserDbContextSeed>()
             .AddMongoDatabase(configuration);
         
         string pathToFirebaseConfig = environment.IsDevelopment() 
@@ -39,11 +40,6 @@ internal static class DiDatabase
             name: "redis",
             failureStatus: HealthStatus.Unhealthy,
             tags: new[] { "db", "redis" });
-
-        //TODO FirebaseApp.Create(new AppOptions
-        //TODO {
-        //TODO     Credential = GoogleCredential.FromFile(pathToFirebaseConfig),
-        //TODO });
         
         return services;
     }

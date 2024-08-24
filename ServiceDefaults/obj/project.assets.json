@@ -64,6 +64,25 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.7": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "7.1.2"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.Extensions.Configuration/8.0.0": {
         "type": "package",
         "dependencies": {
@@ -390,6 +409,40 @@
           }
         }
       },
+      "Microsoft.IdentityModel.Protocols/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "7.1.2",
+          "Microsoft.IdentityModel.Tokens": "7.1.2"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.IdentityModel.Protocols.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.IdentityModel.Protocols.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.Protocols.OpenIdConnect/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols": "7.1.2",
+          "System.IdentityModel.Tokens.Jwt": "7.1.2"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.IdentityModel.Tokens/8.0.1": {
         "type": "package",
         "dependencies": {
@@ -596,6 +649,23 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "System.IdentityModel.Tokens.Jwt/7.1.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.JsonWebTokens": "7.1.2",
+          "Microsoft.IdentityModel.Tokens": "7.1.2"
+        },
+        "compile": {
+          "lib/net8.0/System.IdentityModel.Tokens.Jwt.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.IdentityModel.Tokens.Jwt.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Memory/4.5.3": {
         "type": "package",
         "compile": {
@@ -709,6 +779,21 @@
         "lib/netstandard2.1/Grpc.Net.Common.pdb",
         "lib/netstandard2.1/Grpc.Net.Common.xml",
         "packageIcon.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/8.0.7": {
+      "sha512": "HXcmJizLBx9mP2XtHZZgvi3GZCrGg98PMQ9AozrF1/RqSffp9CqCiTdrz7TaFLqOUph/S4hqx/IJD18Al+zE+w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/8.0.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.8.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
     "Microsoft.Extensions.Configuration/8.0.0": {
@@ -1275,6 +1360,52 @@
         "microsoft.identitymodel.logging.nuspec"
       ]
     },
+    "Microsoft.IdentityModel.Protocols/7.1.2": {
+      "sha512": "SydLwMRFx6EHPWJ+N6+MVaoArN1Htt92b935O3RUWPY1yUF63zEjvd3lBu79eWdZUwedP8TN2I5V9T3nackvIQ==",
+      "type": "package",
+      "path": "microsoft.identitymodel.protocols/7.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Microsoft.IdentityModel.Protocols.dll",
+        "lib/net461/Microsoft.IdentityModel.Protocols.xml",
+        "lib/net462/Microsoft.IdentityModel.Protocols.dll",
+        "lib/net462/Microsoft.IdentityModel.Protocols.xml",
+        "lib/net472/Microsoft.IdentityModel.Protocols.dll",
+        "lib/net472/Microsoft.IdentityModel.Protocols.xml",
+        "lib/net6.0/Microsoft.IdentityModel.Protocols.dll",
+        "lib/net6.0/Microsoft.IdentityModel.Protocols.xml",
+        "lib/net8.0/Microsoft.IdentityModel.Protocols.dll",
+        "lib/net8.0/Microsoft.IdentityModel.Protocols.xml",
+        "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.dll",
+        "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.xml",
+        "microsoft.identitymodel.protocols.7.1.2.nupkg.sha512",
+        "microsoft.identitymodel.protocols.nuspec"
+      ]
+    },
+    "Microsoft.IdentityModel.Protocols.OpenIdConnect/7.1.2": {
+      "sha512": "6lHQoLXhnMQ42mGrfDkzbIOR3rzKM1W1tgTeMPLgLCqwwGw0d96xFi/UiX/fYsu7d6cD5MJiL3+4HuI8VU+sVQ==",
+      "type": "package",
+      "path": "microsoft.identitymodel.protocols.openidconnect/7.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
+        "lib/net461/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
+        "lib/net462/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
+        "lib/net462/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
+        "lib/net472/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
+        "lib/net472/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
+        "lib/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
+        "lib/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
+        "lib/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
+        "lib/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
+        "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll",
+        "lib/netstandard2.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.xml",
+        "microsoft.identitymodel.protocols.openidconnect.7.1.2.nupkg.sha512",
+        "microsoft.identitymodel.protocols.openidconnect.nuspec"
+      ]
+    },
     "Microsoft.IdentityModel.Tokens/8.0.1": {
       "sha512": "kDimB6Dkd3nkW2oZPDkMkVHfQt3IDqO5gL0oa8WVy3OP4uE8Ij+8TXnqg9TOd9ufjsY3IDiGz7pCUbnfL18tjg==",
       "type": "package",
@@ -1533,6 +1664,29 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "System.IdentityModel.Tokens.Jwt/7.1.2": {
+      "sha512": "Thhbe1peAmtSBFaV/ohtykXiZSOkx59Da44hvtWfIMFofDA3M3LaVyjstACf2rKGn4dEDR2cUpRAZ0Xs/zB+7Q==",
+      "type": "package",
+      "path": "system.identitymodel.tokens.jwt/7.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net461/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net462/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net462/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net472/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net472/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net6.0/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net6.0/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/net8.0/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/net8.0/System.IdentityModel.Tokens.Jwt.xml",
+        "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.xml",
+        "system.identitymodel.tokens.jwt.7.1.2.nupkg.sha512",
+        "system.identitymodel.tokens.jwt.nuspec"
+      ]
+    },
     "System.Memory/4.5.3": {
       "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "type": "package",
@@ -1557,6 +1711,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.7",
       "Microsoft.IdentityModel.JsonWebTokens >= 8.0.1",
       "OpenTelemetry >= 1.9.0",
       "OpenTelemetry.Exporter.OpenTelemetryProtocol >= 1.9.0",
@@ -1569,24 +1724,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Александр Пономарев\\.nuget\\packages\\": {}
+    "C:\\Users\\ponom\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj",
+      "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj",
       "projectName": "ServiceDefaults",
-      "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj",
-      "packagesPath": "C:\\Users\\Александр Пономарев\\.nuget\\packages\\",
-      "outputPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\obj\\",
+      "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj",
+      "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+      "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Александр Пономарев\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1605,6 +1768,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[8.0.7, )"
+          },
           "Microsoft.IdentityModel.JsonWebTokens": {
             "target": "Package",
             "version": "[8.0.1, )"
@@ -1661,7 +1828,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

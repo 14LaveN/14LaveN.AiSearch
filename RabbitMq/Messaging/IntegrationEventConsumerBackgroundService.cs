@@ -22,7 +22,7 @@ namespace RabbitMq.Messaging;
 /// </summary>
 internal  sealed class IntegrationEventConsumerBackgroundService(
     IServiceScopeFactory serviceScopeFactory ,
-    IModel channel,
+    IChannel channel,
     IConnection connection,
     ILogger<IntegrationEventConsumerBackgroundService> logger,
     IOptions<MessageBrokerSettings> messageBrokerSettingsOptions,
@@ -37,11 +37,11 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
     
     private readonly EventBusSubscriptionInfo _subscriptionInfo = subscriptionOptions.Value;
     
-    public Task StartAsync(CancellationToken cancellationToken)
+    public async Task StartAsync(CancellationToken cancellationToken)
     {
         // Messaging is async so we don't need to wait for it to complete. On top of this
         // the APIs are blocking, so we need to run this on a background thread.
-        _ =  Task.Factory.StartNew( () =>
+        _ = await Task.Factory.StartNew(async () =>
         {
             try
             {
@@ -51,7 +51,7 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
                 {
                     Uri = new Uri(MessageBrokerSettings.AmqpLink)
                 };
-                connection = factory.CreateConnection();
+                connection = await factory.CreateConnectionAsync(cancellationToken);
                 
                 if (!connection.IsOpen)
                 {
@@ -68,14 +68,14 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
                     logger.LogWarning(ea.Exception, "Error with RabbitMQ consumer channel");
                 };
 
-                channel.ExchangeDeclare(exchange: _messageBrokerSettings.QueueName + "Exchange",
-                                        type: ExchangeType.Direct);
+                await channel.ExchangeDeclareAsync(exchange: _messageBrokerSettings.QueueName + "Exchange",
+                                        type: ExchangeType.Direct, cancellationToken: cancellationToken);
 
-                channel.QueueDeclare(queue: _messageBrokerSettings.QueueName,
+                await channel.QueueDeclareAsync(queue: _messageBrokerSettings.QueueName,
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
-                                     arguments: null);
+                                     arguments: null, cancellationToken: cancellationToken);
 
                 if (logger.IsEnabled(LogLevel.Trace))
                 {
@@ -89,17 +89,17 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
                     await OnMessageReceived(model, ea);
                 };
 
-                channel.BasicConsume(
-                    queue: _messageBrokerSettings.QueueName,
+                await channel.BasicConsumeAsync(
+                    _messageBrokerSettings.QueueName,
                     autoAck: false,
-                    consumer: consumer);
+                    consumer: consumer, cancellationToken: cancellationToken);
 
                 foreach (var (eventName, _) in _subscriptionInfo.EventTypes)
                 {
-                    channel.QueueBind(
+                    await channel.QueueBindAsync(
                         queue: _messageBrokerSettings.QueueName,
                         exchange: _messageBrokerSettings.QueueName + "Exchange",
-                        routingKey: eventName);
+                        routingKey: eventName, cancellationToken: cancellationToken);
                 }
             }
             catch (Exception ex)
@@ -108,8 +108,6 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
             }
         },
         TaskCreationOptions.LongRunning);
-        
-        return Task.CompletedTask;
     }
     
     public Task StopAsync(CancellationToken cancellationToken)
@@ -119,16 +117,6 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
     
     private async Task OnMessageReceived(object sender, BasicDeliverEventArgs eventArgs)
     {
-        static IEnumerable<string> ExtractTraceContextFromBasicProperties(IBasicProperties props, string key)
-        {
-            if (props.Headers.TryGetValue(key, out var value))
-            {
-                var bytes = value as byte[];
-                return [Encoding.UTF8.GetString(bytes)];
-            }
-            return [];
-        }
-
         // Extract the PropagationContext of the upstream parent from the message headers.
         PropagationContext parentContext = _propagator.Extract(
             default, 
@@ -173,7 +161,19 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
             activity.SetExceptionTags(ex);
         }
         
-        channel.BasicAck(eventArgs.DeliveryTag, multiple: false);
+        await channel.BasicAckAsync(eventArgs.DeliveryTag, multiple: false);
+        return;
+    }
+
+    private IEnumerable<string> ExtractTraceContextFromBasicProperties(IReadOnlyBasicProperties readOnlyBasicProperties, string key)
+    {
+        if (readOnlyBasicProperties.Headers is not null &&
+            readOnlyBasicProperties.Headers.TryGetValue(key, out var value))
+        {
+            var bytes = value as byte[];
+            return [Encoding.UTF8.GetString(bytes)];
+        }
+        return [];
     }
 
     private async Task ProcessEvent(string eventName, string message)
@@ -221,7 +221,7 @@ internal  sealed class IntegrationEventConsumerBackgroundService(
     /// <inheritdoc />
     public void Dispose()
     {
-        channel.Close();
-        connection.Close();
+        channel.CloseAsync().ConfigureAwait(false);
+        connection.CloseAsync().ConfigureAwait(false);
     }
 }

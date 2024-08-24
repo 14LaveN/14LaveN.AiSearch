@@ -1,0 +1,1099 @@
+{
+  "format": 1,
+  "restore": {
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\Web\\Web.csproj": {}
+  },
+  "projects": {
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj",
+        "projectName": "Application",
+        "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+        "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain\\Domain.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain\\Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.IdentityModel.Protocols": {
+              "target": "Package",
+              "version": "[8.0.0-preview1, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            },
+            "Ulid": {
+              "target": "Package",
+              "version": "[1.3.4, )"
+            },
+            "prometheus-net.AspNetCore": {
+              "target": "Package",
+              "version": "[8.2.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging\\Common.Logging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging\\Common.Logging.csproj",
+        "projectName": "Common.Logging",
+        "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging\\Common.Logging.csproj",
+        "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+        "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[4.0.2-dev-02220, )"
+            },
+            "Serilog.Exceptions": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Serilog.Sinks.Elasticsearch": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
+            "Serilog.Sinks.EventLog": {
+              "target": "Package",
+              "version": "[4.0.1-dev-00087, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj",
+        "projectName": "Database.MetricsAndRabbitMessages",
+        "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj",
+        "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+        "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj"
+              },
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain\\Domain.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain\\Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AspNetCore.HealthChecks.MongoDb": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            },
+            "Microsoft.Extensions.Diagnostics.HealthChecks": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.28.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain\\Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+        "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.0, )"
+            },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.28.0, )"
+            },
+            "Ulid": {
+              "target": "Package",
+              "version": "[1.3.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\EmailService\\EmailService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\EmailService\\EmailService.csproj",
+        "projectName": "EmailService",
+        "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\EmailService\\EmailService.csproj",
+        "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+        "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\EmailService\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.7.1.1, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.7.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\Identity.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\Identity.API.csproj",
+        "projectName": "Identity.API",
+        "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\Identity.API.csproj",
+        "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+        "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj"
+              },
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging\\Common.Logging.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging\\Common.Logging.csproj"
+              },
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj"
+              },
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\EmailService\\EmailService.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\EmailService\\EmailService.csproj"
+              },
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure\\Infrastructure.csproj"
+              },
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Persistence\\Persistence.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Persistence\\Persistence.csproj"
+              },
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj"
+              },
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AspNetCore.HealthChecks.Redis": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "AspNetCore.HealthChecks.UI.Client": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "AspNetCore.Serilog.RequestLoggingMiddleware": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "IdentityServer4": {
+              "target": "Package",
+              "version": "[4.1.2, )"
+            },
+            "IdentityServer4.AspNetIdentity": {
+              "target": "Package",
+              "version": "[4.1.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "OpenTelemetry": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Api": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Exporter.OpenTelemetryProtocol": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Exporter.Prometheus": {
+              "target": "Package",
+              "version": "[1.3.0-rc.2, )"
+            },
+            "OpenTelemetry.Instrumentation.AspNetCore": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Instrumentation.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[1.0.0-beta.12, )"
+            },
+            "OpenTelemetry.Instrumentation.Http": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Instrumentation.SqlClient": {
+              "target": "Package",
+              "version": "[1.9.0-beta.1, )"
+            },
+            "Prometheus.Client.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Prometheus.Client.HttpRequestDurations": {
+              "target": "Package",
+              "version": "[3.6.0, )"
+            },
+            "Refit": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
+            "Refit.HttpClientFactory": {
+              "target": "Package",
+              "version": "[7.1.2, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[4.0.2-dev-02220, )"
+            },
+            "Serilog.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Ulid": {
+              "target": "Package",
+              "version": "[1.3.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure\\Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure\\Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+        "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "CsvHelper": {
+              "target": "Package",
+              "version": "[33.0.1, )"
+            },
+            "IdentityServer4": {
+              "target": "Package",
+              "version": "[4.1.2, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.TestPlatform.TestHost": {
+              "target": "Package",
+              "version": "[17.6.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\Persistence\\Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\Persistence\\Persistence.csproj",
+        "projectName": "Persistence",
+        "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Persistence\\Persistence.csproj",
+        "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+        "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj"
+              },
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain\\Domain.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain\\Domain.csproj"
+              },
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AspNetCore.HealthChecks.NpgSql": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.TestPlatform.TestHost": {
+              "target": "Package",
+              "version": "[17.6.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
+            "OpenTelemetry.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "Ulid": {
+              "target": "Package",
+              "version": "[1.3.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj",
+        "projectName": "RabbitMq",
+        "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj",
+        "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+        "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj"
+              },
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.TestPlatform.TestHost": {
+              "target": "Package",
+              "version": "[17.6.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "OpenTelemetry": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Api": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[7.0.0-rc.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj",
+        "projectName": "ServiceDefaults",
+        "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\ServiceDefaults.csproj",
+        "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+        "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.IdentityModel.JsonWebTokens": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "OpenTelemetry": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Exporter.OpenTelemetryProtocol": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Instrumentation.AspNetCore": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Instrumentation.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[1.0.0-beta.12, )"
+            },
+            "OpenTelemetry.Instrumentation.Http": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Instrumentation.Runtime": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "OpenTelemetry.Instrumentation.SqlClient": {
+              "target": "Package",
+              "version": "[1.9.0-beta.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "G:\\DotNetProjects\\14LaveN.AiSearch\\Web\\Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\Web\\Web.csproj",
+        "projectName": "Web",
+        "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Web\\Web.csproj",
+        "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+        "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\Identity.API.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Identity.API\\Identity.API.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

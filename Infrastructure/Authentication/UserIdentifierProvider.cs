@@ -29,7 +29,8 @@ internal sealed class UserIdentifierProvider : IUserIdentifierProvider
                             .FirstOrDefault()?
                             .Split(" ").Last());
 
-        userId = httpContextAccessor
+        else 
+            userId = httpContextAccessor
             .HttpContext?
             .User
             .FindFirst("nameId")?.Value;

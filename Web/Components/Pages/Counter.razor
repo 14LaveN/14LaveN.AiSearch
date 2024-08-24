@@ -1,0 +1,60 @@
+﻿@page "/register"
+@using global::Domain.Core.Primitives.Result
+@using Identity.API.Contracts.Register
+@using Identity.API.Domain.Entities
+@using Web.Refit.Users
+@inject IUsersClient UsersClient
+
+<h3>Register</h3>
+
+<EditForm Model="@_registerModel" FormName="RegisterForm">
+    <div>
+        <label for="email">Email:</label>
+        <InputText @bind-Value="_registerModel.EmailAddress" id="email" />
+    </div>
+    <div>
+        <label for="username">Username:</label>
+        <InputText @bind-Value="_registerModel.UserName" id="username" />
+    </div>
+</EditForm>
+<button @onclick="OnButtonClicked">Click Me</button>
+
+@if (_result != null)
+{
+    @if (_result.IsSuccess)
+    {
+        <h1>Welcome, @(_result.Value.UserName)!</h1>
+    }
+    else
+    {
+        <p>Registration failed. Please try again.</p>
+    }
+}
+@code {
+    private readonly RegisterModel _registerModel = new();
+    private Result<User>? _result;
+
+    private void OnButtonClicked2()
+    {
+        Console.WriteLine("Button clicked");
+    }
+    
+    private async Task OnButtonClicked()
+    {
+        Console.WriteLine("Button clicked");
+        _result = await UsersClient.Register(new RegisterRequest(
+            "djkfgjnhdjfkg",          // Assuming this is some fixed value
+            "jhdff",                  // Assuming this is some fixed value
+            _registerModel.EmailAddress,
+            "Sasha_2008!",            // Assuming this is some fixed value
+            _registerModel.UserName));
+        
+        StateHasChanged();
+    }
+
+    private record RegisterModel
+    {
+        public string EmailAddress { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
+    }
+}

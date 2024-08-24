@@ -1,3 +1,4 @@
+using System.Data;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -48,7 +49,7 @@ internal sealed class UserTransactionBehavior<TRequest, TResponse>
         var strategy = _userDbContext.EfDatabase.CreateExecutionStrategy();
         await strategy.ExecuteAsync(async () =>
         {
-            await using var transaction = await _unitOfWork.BeginTransactionAsync(cancellationToken);
+            await using var transaction = await _unitOfWork.BeginTransactionAsync(IsolationLevel.Serializable, cancellationToken);
 
             try
             {

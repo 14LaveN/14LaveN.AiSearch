@@ -136,7 +136,10 @@ public sealed class User
         EmailAddress emailAddress,
         string passwordHash)
     {
-        var user = new User(userName, firstName, lastName, emailAddress, passwordHash);
+        User user = new(userName, firstName, lastName, emailAddress, passwordHash)
+        {
+            Id = Ulid.NewUlid()
+        };
 
         user.AddDomainEvent(new UserCreatedDomainEvent(user));
 

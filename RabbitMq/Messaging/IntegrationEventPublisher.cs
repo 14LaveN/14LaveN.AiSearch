@@ -35,19 +35,19 @@ public sealed class IntegrationEventPublisher(
     /// Initialize connection.
     /// </summary>
     /// <returns>Returns connection to <see cref="RabbitMQ"/>.</returns> 
-    private static IConnection CreateConnection()
+    private static async Task<IConnection> CreateConnection()
     {
         ConnectionFactory connectionFactory = new ConnectionFactory
         {
             Uri = new Uri(MessageBrokerSettings.AmqpLink)
         };
 
-        var connection = connectionFactory.CreateConnection();
+        var connection = await connectionFactory.CreateConnectionAsync();
 
         return connection;
     }
 
-    public Task Publish(IIntegrationEvent @event)
+    public async Task Publish(IIntegrationEvent @event)
     {
         var routingKey = @event.GetType().Name;
 
@@ -56,7 +56,9 @@ public sealed class IntegrationEventPublisher(
             logger.LogTrace("Creating RabbitMQ channel to publish event: {EventId} ({EventName})", @event.Id, routingKey);
         }
 
-        using var channel = CreateConnection().CreateModel() 
+        using IConnection connection = await CreateConnection();
+
+        using IChannel channel = await connection.CreateChannelAsync()
                             ?? throw new InvalidOperationException("RabbitMQ connection is not open");
 
         if (logger.IsEnabled(LogLevel.Trace))
@@ -64,7 +66,7 @@ public sealed class IntegrationEventPublisher(
             logger.LogTrace("Declaring RabbitMQ exchange to publish event: {EventId}", @event.Id);
         }
 
-        channel.ExchangeDeclare(
+        await channel.ExchangeDeclareAsync(
             exchange: _messageBrokerSettings + "Exchange", 
             type: ExchangeType.Direct);
 
@@ -74,7 +76,7 @@ public sealed class IntegrationEventPublisher(
         // https://github.com/open-telemetry/semantic-conventions/blob/main/docs/messaging/messaging-spans.md
         var activityName = $"{routingKey} publish";
 
-        return _pipeline.Execute(() =>
+        _pipeline.Execute(() =>
         {
             using var activity = _activitySource.StartActivity(activityName, ActivityKind.Client);
 
@@ -89,9 +91,8 @@ public sealed class IntegrationEventPublisher(
                 contextToInject = Activity.Current.Context;
             
 
-            var properties = channel.CreateBasicProperties();
-            // persistent
-            properties.DeliveryMode = 2;
+            BasicProperties properties = new BasicProperties
+                { DeliveryMode = DeliveryModes.Persistent };
 
             static void InjectTraceContextIntoBasicProperties(IBasicProperties props, string key, string value)
             {
@@ -99,7 +100,10 @@ public sealed class IntegrationEventPublisher(
                 props.Headers[key] = value;
             }
 
-            _propagator.Inject(new PropagationContext(contextToInject, Baggage.Current), properties, InjectTraceContextIntoBasicProperties);
+            _propagator.Inject(
+                new PropagationContext(contextToInject, Baggage.Current),
+                properties,
+                InjectTraceContextIntoBasicProperties);
 
             ActivityExtensions.SetActivityContext(activity, routingKey, "publish");
 
@@ -110,14 +114,12 @@ public sealed class IntegrationEventPublisher(
 
             try
             {
-                channel.BasicPublish(
+                channel.BasicPublishAsync(
                     exchange: _messageBrokerSettings.QueueName + "Exchange",
                     routingKey: routingKey,
                     mandatory: true,
                     basicProperties: properties,
                     body: body);
-
-                return Task.CompletedTask;
             }
             catch (Exception ex)
             {

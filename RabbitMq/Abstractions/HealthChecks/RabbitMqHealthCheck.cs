@@ -5,7 +5,7 @@ namespace RabbitMq.Abstractions.HealthChecks;
 
 internal sealed class RabbitMqHealthCheck : IHealthCheck
 {
-    public Task<HealthCheckResult> CheckHealthAsync(
+    public async Task<HealthCheckResult> CheckHealthAsync(
         HealthCheckContext context, 
         CancellationToken cancellationToken = default)
     {
@@ -16,20 +16,20 @@ internal sealed class RabbitMqHealthCheck : IHealthCheck
                 Uri = new Uri(MessageBrokerSettings.AmqpLink)
             };
 
-            using var connection = factory.CreateConnection();
-            using var channel = connection.CreateModel();
+            using var connection =await factory.CreateConnectionAsync(cancellationToken);
+            using var channel = await connection.CreateChannelAsync(cancellationToken);
             
-            channel.QueueDeclarePassive("healthcheck-queue");
+            await channel.QueueDeclarePassiveAsync("healthcheck-queue", cancellationToken);
 
-            return Task.FromResult(HealthCheckResult.Healthy("RabbitMQ is available."));
+            return HealthCheckResult.Healthy("RabbitMQ is available.");
         }
         catch (BrokerUnreachableException ex)
         {
-            return Task.FromResult(HealthCheckResult.Unhealthy("RabbitMQ is not reachable.", ex));
+            return HealthCheckResult.Unhealthy("RabbitMQ is not reachable.", ex);
         }
         catch (Exception ex)
         {
-            return Task.FromResult(HealthCheckResult.Unhealthy("RabbitMQ is unhealthy.", ex));
+            return HealthCheckResult.Unhealthy("RabbitMQ is unhealthy.", ex);
         }
     }
 }

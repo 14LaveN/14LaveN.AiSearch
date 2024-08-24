@@ -38,3 +38,7 @@ C:\Programming\DotNetProjects\14LaveN.AiSearch\Persistence\obj\Debug\net8.0\Pers
 C:\Programming\DotNetProjects\14LaveN.AiSearch\Persistence\obj\Debug\net8.0\refint\Persistence.dll
 C:\Programming\DotNetProjects\14LaveN.AiSearch\Persistence\obj\Debug\net8.0\Persistence.pdb
 C:\Programming\DotNetProjects\14LaveN.AiSearch\Persistence\obj\Debug\net8.0\ref\Persistence.dll
+G:\DotNetProjects\14LaveN.AiSearch\Persistence\bin\Debug\net8.0\Database.MetricsAndRabbitMessages.dll
+G:\DotNetProjects\14LaveN.AiSearch\Persistence\bin\Debug\net8.0\RabbitMq.dll
+G:\DotNetProjects\14LaveN.AiSearch\Persistence\bin\Debug\net8.0\RabbitMq.pdb
+G:\DotNetProjects\14LaveN.AiSearch\Persistence\bin\Debug\net8.0\Database.MetricsAndRabbitMessages.pdb

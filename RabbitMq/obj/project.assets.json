@@ -1210,19 +1210,18 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "RabbitMQ.Client/6.7.0-rc.1": {
+      "RabbitMQ.Client/7.0.0-rc.8": {
         "type": "package",
         "dependencies": {
-          "System.Memory": "4.5.5",
-          "System.Threading.Channels": "7.0.0"
+          "System.IO.Pipelines": "6.0.0"
         },
         "compile": {
-          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+          "lib/net6.0/RabbitMQ.Client.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/RabbitMQ.Client.dll": {
+          "lib/net6.0/RabbitMQ.Client.dll": {
             "related": ".xml"
           }
         }
@@ -1338,6 +1337,22 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "System.IO.Pipelines/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
       "System.Memory/4.5.5": {
         "type": "package",
         "compile": {
@@ -1417,22 +1432,6 @@
             "assetType": "runtime",
             "rid": "win"
           }
-        }
-      },
-      "System.Threading.Channels/7.0.0": {
-        "type": "package",
-        "compile": {
-          "lib/net7.0/System.Threading.Channels.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/System.Threading.Channels.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/net6.0/_._": {}
         }
       },
       "Ulid/1.3.4": {
@@ -3079,20 +3078,20 @@
         "prometheus-net.aspnetcore.nuspec"
       ]
     },
-    "RabbitMQ.Client/6.7.0-rc.1": {
-      "sha512": "wRI1E++weaW6FRBwm7td588H0+N92bbh4wG3BDUYELtAmvEa98HfiZ0LCyinD30yV2Uqtr9ORlrkPMfwqf+upw==",
+    "RabbitMQ.Client/7.0.0-rc.8": {
+      "sha512": "fGmjNHrtXCzHZ9gYzihJ4f+rPi4qe1rEq3Q/FQT1WxhzsxxRnJViIFTvz1TqFCdx8pOtNjUZRvLC1KmpLBim5Q==",
       "type": "package",
-      "path": "rabbitmq.client/6.7.0-rc.1",
+      "path": "rabbitmq.client/7.0.0-rc.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
         "icon.png",
-        "lib/net462/RabbitMQ.Client.dll",
-        "lib/net462/RabbitMQ.Client.xml",
+        "lib/net6.0/RabbitMQ.Client.dll",
+        "lib/net6.0/RabbitMQ.Client.xml",
         "lib/netstandard2.0/RabbitMQ.Client.dll",
         "lib/netstandard2.0/RabbitMQ.Client.xml",
-        "rabbitmq.client.6.7.0-rc.1.nupkg.sha512",
+        "rabbitmq.client.7.0.0-rc.8.nupkg.sha512",
         "rabbitmq.client.nuspec"
       ]
     },
@@ -3305,6 +3304,31 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "System.IO.Pipelines/6.0.0": {
+      "sha512": "mXX66shZ4xLlI3vNLaJ0lt8OIZdmXTvIqXRdQX5HLVGSkLhINLsVhyZuX2UdRFnOGkqnwmMUs40pIIQ7mna4+A==",
+      "type": "package",
+      "path": "system.io.pipelines/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.IO.Pipelines.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.IO.Pipelines.dll",
+        "lib/net461/System.IO.Pipelines.xml",
+        "lib/net6.0/System.IO.Pipelines.dll",
+        "lib/net6.0/System.IO.Pipelines.xml",
+        "lib/netcoreapp3.1/System.IO.Pipelines.dll",
+        "lib/netcoreapp3.1/System.IO.Pipelines.xml",
+        "lib/netstandard2.0/System.IO.Pipelines.dll",
+        "lib/netstandard2.0/System.IO.Pipelines.xml",
+        "system.io.pipelines.6.0.0.nupkg.sha512",
+        "system.io.pipelines.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Memory/4.5.5": {
       "sha512": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
       "type": "package",
@@ -3483,35 +3507,6 @@
         "version.txt"
       ]
     },
-    "System.Threading.Channels/7.0.0": {
-      "sha512": "qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
-      "type": "package",
-      "path": "system.threading.channels/7.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/net461/System.Threading.Channels.targets",
-        "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
-        "buildTransitive/netcoreapp2.0/System.Threading.Channels.targets",
-        "lib/net462/System.Threading.Channels.dll",
-        "lib/net462/System.Threading.Channels.xml",
-        "lib/net6.0/System.Threading.Channels.dll",
-        "lib/net6.0/System.Threading.Channels.xml",
-        "lib/net7.0/System.Threading.Channels.dll",
-        "lib/net7.0/System.Threading.Channels.xml",
-        "lib/netstandard2.0/System.Threading.Channels.dll",
-        "lib/netstandard2.0/System.Threading.Channels.xml",
-        "lib/netstandard2.1/System.Threading.Channels.dll",
-        "lib/netstandard2.1/System.Threading.Channels.xml",
-        "system.threading.channels.7.0.0.nupkg.sha512",
-        "system.threading.channels.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
     "Ulid/1.3.4": {
       "sha512": "6IaGquwjjfW+BoHSV844y12Uy2kxbboYNmsibxr2lotcSPAA3LKy1CKcAQ8JOdAdL4xMoDNXA1oxG41w7fbr6Q==",
       "type": "package",
@@ -3577,39 +3572,47 @@
       "OpenTelemetry >= 1.9.0",
       "OpenTelemetry.Api >= 1.9.0",
       "OpenTelemetry.Extensions.Hosting >= 1.9.0",
-      "RabbitMQ.Client >= 6.7.0-rc.1"
+      "RabbitMQ.Client >= 7.0.0-rc.8"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Александр Пономарев\\.nuget\\packages\\": {}
+    "C:\\Users\\ponom\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj",
+      "projectUniqueName": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj",
       "projectName": "RabbitMq",
-      "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj",
-      "packagesPath": "C:\\Users\\Александр Пономарев\\.nuget\\packages\\",
-      "outputPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\obj\\",
+      "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\RabbitMq.csproj",
+      "packagesPath": "C:\\Users\\ponom\\.nuget\\packages\\",
+      "outputPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Александр Пономарев\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ponom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj": {
-              "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj"
+            "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj": {
+              "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj"
             },
-            "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj": {
-              "projectPath": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj"
+            "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj": {
+              "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages\\Database.MetricsAndRabbitMessages.csproj"
             }
           }
         }
@@ -3646,7 +3649,7 @@
           },
           "RabbitMQ.Client": {
             "target": "Package",
-            "version": "[6.7.0-rc.1, )"
+            "version": "[7.0.0-rc.8, )"
           }
         },
         "imports": [
@@ -3665,7 +3668,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
