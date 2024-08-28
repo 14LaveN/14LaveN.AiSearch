@@ -13,11 +13,11 @@ public static class AuthenticationExtensions
 {
      public static IServiceCollection AddDefaultAuthentication(this IHostApplicationBuilder builder)
      {
+         ArgumentNullException.ThrowIfNull(builder);
+
          var services = builder.Services;
          var configuration = builder.Configuration;
- 
-         ArgumentNullException.ThrowIfNull(services);
-        
+         
          services.AddAuthentication(config =>
              {
                  config.DefaultAuthenticateScheme =

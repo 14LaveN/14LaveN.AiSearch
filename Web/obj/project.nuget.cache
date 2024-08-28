@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UBHZxM5IUQlzYHDBAMqNlxXe6jS6ZSLjkAGfxyG42QxzPkXsKOtXINeGhFHJz7jybqTzVngULDAmzUc2hY4NNw==",
+  "dgSpecHash": "0Uj1e2ZlhAQ8oZshF9doLIT5UNnw7K8KwfyRxYxgoXVT7RcfEBID1Gz4w2Qxk7yfl90i4/yt7heGcVegXJwpBg==",
   "success": true,
   "projectFilePath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Web\\Web.csproj",
   "expectedPackageFiles": [
@@ -55,7 +55,7 @@
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.7\\microsoft.entityframeworkcore.relational.8.0.7.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0\\microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
-    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.caching.stackexchangeredis\\8.0.7\\microsoft.extensions.caching.stackexchangeredis.8.0.7.nupkg.sha512",
+    "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.caching.stackexchangeredis\\8.0.8\\microsoft.extensions.caching.stackexchangeredis.8.0.8.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\ponom\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.1\\microsoft.extensions.configuration.binder.8.0.1.nupkg.sha512",

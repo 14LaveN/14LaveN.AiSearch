@@ -1,17 +1,9 @@
 using Application.Core.Behaviours;
 using Domain.Core.Utility;
 using FluentValidation;
-using Identity.API.IntegrationEvents.User.Events.PasswordChanged;
-using Identity.API.IntegrationEvents.User.Events.UserCreated;
-using Identity.API.IntegrationEvents.User.Handlers.PasswordChanged;
-using Identity.API.IntegrationEvents.User.Handlers.UserCreated;
-using Identity.API.Mediatr.Behaviour;
-using Identity.API.Mediatr.Commands;
-using Identity.API.Mediatr.Queries.GetTheUserById;
-using Identity.Domain.Events.User;
 using MediatR.NotificationPublishers;
 
-namespace Identity.API.Common.DependencyInjection;
+namespace AiChat.API.Common.DependencyInjection;
 
 public static class DiMediator
 {
@@ -30,26 +22,14 @@ public static class DiMediator
         {
             x.RegisterServicesFromAssemblyContaining<Program>();
 
-            x.RegisterServicesFromAssemblies(typeof(Register.Command).Assembly,
-                    typeof(Register.CommandHandler).Assembly)
-                .RegisterServicesFromAssemblies(typeof(Login.Command).Assembly,
-                    typeof(Login.CommandHandler).Assembly)
-                .RegisterServicesFromAssemblies(typeof(ChangePassword.Command).Assembly,
-                    typeof(ChangePassword.CommandHandler).Assembly)
-                .RegisterServicesFromAssemblies(typeof(ChangeName.Command).Assembly,
-                    typeof(ChangeName.CommandHandler).Assembly)
-                .RegisterServicesFromAssemblies(typeof(GetTheUserByIdQuery).Assembly,
-                    typeof(GetTheUserByIdQueryHandler).Assembly)
-                .RegisterServicesFromAssemblies(typeof(UserCreatedDomainEvent).Assembly,
-                    typeof(PublishIntegrationEventOnUserCreatedDomainEventHandler).Assembly)
-                .RegisterServicesFromAssemblies(typeof(UserCreatedIntegrationEvent).Assembly,
-                    typeof(SendWelcomeEmailOnUserCreatedIntegrationEventHandler).Assembly)
-                .RegisterServicesFromAssemblies(typeof(UserPasswordChangedIntegrationEvent).Assembly,
-                    typeof(NotifyUserOnPasswordChangedIntegrationEventHandler).Assembly);
+            //TODO x.RegisterServicesFromAssemblies(typeof(Register.Command).Assembly,
+            //TODO         typeof(Register.CommandHandler).Assembly)
+            //TODO     .RegisterServicesFromAssemblies(typeof(Login.Command).Assembly,
+            //TODO         typeof(Login.CommandHandler).Assembly);
             
             x.AddOpenBehavior(typeof(QueryCachingBehavior<,>))
                 //TODO .AddOpenBehavior(typeof(IdentityIdempotentCommandPipelineBehavior<,>))
-                .AddOpenBehavior(typeof(UserTransactionBehavior<,>))
+                .AddOpenBehavior(typeof(BaseTransactionBehavior<,>))
                 .AddOpenBehavior(typeof(RequestLoggingPipelineBehavior<,>))
                 .AddOpenBehavior(typeof(ValidationBehaviour<,>))
                 .AddOpenBehavior(typeof(MetricsBehaviour<,>));

@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Text.Json.Serialization;
 using EmailService;
 using Application;
@@ -23,20 +24,22 @@ using ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.UseStaticWebAssets();
+
 builder.AddServiceDefaults();
 
-builder.Services
-    .AddMediatr()
-    .AddEndpoints(typeof(DiMediator).Assembly);
+builder
+    .AddEndpoints(typeof(DiMediator).Assembly)
+    .AddMediatr();
 
-builder.Services
+builder
+    .AddCachingDefaults("Identity_")
     .AddEmailService(builder.Configuration)
     .AddInfrastructure()
     .AddApplication()
     .AddIdentityInfrastructure()
-    .AddDatabase(builder.Configuration, builder.Environment)
-    .AddMetricsOpenTelemetry(builder.Logging)
-    .AddSwagger();
+    .AddDatabase(builder.Configuration) 
+    .AddSwagger(Assembly.GetExecutingAssembly(), 1, 0);
     //TODO .AddBackgroundTasks(builder.Configuration)
 
 builder.Services
@@ -54,8 +57,6 @@ builder.Services
             .AllowAnyHeader()
             .AllowAnyMethod()));
 
-builder.Services.AddHttpHelpers();
-
 #endregion
 
 #region ApplicationRegion
@@ -72,7 +73,6 @@ app.UseCors();
 UseMetrics();
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 
 app.UseRouting();
 
@@ -88,7 +88,6 @@ app.UseEndpoints(endpoints =>
        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
    });
 });
-app.MapControllers();
 
 app.UseSerilogRequestLogging();
 

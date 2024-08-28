@@ -1,6 +1,8 @@
 {
   "Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application",
   "Common.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Common.Tests",
+  "Database.MetricsAndRabbitMessages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages",
   "Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain",
-  "Persistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Persistence"
+  "Persistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Persistence",
+  "RabbitMq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq"
 }

@@ -45,8 +45,7 @@ internal static class DiAuthorization
             })
             .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
             {
-                options.LoginPath = "/register";
-                options.LogoutPath = "/register";
+                options.LoginPath = "/api/v1/users/register";
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
                 options.SlidingExpiration = true;
             })

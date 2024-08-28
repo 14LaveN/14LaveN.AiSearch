@@ -14,7 +14,7 @@
           "Microsoft.Extensions.Hosting.Abstractions": "8.0.0",
           "Microsoft.IdentityModel.Tokens": "8.0.1",
           "Quartz": "3.13.0",
-          "RabbitMQ.Client": "6.7.0-rc.1",
+          "RabbitMQ.Client": "7.0.0-rc.8",
           "RabbitMq": "1.0.0"
         },
         "runtime": {
@@ -953,15 +953,14 @@
           }
         }
       },
-      "RabbitMQ.Client/6.7.0-rc.1": {
+      "RabbitMQ.Client/7.0.0-rc.8": {
         "dependencies": {
-          "System.Memory": "4.5.5",
-          "System.Threading.Channels": "7.0.0"
+          "System.IO.Pipelines": "6.0.0"
         },
         "runtime": {
-          "lib/netstandard2.0/RabbitMQ.Client.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.7.0.0"
+          "lib/net6.0/RabbitMQ.Client.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
           }
         }
       },
@@ -1220,6 +1219,7 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.IO.Pipelines/6.0.0": {},
       "System.Linq/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -1579,7 +1579,6 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "System.Threading.Channels/7.0.0": {},
       "System.Threading.Tasks/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
@@ -1718,7 +1717,7 @@
           "OpenTelemetry": "1.9.0",
           "OpenTelemetry.Api": "1.9.0",
           "OpenTelemetry.Extensions.Hosting": "1.9.0",
-          "RabbitMQ.Client": "6.7.0-rc.1"
+          "RabbitMQ.Client": "7.0.0-rc.8"
         },
         "runtime": {
           "RabbitMq.dll": {}
@@ -2215,12 +2214,12 @@
       "path": "quartz/3.13.0",
       "hashPath": "quartz.3.13.0.nupkg.sha512"
     },
-    "RabbitMQ.Client/6.7.0-rc.1": {
+    "RabbitMQ.Client/7.0.0-rc.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wRI1E++weaW6FRBwm7td588H0+N92bbh4wG3BDUYELtAmvEa98HfiZ0LCyinD30yV2Uqtr9ORlrkPMfwqf+upw==",
-      "path": "rabbitmq.client/6.7.0-rc.1",
-      "hashPath": "rabbitmq.client.6.7.0-rc.1.nupkg.sha512"
+      "sha512": "sha512-fGmjNHrtXCzHZ9gYzihJ4f+rPi4qe1rEq3Q/FQT1WxhzsxxRnJViIFTvz1TqFCdx8pOtNjUZRvLC1KmpLBim5Q==",
+      "path": "rabbitmq.client/7.0.0-rc.8",
+      "hashPath": "rabbitmq.client.7.0.0-rc.8.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
@@ -2502,6 +2501,13 @@
       "path": "system.io.filesystem.primitives/4.3.0",
       "hashPath": "system.io.filesystem.primitives.4.3.0.nupkg.sha512"
     },
+    "System.IO.Pipelines/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mXX66shZ4xLlI3vNLaJ0lt8OIZdmXTvIqXRdQX5HLVGSkLhINLsVhyZuX2UdRFnOGkqnwmMUs40pIIQ7mna4+A==",
+      "path": "system.io.pipelines/6.0.0",
+      "hashPath": "system.io.pipelines.6.0.0.nupkg.sha512"
+    },
     "System.Linq/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2760,13 +2766,6 @@
       "sha512": "sha512-VkUS0kOBcUf3Wwm0TSbrevDDZ6BlM+b/HRiapRFWjM5O0NS0LviG0glKmFK+hhPDd1XFeSdU1GmlLhb2CoVpIw==",
       "path": "system.threading/4.3.0",
       "hashPath": "system.threading.4.3.0.nupkg.sha512"
-    },
-    "System.Threading.Channels/7.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
-      "path": "system.threading.channels/7.0.0",
-      "hashPath": "system.threading.channels.7.0.0.nupkg.sha512"
     },
     "System.Threading.Tasks/4.3.0": {
       "type": "package",

@@ -10,6 +10,7 @@ using Persistence.Infrastructure;
 using Application.Core.Abstractions;
 using Application.Core.Abstractions.HealthChecks;
 using Application.Core.Abstractions.Idempotency;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Persistence;
 using Persistence.Idempotency;
@@ -55,7 +56,7 @@ public static class DependencyInjection
                 .EnableDetailedErrors());
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
-        services.AddScoped<IDbContext, BaseDbContext>();
+        services.TryAddKeyedScoped<IDbContext, BaseDbContext>(typeof(BaseDbContext));
         services.AddScoped<IIdempotencyService, IdempotencyService>();
         
         services

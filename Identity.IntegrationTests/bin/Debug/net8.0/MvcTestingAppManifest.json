@@ -1,13 +1,13 @@
 {
-  "Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Application",
-  "Common.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging",
-  "Common.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Common.Tests",
-  "Database.MetricsAndRabbitMessages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages",
-  "Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Domain",
-  "EmailService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\EmailService",
-  "Identity.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Identity.API",
-  "Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure",
-  "Persistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\Persistence",
-  "RabbitMq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq",
-  "ServiceDefaults, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Programming\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults"
+  "Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application",
+  "Common.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Common.Logging",
+  "Common.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Common.Tests",
+  "Database.MetricsAndRabbitMessages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Database.MetricsAndRabbitMessages",
+  "Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Domain",
+  "EmailService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\EmailService",
+  "Identity.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Identity.API",
+  "Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Infrastructure",
+  "Persistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\Persistence",
+  "RabbitMq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\RabbitMq",
+  "ServiceDefaults, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "G:\\DotNetProjects\\14LaveN.AiSearch\\ServiceDefaults"
 }

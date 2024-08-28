@@ -74,13 +74,6 @@
             Gets or sets date/time refresh token expire at.
             </summary>
         </member>
-        <member name="M:Identity.API.Common.DependencyInjection.DiHttpClient.AddHttpHelpers(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            Registers the necessary services with the DI framework.
-            </summary>
-            <param name="services">The service collection.</param>
-            <returns>The same service collection.</returns>
-        </member>
         <member name="M:Identity.API.Common.DependencyInjection.DiMediator.AddMediatr(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Registers the necessary services with the DI framework.
@@ -192,31 +185,6 @@
         </member>
         <member name="P:Identity.API.Contracts.Register.RegisterRequest.UserName">
             <summary>The user name.</summary>
-        </member>
-        <member name="T:Identity.API.Domain.DTO.UserAnswerDto">
-            <summary>
-            Represents the user answer dto record.
-            </summary>
-            <param name="Title">The title.</param>
-            <param name="UserName">The user name.</param>
-            <param name="TotalAnswers">The total answers.</param>
-        </member>
-        <member name="M:Identity.API.Domain.DTO.UserAnswerDto.#ctor(System.String,System.String,System.Int32)">
-            <summary>
-            Represents the user answer dto record.
-            </summary>
-            <param name="Title">The title.</param>
-            <param name="UserName">The user name.</param>
-            <param name="TotalAnswers">The total answers.</param>
-        </member>
-        <member name="P:Identity.API.Domain.DTO.UserAnswerDto.Title">
-            <summary>The title.</summary>
-        </member>
-        <member name="P:Identity.API.Domain.DTO.UserAnswerDto.UserName">
-            <summary>The user name.</summary>
-        </member>
-        <member name="P:Identity.API.Domain.DTO.UserAnswerDto.TotalAnswers">
-            <summary>The total answers.</summary>
         </member>
         <member name="T:Identity.API.Domain.Entities.User">
             <summary>
@@ -1027,7 +995,7 @@
             <param name="jwtOptions">The json web token options.</param>
             <param name="dbContext">The database context.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.Register.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Register.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Identity.API.Infrastructure.Authentication.SignIn.SignInProvider{Identity.API.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Application.Core.Abstractions.IDbContext,Identity.API.Domain.Repositories.IUserRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+        <member name="M:Identity.API.Mediatr.Commands.Register.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Register.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Identity.API.Infrastructure.Authentication.SignIn.SignInProvider{Identity.API.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Application.Core.Abstractions.IDbContext,Identity.API.Domain.Repositories.IUserRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor,System.Net.Http.HttpClient)">
             <summary>
             Represents the register command handler class.
             </summary>
@@ -1359,52 +1327,12 @@
             <param name="configuration">The configuration.</param>
             <returns>The same service collection.</returns>
         </member>
-        <member name="M:Identity.Api.Common.DependencyInjection.DiCaching.AddCaching(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:Identity.Api.Common.DependencyInjection.DiDatabase.AddDatabase(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Registers the necessary services with the DI framework.
             </summary>
             <param name="services">The service collection.</param>
             <param name="configuration">The configuration.</param>
-            <returns>The same service collection.</returns>
-        </member>
-        <member name="M:Identity.Api.Common.DependencyInjection.DiDatabase.AddDatabase(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
-            <summary>
-            Registers the necessary services with the DI framework.
-            </summary>
-            <param name="services">The service collection.</param>
-            <param name="configuration">The configuration.</param>
-            <param name="environment">The environemnt.</param>
-            <returns>The same service collection.</returns>
-        </member>
-        <member name="M:Identity.Api.Common.DependencyInjection.DiEndpoints.AddEndpoints(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly)">
-            <summary>
-            Registers the necessary services with the DI framework.
-            </summary>
-            <param name="services">The service collection.</param>
-            <param name="assembly">The assembly.</param>
-            <returns>The same service collection.</returns>
-        </member>
-        <member name="M:Identity.Api.Common.DependencyInjection.DiEndpoints.MapEndpoints(Microsoft.AspNetCore.Builder.WebApplication,Microsoft.AspNetCore.Routing.RouteGroupBuilder)">
-            <summary>
-            The map endpoints in some assembly method.
-            </summary>
-            <param name="app">The web application builder.</param>
-            <param name="routeGroupBuilder">The route group builder.</param>
-            <returns>Returns the modify application builder.</returns>
-        </member>
-        <member name="M:Identity.Api.Common.DependencyInjection.DiMetrics.AddMetricsOpenTelemetry(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Logging.ILoggingBuilder)">
-            <summary>
-            Registers the necessary services with the DI framework.
-            </summary>
-            <param name="services">The service collection.</param>
-            <param name="loggingBuilder">The logging builder.</param>
-            <returns>The same service collection.</returns>
-        </member>
-        <member name="M:Identity.Api.Common.DependencyInjection.DiSwagger.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            Registers the necessary services with the DI framework.
-            </summary>
-            <param name="services">The service collection.</param>
             <returns>The same service collection.</returns>
         </member>
         <member name="T:Identity.Domain.Enumerations.Category">

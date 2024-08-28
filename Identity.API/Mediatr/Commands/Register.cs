@@ -2,6 +2,8 @@ using System.Collections;
 using System.Net;
 using System.Security.Authentication;
 using System.Security.Claims;
+using System.Text;
+using System.Text.Json;
 using Application.ApiHelpers.Responses;
 using Application.Core.Abstractions.Idempotency;
 using FluentValidation;
@@ -108,7 +110,8 @@ public static class Register
         IOptions<JwtOptions> jwtOptions,
         IDbContext dbContext,
         IUserRepository userRepository,
-        IHttpContextAccessor httpContextAccessor)
+        IHttpContextAccessor httpContextAccessor,
+        HttpClient httpClient)
         : ICommandHandler<Command, LoginResponse<Result<User>>>
     {
         private readonly JwtOptions _jwtOptions = jwtOptions.Value;
@@ -127,9 +130,7 @@ public static class Register
                 Result<LastName> lastNameResult = LastName.Create(request.LastName);
                 Result<EmailAddress> emailResult = EmailAddress.Create(request.Email);
                 Result<Password> passwordResult = Password.Create(request.Password);
-
-                var strs = await userRepository.GetUsersJoin();
-                var value = strs.Value;
+                
                 User? user = await userManager.FindByNameAsync(request.UserName);
                 
                 if (user is not null)
@@ -149,7 +150,14 @@ public static class Register
                     claims = await user.GenerateClaims(dbContext, _jwtOptions, cancellationToken);
                     
                     await _signInManager.SignInAsync(user, false, claims);
-                    var context = httpContextAccessor.HttpContext.User;
+
+                    string json = JsonSerializer.Serialize(new
+                    {
+                        UserName = user.UserName,
+                        FirstName = user.FirstName.Value,
+                        LastName = user.LastName.Value,
+                        Email = user.EmailAddress.Value
+                    });
                     
                     logger.LogInformation($"User authorized - {user.UserName} {DateTime.UtcNow}");
                 }

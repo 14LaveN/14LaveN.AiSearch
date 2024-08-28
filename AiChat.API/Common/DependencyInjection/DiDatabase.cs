@@ -1,3 +1,4 @@
+using AiChat.API.Persistence;
 using Application.Core.Extensions;
 using Database.MetricsAndRabbitMessages;
 using Domain.Core.Utility;
@@ -24,7 +25,7 @@ internal static class DiDatabase
 
         services
             .AddBaseDatabase(configuration)
-            .AddMigration<UserDbContext, UserDbContextSeed>()
+            .AddMigration<ChatDbContext, ChatDbContextSeed>()
             .AddMongoDatabase(configuration);
         
         string pathToFirebaseConfig = environment.IsDevelopment() 

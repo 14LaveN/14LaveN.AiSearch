@@ -36,6 +36,23 @@
           }
         }
       },
+      "AspNetCore.HealthChecks.Redis/8.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "8.0.0",
+          "StackExchange.Redis": "2.7.4"
+        },
+        "compile": {
+          "lib/net6.0/HealthChecks.Redis.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/HealthChecks.Redis.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "AWSSDK.Core/3.7.100.14": {
         "type": "package",
         "compile": {
@@ -183,6 +200,61 @@
         "runtime": {
           "lib/net7.0/Grpc.Net.Common.dll": {
             "related": ".pdb;.xml"
+          }
+        }
+      },
+      "HigLabo.Core/8.7.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/HigLabo.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/HigLabo.Core.dll": {}
+        }
+      },
+      "HigLabo.NewtonsoftJson/8.1.0": {
+        "type": "package",
+        "dependencies": {
+          "HigLabo.Core": "8.7.0.1",
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "compile": {
+          "lib/net8.0/HigLabo.NewtonsoftJson.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/HigLabo.NewtonsoftJson.dll": {}
+        }
+      },
+      "HigLabo.OpenAI/8.17.0": {
+        "type": "package",
+        "dependencies": {
+          "HigLabo.Core": "8.7.0.1",
+          "HigLabo.NewtonsoftJson": "8.1.0"
+        },
+        "compile": {
+          "lib/net8.0/HigLabo.OpenAI.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/HigLabo.OpenAI.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "HuggingFace/0.2.4": {
+        "type": "package",
+        "dependencies": {
+          "Tiktoken": "1.1.2"
+        },
+        "compile": {
+          "lib/net7.0/HuggingFace.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/HuggingFace.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -414,6 +486,25 @@
         },
         "build": {
           "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Caching.StackExchangeRedis/8.0.8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.1",
+          "Microsoft.Extensions.Options": "8.0.2",
+          "StackExchange.Redis": "2.7.27"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Configuration/8.0.0": {
@@ -1278,15 +1369,15 @@
           }
         }
       },
-      "Newtonsoft.Json/13.0.1": {
+      "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
           }
         }
@@ -1513,6 +1604,22 @@
           }
         }
       },
+      "Pipelines.Sockets.Unofficial/2.2.8": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Pipelines": "5.0.1"
+        },
+        "compile": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Polly/8.4.0": {
         "type": "package",
         "dependencies": {
@@ -1625,6 +1732,23 @@
         },
         "runtime": {
           "lib/net5.0/Snappier.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "StackExchange.Redis/2.7.27": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Pipelines.Sockets.Unofficial": "2.2.8"
+        },
+        "compile": {
+          "lib/net6.0/StackExchange.Redis.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/StackExchange.Redis.dll": {
             "related": ".xml"
           }
         }
@@ -1819,6 +1943,19 @@
           }
         }
       },
+      "Tiktoken/1.1.2": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Tiktoken.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Tiktoken.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Ulid/1.3.4": {
         "type": "package",
         "compile": {
@@ -1948,7 +2085,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Application": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.7",
+          "Microsoft.Extensions.Caching.StackExchangeRedis": "8.0.8",
           "Microsoft.IdentityModel.JsonWebTokens": "8.0.1",
           "OpenTelemetry": "1.9.0",
           "OpenTelemetry.Exporter.OpenTelemetryProtocol": "1.9.0",
@@ -1957,7 +2096,8 @@
           "OpenTelemetry.Instrumentation.EntityFrameworkCore": "1.0.0-beta.12",
           "OpenTelemetry.Instrumentation.Http": "1.9.0",
           "OpenTelemetry.Instrumentation.Runtime": "1.9.0",
-          "OpenTelemetry.Instrumentation.SqlClient": "1.9.0-beta.1"
+          "OpenTelemetry.Instrumentation.SqlClient": "1.9.0-beta.1",
+          "Ulid": "1.3.4"
         },
         "compile": {
           "bin/placeholder/ServiceDefaults.dll": {}
@@ -2005,6 +2145,22 @@
         "lib/net8.0/HealthChecks.NpgSql.xml",
         "lib/netstandard2.0/HealthChecks.NpgSql.dll",
         "lib/netstandard2.0/HealthChecks.NpgSql.xml"
+      ]
+    },
+    "AspNetCore.HealthChecks.Redis/8.0.1": {
+      "sha512": "45jqq4ydvmm7yKpTf0jEpUuYloe2vlytN9dasmqwmQyorpNbjdvWuyvSmjVZM5nBa5e5ryF5MU+F7bXv6Zp2vQ==",
+      "type": "package",
+      "path": "aspnetcore.healthchecks.redis/8.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aspnetcore.healthchecks.redis.8.0.1.nupkg.sha512",
+        "aspnetcore.healthchecks.redis.nuspec",
+        "icon.png",
+        "lib/net6.0/HealthChecks.Redis.dll",
+        "lib/net6.0/HealthChecks.Redis.xml",
+        "lib/netstandard2.0/HealthChecks.Redis.dll",
+        "lib/netstandard2.0/HealthChecks.Redis.xml"
       ]
     },
     "AWSSDK.Core/3.7.100.14": {
@@ -2247,6 +2403,65 @@
         "lib/netstandard2.1/Grpc.Net.Common.pdb",
         "lib/netstandard2.1/Grpc.Net.Common.xml",
         "packageIcon.png"
+      ]
+    },
+    "HigLabo.Core/8.7.0.1": {
+      "sha512": "NEpjiyvn0kpNLvng60sfZX9A8Snj9tAF1ACvZitBNMBwf3uOuURHD70NLN/di92QQFPrQqT545Hfz1DlbTiqAQ==",
+      "type": "package",
+      "path": "higlabo.core/8.7.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "higlabo.core.8.7.0.1.nupkg.sha512",
+        "higlabo.core.nuspec",
+        "lib/net8.0/HigLabo.Core.dll"
+      ]
+    },
+    "HigLabo.NewtonsoftJson/8.1.0": {
+      "sha512": "qaMS7XoLYlOeIsE410kI5v4BN4BL242ckjnzaIx6lGu3EQYltufsZSFjjQl0adZ3Cj7rU0AswqQQ46Jq5eNVrw==",
+      "type": "package",
+      "path": "higlabo.newtonsoftjson/8.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "higlabo.newtonsoftjson.8.1.0.nupkg.sha512",
+        "higlabo.newtonsoftjson.nuspec",
+        "lib/net8.0/HigLabo.NewtonsoftJson.dll"
+      ]
+    },
+    "HigLabo.OpenAI/8.17.0": {
+      "sha512": "OHaxJElOmMuYG2qc8ALO+/G8e7k1qWbATxjVD1+uot83321/q3C/fOC4c9gZCocqQdIJ9DpZW0Hu4UbSuKrnZw==",
+      "type": "package",
+      "path": "higlabo.openai/8.17.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Document/README.md",
+        "higlabo.openai.8.17.0.nupkg.sha512",
+        "higlabo.openai.nuspec",
+        "lib/net8.0/HigLabo.OpenAI.dll",
+        "lib/net8.0/HigLabo.OpenAI.xml"
+      ]
+    },
+    "HuggingFace/0.2.4": {
+      "sha512": "SumlNfvsdVLsjHWwF77hS6oQFHVgkMElblYP0Ug5BEziog93rD6CGvABDbNqkDZp2Ap1DUrhnhx4DprKu/K/Mw==",
+      "type": "package",
+      "path": "huggingface/0.2.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "huggingface.0.2.4.nupkg.sha512",
+        "huggingface.nuspec",
+        "lib/net462/HuggingFace.dll",
+        "lib/net462/HuggingFace.xml",
+        "lib/net6.0/HuggingFace.dll",
+        "lib/net6.0/HuggingFace.xml",
+        "lib/net7.0/HuggingFace.dll",
+        "lib/net7.0/HuggingFace.xml",
+        "lib/netstandard2.0/HuggingFace.dll",
+        "lib/netstandard2.0/HuggingFace.xml",
+        "nuget_icon.png"
       ]
     },
     "MediatR/12.4.0": {
@@ -2513,6 +2728,25 @@
         "microsoft.extensions.caching.memory.8.0.0.nupkg.sha512",
         "microsoft.extensions.caching.memory.nuspec",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Caching.StackExchangeRedis/8.0.8": {
+      "sha512": "TeVOQC5PFFZT+O4+KMWJQUCWcTLHTAGUH25zPDubYIJnS55PYhPk7FYmqyzc7HB/2tvQb6zdXSkQbX57xoI1IQ==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.stackexchangeredis/8.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net462/Microsoft.Extensions.Caching.StackExchangeRedis.dll",
+        "lib/net462/Microsoft.Extensions.Caching.StackExchangeRedis.xml",
+        "lib/net8.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll",
+        "lib/net8.0/Microsoft.Extensions.Caching.StackExchangeRedis.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.StackExchangeRedis.xml",
+        "microsoft.extensions.caching.stackexchangeredis.8.0.8.nupkg.sha512",
+        "microsoft.extensions.caching.stackexchangeredis.nuspec"
       ]
     },
     "Microsoft.Extensions.Configuration/8.0.0": {
@@ -3595,14 +3829,15 @@
         "runtimes/win/native/mongocrypt.dll"
       ]
     },
-    "Newtonsoft.Json/13.0.1": {
-      "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
-      "path": "newtonsoft.json/13.0.1",
+      "path": "newtonsoft.json/13.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
+        "README.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -3611,13 +3846,15 @@
         "lib/net40/Newtonsoft.Json.xml",
         "lib/net45/Newtonsoft.Json.dll",
         "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
         "lib/netstandard1.0/Newtonsoft.Json.dll",
         "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/netstandard1.3/Newtonsoft.Json.dll",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
         "lib/netstandard2.0/Newtonsoft.Json.dll",
         "lib/netstandard2.0/Newtonsoft.Json.xml",
-        "newtonsoft.json.13.0.1.nupkg.sha512",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
@@ -3884,6 +4121,29 @@
         "opentelemetry.instrumentation.sqlclient.nuspec"
       ]
     },
+    "Pipelines.Sockets.Unofficial/2.2.8": {
+      "sha512": "zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
+      "type": "package",
+      "path": "pipelines.sockets.unofficial/2.2.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Pipelines.Sockets.Unofficial.dll",
+        "lib/net461/Pipelines.Sockets.Unofficial.xml",
+        "lib/net472/Pipelines.Sockets.Unofficial.dll",
+        "lib/net472/Pipelines.Sockets.Unofficial.xml",
+        "lib/net5.0/Pipelines.Sockets.Unofficial.dll",
+        "lib/net5.0/Pipelines.Sockets.Unofficial.xml",
+        "lib/netcoreapp3.1/Pipelines.Sockets.Unofficial.dll",
+        "lib/netcoreapp3.1/Pipelines.Sockets.Unofficial.xml",
+        "lib/netstandard2.0/Pipelines.Sockets.Unofficial.dll",
+        "lib/netstandard2.0/Pipelines.Sockets.Unofficial.xml",
+        "lib/netstandard2.1/Pipelines.Sockets.Unofficial.dll",
+        "lib/netstandard2.1/Pipelines.Sockets.Unofficial.xml",
+        "pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+        "pipelines.sockets.unofficial.nuspec"
+      ]
+    },
     "Polly/8.4.0": {
       "sha512": "z2EeUutuy49jBQyZ5s2FUuTCGx3GCzJ0cJ2HbjWwks94TsC6bKTtAHKBkMZOa/DyYRl5yIX7MshvMTWl1J6RNg==",
       "type": "package",
@@ -4047,6 +4307,27 @@
         "lib/netstandard2.1/Snappier.xml",
         "snappier.1.0.0.nupkg.sha512",
         "snappier.nuspec"
+      ]
+    },
+    "StackExchange.Redis/2.7.27": {
+      "sha512": "Uqc2OQHglqj9/FfGQ6RkKFkZfHySfZlfmbCl+hc+u2I/IqunfelQ7QJi7ZhvAJxUtu80pildVX6NPLdDaUffOw==",
+      "type": "package",
+      "path": "stackexchange.redis/2.7.27",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/StackExchange.Redis.dll",
+        "lib/net461/StackExchange.Redis.xml",
+        "lib/net472/StackExchange.Redis.dll",
+        "lib/net472/StackExchange.Redis.xml",
+        "lib/net6.0/StackExchange.Redis.dll",
+        "lib/net6.0/StackExchange.Redis.xml",
+        "lib/netcoreapp3.1/StackExchange.Redis.dll",
+        "lib/netcoreapp3.1/StackExchange.Redis.xml",
+        "lib/netstandard2.0/StackExchange.Redis.dll",
+        "lib/netstandard2.0/StackExchange.Redis.xml",
+        "stackexchange.redis.2.7.27.nupkg.sha512",
+        "stackexchange.redis.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore.Swagger/6.6.2": {
@@ -4425,6 +4706,29 @@
         "version.txt"
       ]
     },
+    "Tiktoken/1.1.2": {
+      "sha512": "YQATjfZxJxN56nKutwymSidJ6eocEeARCfc8DrhQXReYAuxSdISd2W1zAag+Rq0YwqvjcVhIyeeEaGeD5gJoVQ==",
+      "type": "package",
+      "path": "tiktoken/1.1.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net461/Tiktoken.dll",
+        "lib/net461/Tiktoken.xml",
+        "lib/net6.0/Tiktoken.dll",
+        "lib/net6.0/Tiktoken.xml",
+        "lib/net7.0/Tiktoken.dll",
+        "lib/net7.0/Tiktoken.xml",
+        "lib/netstandard2.0/Tiktoken.dll",
+        "lib/netstandard2.0/Tiktoken.xml",
+        "lib/netstandard2.1/Tiktoken.dll",
+        "lib/netstandard2.1/Tiktoken.xml",
+        "nuget_icon.png",
+        "tiktoken.1.1.2.nupkg.sha512",
+        "tiktoken.nuspec"
+      ]
+    },
     "Ulid/1.3.4": {
       "sha512": "6IaGquwjjfW+BoHSV844y12Uy2kxbboYNmsibxr2lotcSPAA3LKy1CKcAQ8JOdAdL4xMoDNXA1oxG41w7fbr6Q==",
       "type": "package",
@@ -4498,7 +4802,11 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "AspNetCore.HealthChecks.Redis >= 8.0.1",
       "Domain >= 1.0.0",
+      "HigLabo.OpenAI >= 8.17.0",
+      "HuggingFace >= 0.2.4",
+      "Microsoft.Extensions.Caching.StackExchangeRedis >= 8.0.8",
       "Persistence >= 1.0.0",
       "ServiceDefaults >= 1.0.0"
     ]
@@ -4557,6 +4865,24 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "AspNetCore.HealthChecks.Redis": {
+            "target": "Package",
+            "version": "[8.0.1, )"
+          },
+          "HigLabo.OpenAI": {
+            "target": "Package",
+            "version": "[8.17.0, )"
+          },
+          "HuggingFace": {
+            "target": "Package",
+            "version": "[0.2.4, )"
+          },
+          "Microsoft.Extensions.Caching.StackExchangeRedis": {
+            "target": "Package",
+            "version": "[8.0.8, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

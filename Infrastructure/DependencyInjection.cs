@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Infrastructure.Common;
 using Application.Core.Abstractions.Common;
 using Application.Core.Abstractions.Helpers.JWT;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Infrastructure;
 
@@ -30,7 +31,8 @@ public static class DependencyInjection
         services
             .AddScoped<IDateTime, MachineDateTime>()
             .AddScoped<IUserIdentifierProvider, UserIdentifierProvider>()
-            .AddScoped<IPermissionProvider, PermissionProvider>();
+            .AddScoped<IPermissionProvider, PermissionProvider>()
+            .TryAddScoped<IUserNameProvider, UserNameProvider>();
         
         return services;
     }

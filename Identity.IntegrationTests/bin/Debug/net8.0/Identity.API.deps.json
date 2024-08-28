@@ -22,7 +22,7 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.7",
           "Microsoft.Data.SqlClient": "5.2.1",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.7",
-          "Microsoft.Extensions.Caching.StackExchangeRedis": "8.0.7",
+          "Microsoft.Extensions.Caching.StackExchangeRedis": "8.0.8",
           "OpenTelemetry": "1.9.0",
           "OpenTelemetry.Api": "1.9.0",
           "OpenTelemetry.Exporter.OpenTelemetryProtocol": "1.9.0",
@@ -875,7 +875,7 @@
           "Microsoft.Extensions.Primitives": "8.0.0"
         }
       },
-      "Microsoft.Extensions.Caching.StackExchangeRedis/8.0.7": {
+      "Microsoft.Extensions.Caching.StackExchangeRedis/8.0.8": {
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "8.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.1",
@@ -884,8 +884,8 @@
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll": {
-            "assemblyVersion": "8.0.7.0",
-            "fileVersion": "8.0.724.31402"
+            "assemblyVersion": "8.0.8.0",
+            "fileVersion": "8.0.824.36908"
           }
         }
       },
@@ -1800,15 +1800,14 @@
           }
         }
       },
-      "RabbitMQ.Client/6.7.0-rc.1": {
+      "RabbitMQ.Client/7.0.0-rc.8": {
         "dependencies": {
-          "System.Memory": "4.5.5",
-          "System.Threading.Channels": "8.0.0"
+          "System.IO.Pipelines": "6.0.3"
         },
         "runtime": {
-          "lib/netstandard2.0/RabbitMQ.Client.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.7.0.0"
+          "lib/net6.0/RabbitMQ.Client.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
           }
         }
       },
@@ -2337,6 +2336,8 @@
           "Microsoft.EntityFrameworkCore": "8.0.7",
           "Microsoft.TestPlatform.TestHost": "17.6.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.4",
+          "OpenTelemetry.Extensions.Hosting": "1.9.0",
+          "RabbitMq": "1.0.0",
           "Ulid": "1.3.4"
         },
         "runtime": {
@@ -2352,7 +2353,7 @@
           "OpenTelemetry": "1.9.0",
           "OpenTelemetry.Api": "1.9.0",
           "OpenTelemetry.Extensions.Hosting": "1.9.0",
-          "RabbitMQ.Client": "6.7.0-rc.1"
+          "RabbitMQ.Client": "7.0.0-rc.8"
         },
         "runtime": {
           "RabbitMq.dll": {}
@@ -2360,6 +2361,9 @@
       },
       "ServiceDefaults/1.0.0": {
         "dependencies": {
+          "Application": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.7",
+          "Microsoft.Extensions.Caching.StackExchangeRedis": "8.0.8",
           "Microsoft.IdentityModel.JsonWebTokens": "8.0.1",
           "OpenTelemetry": "1.9.0",
           "OpenTelemetry.Exporter.OpenTelemetryProtocol": "1.9.0",
@@ -2368,7 +2372,8 @@
           "OpenTelemetry.Instrumentation.EntityFrameworkCore": "1.0.0-beta.12",
           "OpenTelemetry.Instrumentation.Http": "1.9.0",
           "OpenTelemetry.Instrumentation.Runtime": "1.9.0",
-          "OpenTelemetry.Instrumentation.SqlClient": "1.9.0-beta.1"
+          "OpenTelemetry.Instrumentation.SqlClient": "1.9.0-beta.1",
+          "Ulid": "1.3.4"
         },
         "runtime": {
           "ServiceDefaults.dll": {}
@@ -2795,12 +2800,12 @@
       "path": "microsoft.extensions.caching.memory/8.0.0",
       "hashPath": "microsoft.extensions.caching.memory.8.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Caching.StackExchangeRedis/8.0.7": {
+    "Microsoft.Extensions.Caching.StackExchangeRedis/8.0.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YIzdcWX8gqKMmizBZ/Yn/frt2YF+6Vv5cWt/3Raehi2ILTyUR8VPopsYmvwkgFjL48xlnRKSTNkHuj1rKT0YpQ==",
-      "path": "microsoft.extensions.caching.stackexchangeredis/8.0.7",
-      "hashPath": "microsoft.extensions.caching.stackexchangeredis.8.0.7.nupkg.sha512"
+      "sha512": "sha512-TeVOQC5PFFZT+O4+KMWJQUCWcTLHTAGUH25zPDubYIJnS55PYhPk7FYmqyzc7HB/2tvQb6zdXSkQbX57xoI1IQ==",
+      "path": "microsoft.extensions.caching.stackexchangeredis/8.0.8",
+      "hashPath": "microsoft.extensions.caching.stackexchangeredis.8.0.8.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration/8.0.0": {
       "type": "package",
@@ -3271,12 +3276,12 @@
       "path": "prometheus.client.httprequestdurations/3.6.0",
       "hashPath": "prometheus.client.httprequestdurations.3.6.0.nupkg.sha512"
     },
-    "RabbitMQ.Client/6.7.0-rc.1": {
+    "RabbitMQ.Client/7.0.0-rc.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wRI1E++weaW6FRBwm7td588H0+N92bbh4wG3BDUYELtAmvEa98HfiZ0LCyinD30yV2Uqtr9ORlrkPMfwqf+upw==",
-      "path": "rabbitmq.client/6.7.0-rc.1",
-      "hashPath": "rabbitmq.client.6.7.0-rc.1.nupkg.sha512"
+      "sha512": "sha512-fGmjNHrtXCzHZ9gYzihJ4f+rPi4qe1rEq3Q/FQT1WxhzsxxRnJViIFTvz1TqFCdx8pOtNjUZRvLC1KmpLBim5Q==",
+      "path": "rabbitmq.client/7.0.0-rc.8",
+      "hashPath": "rabbitmq.client.7.0.0-rc.8.nupkg.sha512"
     },
     "Refit/7.1.2": {
       "type": "package",

@@ -4,7 +4,7 @@
         <name>Identity.API</name>
     </assembly>
     <members>
-        <member name="T:Identity.API.Abstractions.Behaviors.IdentityIdempotentCommandPipelineBehavior`2">
+        <member name="T:Identity.API.Common.Abstractions.Behaviors.IdentityIdempotentCommandPipelineBehavior`2">
             <summary>
             Represents the identity idempotent command pipeline behavior class.
             </summary>
@@ -12,7 +12,7 @@
             <typeparam name="TRequest">The generic request type.</typeparam>
             <typeparam name="TResponse">The generic response type.</typeparam>
         </member>
-        <member name="M:Identity.API.Abstractions.Behaviors.IdentityIdempotentCommandPipelineBehavior`2.#ctor(Application.Core.Abstractions.Idempotency.IIdempotencyService)">
+        <member name="M:Identity.API.Common.Abstractions.Behaviors.IdentityIdempotentCommandPipelineBehavior`2.#ctor(Application.Core.Abstractions.Idempotency.IIdempotencyService)">
             <summary>
             Represents the identity idempotent command pipeline behavior class.
             </summary>
@@ -20,68 +20,61 @@
             <typeparam name="TRequest">The generic request type.</typeparam>
             <typeparam name="TResponse">The generic response type.</typeparam>
         </member>
-        <member name="M:Identity.API.Abstractions.Behaviors.IdentityIdempotentCommandPipelineBehavior`2.Handle(`0,MediatR.RequestHandlerDelegate{`1},System.Threading.CancellationToken)">
+        <member name="M:Identity.API.Common.Abstractions.Behaviors.IdentityIdempotentCommandPipelineBehavior`2.Handle(`0,MediatR.RequestHandlerDelegate{`1},System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
-        <member name="T:Identity.API.Abstractions.Idempotency.IdentityIdempotentCommand">
+        <member name="T:Identity.API.Common.Abstractions.Idempotency.IdentityIdempotentCommand">
             <summary>
             Represents the identity idempotent command record.
             </summary>
             <param name="RequestId">The request identifier.</param>
         </member>
-        <member name="M:Identity.API.Abstractions.Idempotency.IdentityIdempotentCommand.#ctor(System.Ulid)">
+        <member name="M:Identity.API.Common.Abstractions.Idempotency.IdentityIdempotentCommand.#ctor(System.Ulid)">
             <summary>
             Represents the identity idempotent command record.
             </summary>
             <param name="RequestId">The request identifier.</param>
         </member>
-        <member name="P:Identity.API.Abstractions.Idempotency.IdentityIdempotentCommand.RequestId">
+        <member name="P:Identity.API.Common.Abstractions.Idempotency.IdentityIdempotentCommand.RequestId">
             <summary>The request identifier.</summary>
         </member>
-        <member name="T:Identity.API.ApiHelpers.Responses.LoginResponse`1">
+        <member name="T:Identity.API.Common.ApiHelpers.Responses.LoginResponse`1">
             <summary>
             Gets or sets login response class.
             </summary>
             <typeparam name="T">The generic type.</typeparam>
         </member>
-        <member name="P:Identity.API.ApiHelpers.Responses.LoginResponse`1.Description">
+        <member name="P:Identity.API.Common.ApiHelpers.Responses.LoginResponse`1.Description">
             <summary>
             Gets or sets description.
             </summary>
         </member>
-        <member name="P:Identity.API.ApiHelpers.Responses.LoginResponse`1.Data">
+        <member name="P:Identity.API.Common.ApiHelpers.Responses.LoginResponse`1.Data">
             <summary>
             Gets or sets data.
             </summary>
         </member>
-        <member name="P:Identity.API.ApiHelpers.Responses.LoginResponse`1.StatusCode">
+        <member name="P:Identity.API.Common.ApiHelpers.Responses.LoginResponse`1.StatusCode">
             <summary>
             Gets or sets status code.
             </summary>
         </member>
-        <member name="P:Identity.API.ApiHelpers.Responses.LoginResponse`1.AccessToken">
+        <member name="P:Identity.API.Common.ApiHelpers.Responses.LoginResponse`1.AccessToken">
             <summary>
             Gets or sets access token.
             </summary>
         </member>
-        <member name="P:Identity.API.ApiHelpers.Responses.LoginResponse`1.RefreshToken">
+        <member name="P:Identity.API.Common.ApiHelpers.Responses.LoginResponse`1.RefreshToken">
             <summary>
             Gets or sets refresh token.
             </summary>
         </member>
-        <member name="P:Identity.API.ApiHelpers.Responses.LoginResponse`1.RefreshTokenExpireAt">
+        <member name="P:Identity.API.Common.ApiHelpers.Responses.LoginResponse`1.RefreshTokenExpireAt">
             <summary>
             Gets or sets date/time refresh token expire at.
             </summary>
         </member>
         <member name="M:Identity.API.Common.DependencyInjection.DiMediator.AddMediatr(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            Registers the necessary services with the DI framework.
-            </summary>
-            <param name="services">The service collection.</param>
-            <returns>The same service collection.</returns>
-        </member>
-        <member name="M:Identity.API.Common.DependencyInjection.DiValidator.AddValidators(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Registers the necessary services with the DI framework.
             </summary>
@@ -192,31 +185,6 @@
         </member>
         <member name="P:Identity.API.Contracts.Register.RegisterRequest.UserName">
             <summary>The user name.</summary>
-        </member>
-        <member name="T:Identity.API.Domain.DTO.UserAnswerDto">
-            <summary>
-            Represents the user answer dto record.
-            </summary>
-            <param name="Title">The title.</param>
-            <param name="UserName">The user name.</param>
-            <param name="TotalAnswers">The total answers.</param>
-        </member>
-        <member name="M:Identity.API.Domain.DTO.UserAnswerDto.#ctor(System.String,System.String,System.Int32)">
-            <summary>
-            Represents the user answer dto record.
-            </summary>
-            <param name="Title">The title.</param>
-            <param name="UserName">The user name.</param>
-            <param name="TotalAnswers">The total answers.</param>
-        </member>
-        <member name="P:Identity.API.Domain.DTO.UserAnswerDto.Title">
-            <summary>The title.</summary>
-        </member>
-        <member name="P:Identity.API.Domain.DTO.UserAnswerDto.UserName">
-            <summary>The user name.</summary>
-        </member>
-        <member name="P:Identity.API.Domain.DTO.UserAnswerDto.TotalAnswers">
-            <summary>The total answers.</summary>
         </member>
         <member name="T:Identity.API.Domain.Entities.User">
             <summary>
@@ -376,6 +344,12 @@
             <param name="name">The user name.</param>
             <returns>The maybe instance that may contain the user with the specified identifier.</returns>
         </member>
+        <member name="M:Identity.API.Domain.Repositories.IUserRepository.GetUsersJoin">
+            <summary>
+            Gets users.
+            </summary>
+            <returns>The maybe queryable of users.</returns>
+        </member>
         <member name="M:Identity.API.Domain.Repositories.IUserRepository.GetByEmailAsync(Domain.ValueObjects.EmailAddress)">
             <summary>
             Gets the user with the specified emailAddress.
@@ -394,6 +368,15 @@
             <summary>
             Begins a transaction on the current unit of work.
             </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="useIfExists">The use if exists.</param>
+            <returns>The new database context transaction.</returns>
+        </member>
+        <member name="M:Identity.API.Domain.Repositories.IUserUnitOfWork.BeginTransactionAsync(System.Data.IsolationLevel,System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Begins a transaction on the current unit of work.
+            </summary>
+            <param name="isolationLevel">The isolation level.</param>
             <param name="cancellationToken">The cancellation token.</param>
             <param name="useIfExists">The use if exists.</param>
             <returns>The new database context transaction.</returns>
@@ -1012,7 +995,7 @@
             <param name="jwtOptions">The json web token options.</param>
             <param name="dbContext">The database context.</param>
         </member>
-        <member name="M:Identity.API.Mediatr.Commands.Register.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Register.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Identity.API.Infrastructure.Authentication.SignIn.SignInProvider{Identity.API.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Application.Core.Abstractions.IDbContext,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+        <member name="M:Identity.API.Mediatr.Commands.Register.CommandHandler.#ctor(Microsoft.Extensions.Logging.ILogger{Identity.API.Mediatr.Commands.Register.CommandHandler},Microsoft.AspNetCore.Identity.UserManager{Identity.API.Domain.Entities.User},Identity.API.Infrastructure.Authentication.SignIn.SignInProvider{Identity.API.Domain.Entities.User},Microsoft.Extensions.Options.IOptions{Identity.API.Infrastructure.Settings.User.JwtOptions},Application.Core.Abstractions.IDbContext,Identity.API.Domain.Repositories.IUserRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
             <summary>
             Represents the register command handler class.
             </summary>
@@ -1026,8 +1009,7 @@
             <inheritdoc />
         </member>
         <member name="T:Identity.API.Mediatr.Commands.Register.CommandValidator">
-            <summary>ч
-            жэ
+            <summary>
             Represents the register command validator class.
             </summary>
         </member>
@@ -1202,6 +1184,9 @@
         <member name="M:Identity.API.Persistence.Repositories.UserRepository.GetByIdAsync(System.Ulid)">
             <inheritdoc />
         </member>
+        <member name="M:Identity.API.Persistence.Repositories.UserRepository.GetUsersJoin">
+            <inheritdoc />
+        </member>
         <member name="M:Identity.API.Persistence.Repositories.UserRepository.GetByNameAsync(System.String)">
             <inheritdoc />
         </member>
@@ -1220,6 +1205,9 @@
             <param name="userDbContext">The base generic db context.</param>
         </member>
         <member name="M:Identity.API.Persistence.Repositories.UserUnitOfWork.BeginTransactionAsync(System.Threading.CancellationToken,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:Identity.API.Persistence.Repositories.UserUnitOfWork.BeginTransactionAsync(System.Data.IsolationLevel,System.Threading.CancellationToken,System.Boolean)">
             <inheritdoc />
         </member>
         <member name="M:Identity.API.Persistence.Repositories.UserUnitOfWork.SetAutoDetectChanges(System.Boolean)">
@@ -1339,14 +1327,6 @@
             <param name="configuration">The configuration.</param>
             <returns>The same service collection.</returns>
         </member>
-        <member name="M:Identity.Api.Common.DependencyInjection.DiCaching.AddCaching(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            Registers the necessary services with the DI framework.
-            </summary>
-            <param name="services">The service collection.</param>
-            <param name="configuration">The configuration.</param>
-            <returns>The same service collection.</returns>
-        </member>
         <member name="M:Identity.Api.Common.DependencyInjection.DiDatabase.AddDatabase(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>
             Registers the necessary services with the DI framework.
@@ -1354,37 +1334,6 @@
             <param name="services">The service collection.</param>
             <param name="configuration">The configuration.</param>
             <param name="environment">The environemnt.</param>
-            <returns>The same service collection.</returns>
-        </member>
-        <member name="M:Identity.Api.Common.DependencyInjection.DiEndpoints.AddEndpoints(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly)">
-            <summary>
-            Registers the necessary services with the DI framework.
-            </summary>
-            <param name="services">The service collection.</param>
-            <param name="assembly">The assembly.</param>
-            <returns>The same service collection.</returns>
-        </member>
-        <member name="M:Identity.Api.Common.DependencyInjection.DiEndpoints.MapEndpoints(Microsoft.AspNetCore.Builder.WebApplication,Microsoft.AspNetCore.Routing.RouteGroupBuilder)">
-            <summary>
-            The map endpoints in some assembly method.
-            </summary>
-            <param name="app">The web application builder.</param>
-            <param name="routeGroupBuilder">The route group builder.</param>
-            <returns>Returns the modify application builder.</returns>
-        </member>
-        <member name="M:Identity.Api.Common.DependencyInjection.DiMetrics.AddMetricsOpenTelemetry(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Logging.ILoggingBuilder)">
-            <summary>
-            Registers the necessary services with the DI framework.
-            </summary>
-            <param name="services">The service collection.</param>
-            <param name="loggingBuilder">The logging builder.</param>
-            <returns>The same service collection.</returns>
-        </member>
-        <member name="M:Identity.Api.Common.DependencyInjection.DiSwagger.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            Registers the necessary services with the DI framework.
-            </summary>
-            <param name="services">The service collection.</param>
             <returns>The same service collection.</returns>
         </member>
         <member name="T:Identity.Domain.Enumerations.Category">

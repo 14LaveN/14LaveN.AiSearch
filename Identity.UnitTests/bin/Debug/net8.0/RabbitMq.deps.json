@@ -15,7 +15,7 @@
           "OpenTelemetry": "1.9.0",
           "OpenTelemetry.Api": "1.9.0",
           "OpenTelemetry.Extensions.Hosting": "1.9.0",
-          "RabbitMQ.Client": "6.7.0-rc.1"
+          "RabbitMQ.Client": "7.0.0-rc.8"
         },
         "runtime": {
           "RabbitMq.dll": {}
@@ -793,15 +793,14 @@
           }
         }
       },
-      "RabbitMQ.Client/6.7.0-rc.1": {
+      "RabbitMQ.Client/7.0.0-rc.8": {
         "dependencies": {
-          "System.Memory": "4.5.5",
-          "System.Threading.Channels": "7.0.0"
+          "System.IO.Pipelines": "6.0.0"
         },
         "runtime": {
-          "lib/netstandard2.0/RabbitMQ.Client.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.7.0.0"
+          "lib/net6.0/RabbitMQ.Client.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
           }
         }
       },
@@ -861,6 +860,7 @@
       },
       "System.Buffers/4.5.1": {},
       "System.Diagnostics.DiagnosticSource/8.0.0": {},
+      "System.IO.Pipelines/6.0.0": {},
       "System.Memory/4.5.5": {},
       "System.Reflection.Metadata/1.6.0": {},
       "System.Runtime.CompilerServices.Unsafe/5.0.0": {},
@@ -871,7 +871,6 @@
         }
       },
       "System.Security.Principal.Windows/5.0.0": {},
-      "System.Threading.Channels/7.0.0": {},
       "Ulid/1.3.4": {
         "runtime": {
           "lib/net8.0/Ulid.dll": {
@@ -1339,12 +1338,12 @@
       "path": "prometheus-net.aspnetcore/8.2.1",
       "hashPath": "prometheus-net.aspnetcore.8.2.1.nupkg.sha512"
     },
-    "RabbitMQ.Client/6.7.0-rc.1": {
+    "RabbitMQ.Client/7.0.0-rc.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wRI1E++weaW6FRBwm7td588H0+N92bbh4wG3BDUYELtAmvEa98HfiZ0LCyinD30yV2Uqtr9ORlrkPMfwqf+upw==",
-      "path": "rabbitmq.client/6.7.0-rc.1",
-      "hashPath": "rabbitmq.client.6.7.0-rc.1.nupkg.sha512"
+      "sha512": "sha512-fGmjNHrtXCzHZ9gYzihJ4f+rPi4qe1rEq3Q/FQT1WxhzsxxRnJViIFTvz1TqFCdx8pOtNjUZRvLC1KmpLBim5Q==",
+      "path": "rabbitmq.client/7.0.0-rc.8",
+      "hashPath": "rabbitmq.client.7.0.0-rc.8.nupkg.sha512"
     },
     "Serilog/4.0.0": {
       "type": "package",
@@ -1402,6 +1401,13 @@
       "path": "system.diagnostics.diagnosticsource/8.0.0",
       "hashPath": "system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512"
     },
+    "System.IO.Pipelines/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mXX66shZ4xLlI3vNLaJ0lt8OIZdmXTvIqXRdQX5HLVGSkLhINLsVhyZuX2UdRFnOGkqnwmMUs40pIIQ7mna4+A==",
+      "path": "system.io.pipelines/6.0.0",
+      "hashPath": "system.io.pipelines.6.0.0.nupkg.sha512"
+    },
     "System.Memory/4.5.5": {
       "type": "package",
       "serviceable": true,
@@ -1436,13 +1442,6 @@
       "sha512": "sha512-t0MGLukB5WAVU9bO3MGzvlGnyJPgUlcwerXn1kzBRjwLKixT96XV0Uza41W49gVd8zEMFu9vQEFlv0IOrytICA==",
       "path": "system.security.principal.windows/5.0.0",
       "hashPath": "system.security.principal.windows.5.0.0.nupkg.sha512"
-    },
-    "System.Threading.Channels/7.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
-      "path": "system.threading.channels/7.0.0",
-      "hashPath": "system.threading.channels.7.0.0.nupkg.sha512"
     },
     "Ulid/1.3.4": {
       "type": "package",

@@ -13,7 +13,7 @@ public static class GetClaimByJwtToken
     /// </summary>
     /// <param name="token">The JWT.</param>
     /// <returns>Return the name from token.</returns>
-    public static string GetNameByToken(string? token)
+    public static string? GetNameByToken(string? token)
     {
         JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
         JwtSecurityToken tokenInfo = handler.ReadJwtToken(token);

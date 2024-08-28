@@ -550,7 +550,7 @@
             },
             "Microsoft.Extensions.Caching.StackExchangeRedis": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.8, )"
             },
             "OpenTelemetry": {
               "target": "Package",
@@ -951,7 +951,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj": {
+                "projectPath": "G:\\DotNetProjects\\14LaveN.AiSearch\\Application\\Application.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -967,6 +971,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.7, )"
+            },
+            "Microsoft.Extensions.Caching.StackExchangeRedis": {
+              "target": "Package",
+              "version": "[8.0.8, )"
             },
             "Microsoft.IdentityModel.JsonWebTokens": {
               "target": "Package",
@@ -1003,6 +1011,10 @@
             "OpenTelemetry.Instrumentation.SqlClient": {
               "target": "Package",
               "version": "[1.9.0-beta.1, )"
+            },
+            "Ulid": {
+              "target": "Package",
+              "version": "[1.3.4, )"
             }
           },
           "imports": [

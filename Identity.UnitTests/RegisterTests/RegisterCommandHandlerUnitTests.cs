@@ -41,7 +41,8 @@ public sealed class RegisterCommandHandlerUnitTests
             _jwtOptions.Object,
             _dbContext.Object,
             null,
-            _httpContextAccessor.Object);
+            _httpContextAccessor.Object,
+            null);
     }
 
     [Fact]

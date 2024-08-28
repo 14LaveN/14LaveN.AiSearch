@@ -14,25 +14,19 @@ internal static class DiDatabase
     /// </summary>
     /// <param name="services">The service collection.</param>
     /// <param name="configuration">The configuration.</param>
-    /// <param name="environment">The environemnt.</param>
     /// <returns>The same service collection.</returns>
     public static IServiceCollection AddDatabase(
         this IServiceCollection services,
-        IConfiguration configuration,
-        IWebHostEnvironment environment)
+        IConfiguration configuration)
     {
         Ensure.NotNull(services, "Services is required.", nameof(services));
 
         services
             .AddBaseDatabase(configuration)
+            .AddMongoDatabase(configuration)
             .AddUserDatabase(configuration)
-            .AddMigration<UserDbContext, UserDbContextSeed>()
-            .AddMongoDatabase(configuration);
+            .AddMigration<UserDbContext, UserDbContextSeed>();
         
-        string pathToFirebaseConfig = environment.IsDevelopment() 
-            ? @"G:\DotNetProjects\TeamTasks\firebase.json" 
-            : "/app/firebase.json";
-
         services
             .AddHealthChecks()
             .AddRedis(
